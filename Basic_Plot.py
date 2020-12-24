@@ -107,7 +107,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # Create a list of meshes from all the STL files in the STL_files folder
         mesh_models = []
 
-        directory = r'STL_Files'
+        directory = r'STL_files'
         for filename in os.listdir(directory):
             if filename.endswith(".STL"):
                 print("Found model: " + filename)
@@ -136,7 +136,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def setup_arduino(self):
         # Stuff for reading arduino serial.println()
         try:
-            serial_port = "COM3"
+            serial_port = "/dev/ttyUSB0"
             baud_rate = 115200; # In arduino .ino file, Serial.begin(baud_rate)
             self.ser = Serial(serial_port, baud_rate)
         except:
