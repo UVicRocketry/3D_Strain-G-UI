@@ -19,10 +19,9 @@ class Rocket():
 
     _altitude = 0.0
 
-    def __init__(self, stl_dir):
-        _mesh_models = self.create_meshes(stl_dir)
-        self.setup_arduino()
-    
+
+    def __init__(self):
+        print("Created Rocket!\n")
     def create_meshes(self, stl_dir: str) -> list[GLGridItem]:
         # By using the -> and : str we specify the return type and argument type
         # This makes the method harder to break because it forces the user to pass
@@ -41,6 +40,7 @@ class Rocket():
                 new_mesh = gl.GLMeshItem(vertexes=verts, faces=faces, smooth=False)
                 mesh_models.append(new_mesh)
 
+        print("\n")
         return mesh_models
 
     def stl2mesh3d(self, stl_mesh):
@@ -86,8 +86,8 @@ class Rocket():
 
 class MainWindow(QtWidgets.QMainWindow):
 
-    # Create our rocket by passing the directory with the STLs in it
-    Olapitsky = Rocket("STL_files")
+    # Declare our Rocket. __init__ will do the rest
+    Olapitsky = Rocket()
 
     alti_grid = GLGridItem()
     alti_grid_height = 0.0
@@ -101,7 +101,6 @@ class MainWindow(QtWidgets.QMainWindow):
         uic.loadUi('3D_GUI.ui', self)
         
         self.setup_graph()
-        self.start_timer()
 
         # Add Altitude grid 
         self.graph.addItem(self.alti_grid)
@@ -109,11 +108,17 @@ class MainWindow(QtWidgets.QMainWindow):
         self.alti_grid.setSize(2000, 2000, 0)
         self.alti_grid.translate(0, 0, 1000)
 
+        # Create our meshes from the directory of STL files and setup up the rest of the Rocket
+        self.Olapitsky._mesh_models = self.Olapitsky.create_meshes('STL_files')
         self.add_rocket(self.Olapitsky)
+        self.Olapitsky.setup_arduino()
+
+        # Start the update timer
+        self.start_timer()
 
     def start_timer(self):
         self.timer = QtCore.QTimer()
-        self.timer.setInterval(1)
+        self.timer.setInterval(1000)
         self.timer.timeout.connect(self.update_graph)
         self.timer.start()
         
@@ -174,7 +179,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def add_rocket(self, R: Rocket) -> None:
         # Add meshes to the graph
-        print(R.length())
         for m in R._mesh_models:
             print("Added mesh")
             self.graph.addItem(m)
