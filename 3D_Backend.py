@@ -89,11 +89,6 @@ class MainWindow(QtWidgets.QMainWindow):
     # Declare our Rocket. __init__ will do the rest
     Olapitsky = Rocket()
 
-    alti_grid = GLGridItem()
-    alti_grid_height = 0.0
-    height = 0.0
-    altimeter_reading = 0.0
-
     def __init__(self, *args, **kwargs):
         
         super(MainWindow, self).__init__(*args, **kwargs)
@@ -102,23 +97,25 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.setup_graph()
 
+        '''
         # Add Altitude grid 
         self.graph.addItem(self.alti_grid)
-        self.alti_grid.setSpacing(100, 100, 0)
+        self.alti_grid.setSpacing(500, 500, 0)
         self.alti_grid.setSize(2000, 2000, 0)
         self.alti_grid.translate(0, 0, 1000)
-
+        '''
+        
         # Create our meshes from the directory of STL files and setup up the rest of the Rocket
         self.Olapitsky._mesh_models = self.Olapitsky.create_meshes('STL_files')
         self.add_rocket(self.Olapitsky)
         self.Olapitsky.setup_arduino()
 
-        # Start the update timer
-        self.start_timer()
+        # Start the timer to update the Rocket
+        self.update_timer(60)
 
-    def start_timer(self):
+    def update_timer(self, framerate: int):
         self.timer = QtCore.QTimer()
-        self.timer.setInterval(1000)
+        self.timer.setInterval(1000/framerate)
         self.timer.timeout.connect(self.update_graph)
         self.timer.start()
         
@@ -152,30 +149,7 @@ class MainWindow(QtWidgets.QMainWindow):
         zgrid.setSize(2000, 2000, 0)
 
     def update_graph(self):
-        self.altitude_grids()
         self.Olapitsky.update()
-        self.Olapitsky._altitude += 0.01
-
-    def altitude_grids(self):
-        
-        # Positive value when the rocket is going up
-        dz = self.altimeter_reading - self.height
-
-        # Grid is too "high" (low). Move it to the top
-        if(self.alti_grid_height > 2000):
-            self.alti_grid.translate(0, 0, 2000)
-            self.alti_grid_height = 0
-        # Grid is too "low" (high). Move it to the bottom
-        elif(self.alti_grid_height < 0):
-            self.alti_grid.translate(0, 0, -2000)
-            self.alti_grid_height = 2000
-
-        self.alti_grid.translate(0, 0, -dz)
-        self.height += dz
-        self.alti_grid_height += dz
-
-    def get_altimeter(self):
-        return 16328 - pow(self.x - 128,2)
 
     def add_rocket(self, R: Rocket) -> None:
         # Add meshes to the graph
