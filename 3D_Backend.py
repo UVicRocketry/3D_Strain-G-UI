@@ -9,8 +9,14 @@ from serial import Serial
 # pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph opengl
 
 class Rocket():
+    # Used for log files
+    _name = ""
+
     # List of meshes created from STL files
     _mesh_models = []
+
+    # STL folder name
+    _stl_dir = ""
     
     # Angular positions
     _yaw = 0.0
@@ -34,7 +40,7 @@ class Rocket():
       Boattail  |            s              s             s             s             s           | Nosecone
                 |            s              s             s             s             s           |
                 +---------------------------------------------------------------------------------+
-                             0              1             2             3             4             
+                            r=0            r=1           r=2           r=3           r=4             
     '''
     # Since the CAD of the rocket is divided up into sections, we can color each depending on the strain reading. We need a good
     # way of accessing each section of the rocket.  
@@ -53,24 +59,22 @@ class Rocket():
     # for all the strain sections without too much trouble.
 
     _strain_sections = {} 
+    _r = 0
+    _n = 0
 
     def __init__(self):
         print("Created Rocket!\n\n")
 
-    def create_meshes(self, stl_dir: str):
-        # By using the -> and : str we specify the return type and argument type
-        # This makes the method harder to break because it forces the user to pass
-        # the right type.
-        
+    def create_meshes(self):
         # Create a list of meshes from all the STL files in the STL_files folder according
         # to the layout specified above
 
         # See add_rocket() for more info about what enumerate does here
-        for index, filename in enumerate(os.listdir(stl_dir)):
+        for index, filename in enumerate(os.listdir(self._stl_dir)):
             
             if filename.endswith(".STL"):
                 print("Found .STL: " + filename)
-                stl_model = mesh.Mesh.from_file(os.path.join(stl_dir, filename))
+                stl_model = mesh.Mesh.from_file(os.path.join(self._stl_dir, filename))
                 verts, I, J, K = self.stl2mesh3d(stl_model)
                 faces = np.stack((I,J,K)).T
                 new_mesh = gl.GLMeshItem(vertexes=verts, faces=faces, smooth=False)
@@ -115,10 +119,12 @@ class Rocket():
 
     def update(self):
         if self._arduino_connected:
-            self.ser.flushInput()           # Get rid of old serial data
-            line = self.ser.readline()      # Read an entire line
-            line = line.strip()             # Strip \n and \r (They cause problems)
-            angles = line.split(b'\t')      # Make a list, delimiting on binary tabs
+            self.ser.flushInput()                   # Get rid of old serial data
+            line        = self.ser.readline()       # Read an entire line in the form "yaw  pitch   roll    strain1 strain2 strain3..."
+            line        = line.strip()              # Strip \n and \r (They cause problems)
+            list_data   = line.split(b'\t')         # Make a list, delimiting on binary tabs
+            angles      = list_data[0:4]            # Get ypr values
+            strains     = list_data[3:-1]           # Get strain values
 
             # Rotate by the difference in angle
             for m in self._mesh_models:
@@ -126,14 +132,16 @@ class Rocket():
                 m.rotate(self._pitch - float(angles[1]), 0, 1, 0)
                 m.rotate(self._roll  - float(angles[0]), 0, 0, 1)
 
+            # Update class variables to reflect new positions
             self._yaw = float(angles[2])
             self._pitch = float(angles[1])
             self._roll = float(angles[0])
 
+
 class MainWindow(QtWidgets.QMainWindow):
 
     # Declare our Rocket. __init__ will do the rest
-    Olapitsky = Rocket()
+    R = Rocket()
 
     def __init__(self, *args, **kwargs):
         
@@ -142,22 +150,13 @@ class MainWindow(QtWidgets.QMainWindow):
         uic.loadUi('3D_GUI.ui', self)
         
         self.setup_graph()
+        self.connect_gui()
 
-        '''
-        # Add Altitude grid 
-        self.graph.addItem(self.alti_grid)
-        self.alti_grid.setSpacing(500, 500, 0)
-        self.alti_grid.setSize(2000, 2000, 0)
-        self.alti_grid.translate(0, 0, 1000)
-        '''
-        
-        # Create our meshes from the directory of STL files and setup up the rest of the Rocket
-        self.Olapitsky.create_meshes('STL_files')
-        self.add_rocket(self.Olapitsky)
-        self.Olapitsky.setup_arduino()
+        # The rest of the methods will be called by the user in the GUI
 
-        # Start the timer to update the Rocket
-        self.update_timer(1)
+    def connect_gui(self):
+        # TODO Add the rest of the GUI and connect the buttons to the various parts of the backend.
+        x = 1 # Prevent error
 
     def update_timer(self, framerate: int):
         self.timer = QtCore.QTimer()
@@ -197,7 +196,13 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_graph(self):
         self.Olapitsky.update()
 
-    def add_rocket(self, R: Rocket):
+    def create_rocket(self):
+        # TODO Read the data from the GUI that describes what parameters the rocket has.
+        self.R.create_meshes()
+        self.add_rocket(self.R)
+        self.R.setup_arduino()
+
+    def add_rocket_to_graph(self, R: Rocket):
         # Add meshes to the graph. The enumerate bit is from
         # https://stackoverflow.com/questions/3162271/get-loop-count-inside-a-python-for-loop
         for count, m in enumerate(R._mesh_models):
