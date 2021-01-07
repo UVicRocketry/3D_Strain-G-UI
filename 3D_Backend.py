@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets, uic, QtCore
+from PyQt5.QtWidgets import QFileDialog
 import pyqtgraph.opengl as gl
 import numpy as np
 from pyqtgraph.opengl.items.GLGridItem import GLGridItem
@@ -6,6 +7,7 @@ from stl import mesh
 import sys
 import os
 from serial import Serial
+
 # pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph opengl
 
 class Rocket():
@@ -154,10 +156,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # The rest of the methods will be called by the user in the GUI
 
-    def connect_gui(self):
-        # TODO Add the rest of the GUI and connect the buttons to the various parts of the backend.
-        x = 1 # Prevent error
-
     def update_timer(self, framerate: int):
         self.timer = QtCore.QTimer()
         self.timer.setInterval(int(1000/framerate))
@@ -194,7 +192,7 @@ class MainWindow(QtWidgets.QMainWindow):
         zgrid.setSize(2000, 2000, 0)
 
     def update_graph(self):
-        self.Olapitsky.update()
+        self.R.update()
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
@@ -210,6 +208,21 @@ class MainWindow(QtWidgets.QMainWindow):
             self.graph.addItem(m)
 
         print("\n")
+
+    ## GUI Functions
+    def connect_gui(self):
+        self.UI_browse_btn.clicked.connect(self.browse_btn)
+
+    def browse_btn(self):
+        # This creates a file dialog box so we can select a data file
+        # getOpenFileName() returns the file path selected by the user AND the filter used 
+        # as a tuple. In our case the filter is *.rocket but we only want the file path so we 
+        # seperate them with this cool line courtesy of stack overflow.
+        # https://stackoverflow.com/questions/43509220/qtwidgets-qfiledialog-getopenfilename-returns-a-tuple
+        fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.rocket")
+        
+        # Update the lineEdit beside "Browse" button on the GUI.
+        self.UI_browse_LE.setText(fname)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
