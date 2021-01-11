@@ -90,7 +90,7 @@ class Rocket():
                 # Add the strain section indices to _strain_sections
                 if filename.find("strain-section"):
                     l = filename.split('_')                     # Split on '_'. Now l = [crap from SW naming, "strain-section", "r-n"]
-                    key = l[len(l) - 1]                         # Get the last thing in l should be ("r-n")
+                    key = l[len(l) - 1]                         # Get the last thing in l (should be "r-n")
                     if key not in self._strain_sections.keys(): # Shouldn't happen, but check for duplicate names
                         self._strain_sections[key] = index
                     else:
@@ -114,10 +114,9 @@ class Rocket():
         K = np.take(ixr, [3*k+2 for k in range(p)])
         return vertices, I, J, K
 
-    def setup_arduino(self):
+    def setup_arduino(self, serial_port: str):
         # Stuff for reading text from arduino doing serial.println()
         try:
-            serial_port = "/dev/ttyUSB0"
             baud_rate = 115200 # In arduino .ino file, Serial.begin(baud_rate)
             self.ser = Serial(serial_port, baud_rate)
             self._arduino_connected = True
@@ -139,12 +138,13 @@ class Rocket():
 
     def update(self):
         if self._arduino_connected:
-            self.ser.flushInput()                   # Get rid of old serial data (the baud rate isn't fast enough to keep up so 
-                                                    # the buffer fills up)
+            # Get rid of old serial data (the baud rate isn't fast enough to keep up so the buffer fills up)
+            # self.ser.flushInput()                   
+                                                    
             line        = self.ser.readline()       # Read an entire line in the form "yaw,pitch,roll,altitude,strain1,strain2,strain3,..."
             line        = line.strip()              # Strip \n and \r (They cause problems)
             list_data   = line.split(b',')          # Make a list, delimiting on binary commas
-            angles      = list_data[0:4]            # Get ypr values
+            angles      = list_data[0:3]            # Get ypr values
             altitude    = list_data[3:4]
             strains     = list_data[4:-1]           # Get strain values. [n:-1] means from n to the end of the list
 
@@ -193,8 +193,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.connect_gui()
 
         # The rest of the methods will be called by the user in the GUI
+        # TODO Use the configparser library to load .rocket files with this info in them
         self.R._stl_dir = "STL_files"
+        self.R._r = 3
+        self.R._n = 4
+        self.R.create_meshes()
+        self.R.setup_arduino("COM3")
         self.add_rocket_to_graph(self.R)
+        #self.update_timer(550)
 
     def update_timer(self, framerate: int):
         self.timer = QtCore.QTimer()
@@ -232,6 +238,7 @@ class MainWindow(QtWidgets.QMainWindow):
         zgrid.setSize(2000, 2000, 0)
 
     def update_graph(self):
+        # Called constantly by update_timer()
         self.R.update()
 
     def create_rocket(self):

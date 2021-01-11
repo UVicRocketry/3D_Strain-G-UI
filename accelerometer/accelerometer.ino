@@ -130,13 +130,21 @@ void loop()
 //    mpu.dmpGetAccel(&aa, fifoBuffer);
 //    mpu.dmpGetLinearAccel(&aaReal, &aa, &gravity);
 
-    // Print the data over serial in the form: yaw pitch roll x_acc y_acc z_acc
-    Serial.print(ypr[0] * 180/M_PI);
-    Serial.print('\t');
-    Serial.print(ypr[1] * 180/M_PI);
-    Serial.print('\t');
-    Serial.println(ypr[2] * 180/M_PI);
-//    Serial.print('\t');
+    // Print the data over serial
+//    Serial.print(ypr[0] * 180/M_PI);
+//    Serial.print(',');
+//    Serial.print(ypr[1] * 180/M_PI);
+//    Serial.print(',');
+//    Serial.println(ypr[2] * 180/M_PI);
+
+    // Format of data string is y,p,r,altitude,strain-sections...
+    String data = String(ypr[0] * 180/M_PI) + ',' + String(ypr[1] * 180/M_PI) + ',' + String(ypr[2] * 180/M_PI) + ',' + '0';
+
+    for(int i = 0; i < 12; i++){
+      data += ',' + String(cos(i));
+    }
+
+    Serial.println(data);
     
 //    Serial.print(aaReal.x);
 //    Serial.print('\t');
