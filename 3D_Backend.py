@@ -8,6 +8,7 @@ import sys
 import os
 from serial import Serial
 import math
+import time
 
 # pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph opengl
 
@@ -52,12 +53,11 @@ class Rocket():
     # Since the CAD of the rocket is divided up into sections, we can color each depending on the strain reading. We need a good
     # way of accessing each section of the rocket
     
-    # For this we use a dictionary. The key is of the form r-n and the value is the index in _mesh_models that corresponds to the 
+    # For this we use a dictionary. The key is an integer and the value is the index in _mesh_models that corresponds to the 
     # correct strain section. This dictionary is created by create_meshes()
 
-    # To make reading the STL/CAD files easier, they have a standard naming system of the form whatever_you_want-strain-section_r-n
-    # Starting with the first gauge in the first ring we would name the part in CAD 'blahblahblah-strain-section_1-1' 
-    # the second 'more_crap_strain-section_1-2' etc. The first gauge in the second ring would be 'rockets_go_brrr_strain-section_2-1' etc
+    # To make reading the STL/CAD files easier, they have a standard naming system of the form "whatever_you_want-strain_section-n"
+    # where n is the auto generated number that is created when you make copies of the strain section part in an assembly
 
     # The main reason we do it this way is that not all of the entries in _mesh_models are strain sections (ie the nosecone and fins)
     # This lets us use whatever we want for the model, but we only have to name the strain sections in solidworks
@@ -65,7 +65,7 @@ class Rocket():
     # then create a circular pattern for a ring of strain sections, then a linear pattern of that ring. This *should* get you the right name
     # for all the strain sections without too much trouble
 
-    _strain_sections = {} 
+    _strain_sections = {}
     _r = 0
     _n = 0
 
@@ -88,13 +88,16 @@ class Rocket():
                 self._mesh_models.append(new_mesh)
 
                 # Add the strain section indices to _strain_sections
-                if filename.find("strain-section"):
-                    l = filename.split('_')                     # Split on '_'. Now l = [crap from SW naming, "strain-section", "r-n"]
-                    key = l[len(l) - 1]                         # Get the last thing in l (should be "r-n")
-                    if key not in self._strain_sections.keys(): # Shouldn't happen, but check for duplicate names
-                        self._strain_sections[key] = index
-                    else:
-                        print("Duplicate strain-section found: ", filename, " Check .STL filenames!")
+                if "strain_section" in filename:
+                    # Filenames are in the form somecrap-strain_section-n.STL. We want n as our key
+                    key = filename.split('-')   # key = [somecrap, strain_section, n.STL]
+                    key = key[-1]               # key = n.STL
+                    key = key.split('.')        # key = [n, STL]
+                    key = key[0]                # key = n
+                    self._strain_sections[key] = index
+
+                    # Now if we want to access a strain section in _mesh_models to change its color, we can find its
+                    # index in _mesh_models by accessing _strain_sections
 
         print("\n")
 
@@ -132,7 +135,7 @@ class Rocket():
         # Tensile strain readings greater than 0 so the sigmoid returns a number greater than 0.5
         # Higher strain means increased red and decreased blue
         sigmoid = 1 / (1 + math.exp(-n*self._color_sensitivity))
-        color   = (255*sigmoid, 0, 255*(1 - sigmoid))    # (r, g, b)
+        color   = (255*sigmoid, 0, 255*(1 - sigmoid), 1)    # (r, g, b)
 
         return color
 
@@ -146,7 +149,7 @@ class Rocket():
             list_data   = line.split(b',')          # Make a list, delimiting on binary commas
             angles      = list_data[0:3]            # Get ypr values
             altitude    = list_data[3:4]
-            strains     = list_data[4:-1]           # Get strain values. [n:-1] means from n to the end of the list
+            strains     = list_data[4:]           # Get strain values. [n:] means from n to the end of the list
 
             # Rotate by the difference in angle
             for m in self._mesh_models:
@@ -161,21 +164,27 @@ class Rocket():
 
             self._altitude = altitude
 
-            # Update the strain section colors
-            for ring in range(0, self._r):
-                for sg in range(0, self._n):
+            
+            # Update the strain section colors. self._r*self._n is the total number of strain gauges on the rocket
+            # TODO add support for strain sections with no strain gauge on them
+
+            for sg in range(0, self._r*self._n):
+                    
                     # Get the index of _mesh_models that corresponds to our data point from the _strain_sections dictionary
-                    # Keys are in the form "r-n"
-                    ss_index = self._strain_sections[str(ring) + "-" + str(sg)]    
+                    # Keys are just a plain old integer. See create_meshes() for more
+
+                    # sg is an int, so we cast to a string to access our dict value. We have to do +1 because our dict
+                    # keys are based on the solidworks names which start at 1, not 0
+                    ss_index = self._strain_sections[str(sg + 1)]
+
+                    # Strain value from the data source. We float() because the data comes as binary, and we want decimal
+                    strain_reading = float(strains[sg])
                     
-                    # Total number of iterations through the double loop
-                    strain_reading = strains[ring*self._n + sg] 
-                    
-                    # Get a color based on the strain
-                    color = self.get_color(strain_reading)
+                    # Get a color based on the strain. 
+                    color = self.get_color(float(strain_reading))
 
                     # Update the color of the mesh
-                    self._mesh_models[ss_index].setColor(color)                
+                    self._mesh_models[ss_index].setColor(color)           
                     
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -200,7 +209,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.R.create_meshes()
         self.R.setup_arduino("COM3")
         self.add_rocket_to_graph(self.R)
-        #self.update_timer(550)
+        self.update_timer(550)
 
     def update_timer(self, framerate: int):
         self.timer = QtCore.QTimer()
