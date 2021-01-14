@@ -8,9 +8,8 @@ import sys
 import os
 from serial import Serial
 import math
-import time
 
-# pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph opengl
+# pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph pyopengl
 
 class Rocket():
     # Used for log files
@@ -35,7 +34,7 @@ class Rocket():
 
     # How much the color of a strain section changes based on a strain reading
     # Higher numbers means more sensitive
-    _color_sensitivity = 1
+    _color_sensitivity = 2
 
     ## Strain locations
     # This is gonna depend on the layout of the strain gauges. For now we will assume there are r rings of n gauges mounted
@@ -148,8 +147,8 @@ class Rocket():
             line        = line.strip()              # Strip \n and \r (They cause problems)
             list_data   = line.split(b',')          # Make a list, delimiting on binary commas
             angles      = list_data[0:3]            # Get ypr values
-            altitude    = list_data[3:4]
-            strains     = list_data[4:]           # Get strain values. [n:] means from n to the end of the list
+            altitude    = list_data[3:4]            # Get altitude value
+            strains     = list_data[4:]             # Get strain values. [n:] means from n to the end of the list
 
             # Rotate by the difference in angle
             for m in self._mesh_models:
@@ -184,8 +183,10 @@ class Rocket():
                     color = self.get_color(float(strain_reading))
 
                     # Update the color of the mesh
-                    self._mesh_models[ss_index].setColor(color)           
-                    
+                    # TODO works to set the mesh color initially but it doesn't change
+                    print("Set color to", color)
+                    self._mesh_models[ss_index].setColor(color)
+
 
 class MainWindow(QtWidgets.QMainWindow):
 

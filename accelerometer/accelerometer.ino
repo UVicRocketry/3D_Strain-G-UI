@@ -141,7 +141,7 @@ void loop()
     String data = String(ypr[0] * 180/M_PI) + ',' + String(ypr[1] * 180/M_PI) + ',' + String(ypr[2] * 180/M_PI) + ',' + '0';
 
     for(int i = 0; i < 12; i++){
-      data += ',' + String(cos(i));
+      data += ',' + String(cos(i*cos(ypr[0]*180/M_PI)));
     }
 
     Serial.println(data);
