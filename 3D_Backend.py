@@ -271,6 +271,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def connect_gui(self):
         self.UI_browse_btn.clicked.connect(self.browse_btn)
         self.UI_logfile_btn.clicked.connect(self.logfile_btn)
+        self.UI_clearlog_btn.clicked.connect(self.clearlog_btn)
 
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
@@ -289,6 +290,9 @@ class MainWindow(QtWidgets.QMainWindow):
         # TODO file path on line edit does not update once file is opened
         # Update the lineEdit beside "Load File" button on the GUI.
         self.UI_logfile_LE.setText(fname)
+    def clearlog_btn(self):
+        fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.rocket")
+        self.UI_clearlog_LE.setText(fname)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
