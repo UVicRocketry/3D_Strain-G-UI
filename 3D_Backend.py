@@ -287,12 +287,12 @@ class MainWindow(QtWidgets.QMainWindow):
     def logfile_btn(self):
         fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.rocket")
         
-        # TODO file path on line edit does not update once file is opened
         # Update the lineEdit beside "Load File" button on the GUI.
         self.UI_logfile_LE.setText(fname)
+    
     def clearlog_btn(self):
-        fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.rocket")
-        self.UI_clearlog_LE.setText(fname)
+        # Clear the text on the line edit. This is for switching to live mode
+        self.UI_logfile_LE.setText("")
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
