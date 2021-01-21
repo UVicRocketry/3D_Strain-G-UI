@@ -36,7 +36,7 @@ class Rocket():
     # Higher numbers means more sensitive
     _color_sensitivity = 2
 
-    ## Strain locations
+    # Strain locations
     # This is gonna depend on the layout of the strain gauges. For now we will assume there are r rings of n gauges mounted
     # around the circumference of the fuselage. In this diagram:
     # n = 6 (3 visible strain gauges represented by 's', and 3 gauges that aren't visible as they are on the other side of the fuselage)
@@ -183,6 +183,7 @@ class Rocket():
                     color = self.get_color(float(strain_reading))
 
                     # Update the color of the mesh
+                    
                     # TODO works to set the mesh color initially but it doesn't change
                     print("Set color to", color)
                     self._mesh_models[ss_index].setColor(color)
@@ -269,6 +270,7 @@ class MainWindow(QtWidgets.QMainWindow):
     ## GUI Methods
     def connect_gui(self):
         self.UI_browse_btn.clicked.connect(self.browse_btn)
+        self.UI_logfile_btn.clicked.connect(self.logfile_btn)
 
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
@@ -280,6 +282,13 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # Update the lineEdit beside "Browse" button on the GUI.
         self.UI_browse_LE.setText(fname)
+
+    def logfile_btn(self):
+        fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.rocket")
+        
+        # TODO file path on line edit does not update once file is opened
+        # Update the lineEdit beside "Load File" button on the GUI.
+        self.UI_logfile_LE.setText(fname)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
