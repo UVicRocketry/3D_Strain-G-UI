@@ -142,7 +142,9 @@ class Rocket():
         if self._arduino_connected:
             # Get rid of old serial data (the baud rate isn't fast enough to keep up so the buffer fills up)
             # self.ser.flushInput()                   
-                                                    
+            # This is causing some weird behaviour so leaving it out and cranking up the frame rate so the buffer doesn't overflow
+            # Should only be a problem when updating live from an arduino
+                                    
             line        = self.ser.readline()       # Read an entire line in the form "yaw,pitch,roll,altitude,strain1,strain2,strain3,..."
             line        = line.strip()              # Strip \n and \r (They cause problems)
             list_data   = line.split(b',')          # Make a list, delimiting on binary commas
@@ -269,6 +271,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
     ## GUI Methods
     def connect_gui(self):
+        # These methods connect a gui object's event to a method.
+        # Here we can see UI_browse_btn's "clicked" event is being connected to the browse_btn()
+        # method in the backend. This means if UI_browse_btn is clicked, browse_btn() runs.
+
+        # Our naming convention is:
+        #   gui objects:        UI_description_objecttype
+        #   backend methods:    description_objecttype
+
+        # This makes things much easier to understand.
         self.UI_browse_btn.clicked.connect(self.browse_btn)
         self.UI_logfile_btn.clicked.connect(self.logfile_btn)
         self.UI_clearlog_btn.clicked.connect(self.clearlog_btn)
