@@ -38,7 +38,7 @@ class Rocket():
 
     # How much the color of a strain section changes based on a strain reading
     # Higher numbers means more sensitive
-    _color_sensitivity = 2
+    _color_sensitivity = 0.02
 
     # Strain locations
     # This is gonna depend on the layout of the strain gauges. For now we will assume there are r rings of n gauges mounted
@@ -72,12 +72,27 @@ class Rocket():
     _r = 0
     _n = 0
 
+    # TODO this is gonna be tricky to implement for values more than 1. Only gonna make it work for 1, but in the future this
+    # would be nice to have scalable.
+    # This is how many sections there are in the assembly for color gradient. These sections don't have strain gauges on them
+    # but are instead colored based on the average of the adjacent sections.
+    
+    # For instance if the solidworks model has 8 strain sections per ring, but only 4 gauges per ring, _gradients_per_section = 1
+    # if sw model has 16 ss per ring, and 4 sgs per ring, _gradients_per_section = 3
+    _gradients_per_section = 0
+
     def __init__(self):
         print("Created Rocket!\n\n")
 
     def create_meshes(self):
         # Create a list of meshes from all the STL files in the STL_files folder according
         # to the layout specified above
+
+        # Make sure that when exporting solidworks assembly as STL files, you click options,
+        # then check "Do not translate STL output data to positive space"
+        # This will make the origin in the assembly the point about which the STL model rotates
+        # around in the graph. This is also how you set your center of gravity for the rocket.
+        # The CG should be the origin in the solidworks assembly.
 
         # See add_rocket() for more info about what enumerate does here
         for index, filename in enumerate(os.listdir(self._stl_dir)):
@@ -138,7 +153,8 @@ class Rocket():
         # Tensile strain readings greater than 0 so the sigmoid returns a number greater than 0.5
         # Higher strain means increased red and decreased blue
         sigmoid = 1 / (1 + math.exp(-n*self._color_sensitivity))
-        color   = (255*sigmoid, 0, 255*(1 - sigmoid), 1)    # (r, g, b)
+        print(sigmoid)
+        color   = (int(255*sigmoid), 0, 0, 1)    # (r, g, b, gamma? idk lol)
 
         return color
 
@@ -196,14 +212,14 @@ class Rocket():
                     strain_reading = float(strains[sg])
                     
                     # Get a color based on the strain. 
-                    color = self.get_color(float(strain_reading))
+                    color = self.get_color(int(strain_reading))
+                    print(color)
 
                     # Update the color of the mesh
                     # TODO works to set the mesh color initially but it doesn't change afterwards
                     self._mesh_models[ss_index].setColor(color)
         except:
             None
-        
 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -227,7 +243,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.R.create_meshes()
         self.R.setup_arduino("COM3")
         self.add_rocket_to_graph(self.R)
-        self.update_timer(10)
+        self.update_timer(30)
 
     def update_timer(self, framerate: int):
         self.timer = QtCore.QTimer()
@@ -269,6 +285,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # This is for when we are reading from a log file.
         linenum = int(self.UI_linenum_LE.text())
         self.R.update(linenum)
+        self.UI_linenum_LE.setText(str(linenum + 1))
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
@@ -333,7 +350,6 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             print("Disabled live mode\n")
             self.R._livemode = False
-
 
 
 def main():
