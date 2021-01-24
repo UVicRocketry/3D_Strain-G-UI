@@ -94,19 +94,6 @@
            <layout class="QGridLayout" name="gridLayout_4">
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_3">
-              <item row="0" column="0">
-               <widget class="QPushButton" name="UI_logfile_btn">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Load Log File</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="1">
                <widget class="QLineEdit" name="UI_logfile_LE">
                 <property name="sizePolicy">
@@ -123,8 +110,8 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="0">
-               <widget class="QPushButton" name="UI_closelog_btn">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="UI_logfile_btn">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -132,7 +119,7 @@
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>Close Log File</string>
+                 <string>Load Log File</string>
                 </property>
                </widget>
               </item>
@@ -143,6 +130,9 @@
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>1</string>
                 </property>
                </widget>
               </item>
@@ -156,6 +146,29 @@
                 </property>
                 <property name="text">
                  <string>Line Number:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="UI_closelog_btn">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Close Log File</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QCheckBox" name="UI_livemode_CB">
+                <property name="layoutDirection">
+                 <enum>Qt::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string>Live Mode?</string>
                 </property>
                </widget>
               </item>

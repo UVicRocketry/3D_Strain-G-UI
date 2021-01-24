@@ -1,3 +1,4 @@
+from OpenGL.raw.GL.VERSION.GL_1_0 import GL_LINEAR_ATTENUATION
 from PyQt5 import QtWidgets, uic, QtCore
 from PyQt5.QtWidgets import QFileDialog
 import pyqtgraph.opengl as gl
@@ -29,14 +30,11 @@ class Rocket():
 
     _altitude = 0.0
 
-    # Set True if setup_arduino() is successful. This is to prevent a bunch of self.ser
-    # does not exist errors when update is called if there is no arduino connected
-    _arduino_connected = False
+    # Set by the "Live Mode?" checkbox in the gui
+    _livemode = False
 
-    # These are set by logfile_btn(). They contain the log file that we are reading from as well as the
-    # current line we are reading from. We want the line number so we can "scrub" through the data file if needed
+    # Set by logfile_btn(). Contains the path of the log file we are reading from
     _logfile_path = ""
-    _logfile_line = 0.0
 
     # How much the color of a strain section changes based on a strain reading
     # Higher numbers means more sensitive
@@ -127,7 +125,7 @@ class Rocket():
         try:
             baud_rate = 115200 # In arduino .ino file, Serial.begin(baud_rate)
             self.ser = Serial(serial_port, baud_rate)
-            self._arduino_connected = True
+            #self._livemode = True
         except:
             print("Could not set up serial connection with Arduino. Check the connection and try again!\n\n")
 
@@ -144,7 +142,7 @@ class Rocket():
 
         return color
 
-    def update(self):
+    def update(self, logfile_line: int):
         # Get rid of old serial data (the baud rate isn't fast enough to keep up so the buffer fills up)
         # self.ser.flushInput()                   
         # This is causing some weird behaviour so leaving it out and cranking up the frame rate so the buffer doesn't overflow
@@ -152,59 +150,60 @@ class Rocket():
 
         # Read an entire line in the form "yaw,pitch,roll,altitude,strain1,strain2,strain3,..."
         # We read from either live from an arduino or from a log file
-        if self._arduino_connected:
-            line    = self.ser.readline()  
+        if self._livemode:
+            line        = self.ser.readline()
+            line        = line.strip()          # Strip \n and \r (They cause problems)
+            list_data   = line.split(b',')      # Make a list, delimiting on BINARY commas
         else:
-            # TODO This doesn't work right now because an instance of the Rocket class cannot
-            # access the UI elements directly like this.
-            line    = linecache.getline(self._data_path, int(self.line_number_line_edit.text()))
-            self.line_number_line_edit.text()
+            line        = linecache.getline(self._logfile_path, logfile_line)
+            line        = line.strip()          
+            list_data   = line.split(',')       # Delimiting on commas
 
-
-        line        = line.strip()              # Strip \n and \r (They cause problems)
-        list_data   = line.split(b',')          # Make a list, delimiting on binary commas
         angles      = list_data[0:3]            # Get ypr values
         altitude    = list_data[3:4]            # Get altitude value
         strains     = list_data[4:]             # Get strain values. [n:] means from n to the end of the list
 
-        # Rotate by the difference in angle
-        for m in self._mesh_models:
-            m.rotate(self._yaw   - float(angles[2]), 1, 0, 0)
-            m.rotate(self._pitch - float(angles[1]), 0, 1, 0)
-            m.rotate(self._roll  - float(angles[0]), 0, 0, 1)
+        # Now with list_data, we can update the model
 
-        # Update class variables to reflect new data
-        self._yaw = float(angles[2])
-        self._pitch = float(angles[1])
-        self._roll = float(angles[0])
+        try:
+            # Rotate by the difference in angle
+            for m in self._mesh_models:
+                m.rotate(self._yaw   - float(angles[2]), 1, 0, 0)
+                m.rotate(self._pitch - float(angles[1]), 0, 1, 0)
+                m.rotate(self._roll  - float(angles[0]), 0, 0, 1)
 
-        self._altitude = altitude
+            # Update class variables to reflect new data
+            self._yaw = float(angles[2])
+            self._pitch = float(angles[1])
+            self._roll = float(angles[0])
 
+            self._altitude = altitude
+
+            
+            # Update the strain section colors. self._r*self._n is the total number of strain gauges on the rocket
+            # TODO add support for strain sections with no strain gauge on them
+
+            for sg in range(0, self._r*self._n):
+                    
+                    # Get the index of _mesh_models that corresponds to our data point from the _strain_sections dictionary
+                    # Keys are just a plain old integer. See create_meshes() for more
+
+                    # sg is an int, so we cast to a string to access our dict value. We have to do +1 because our dict
+                    # keys are based on the solidworks names which start at 1, not 0
+                    ss_index = self._strain_sections[str(sg + 1)]
+
+                    # Strain value from the data source. We float() because the data comes as binary, and we want decimal
+                    strain_reading = float(strains[sg])
+                    
+                    # Get a color based on the strain. 
+                    color = self.get_color(float(strain_reading))
+
+                    # Update the color of the mesh
+                    # TODO works to set the mesh color initially but it doesn't change afterwards
+                    self._mesh_models[ss_index].setColor(color)
+        except:
+            None
         
-        # Update the strain section colors. self._r*self._n is the total number of strain gauges on the rocket
-        # TODO add support for strain sections with no strain gauge on them
-
-        for sg in range(0, self._r*self._n):
-                
-                # Get the index of _mesh_models that corresponds to our data point from the _strain_sections dictionary
-                # Keys are just a plain old integer. See create_meshes() for more
-
-                # sg is an int, so we cast to a string to access our dict value. We have to do +1 because our dict
-                # keys are based on the solidworks names which start at 1, not 0
-                ss_index = self._strain_sections[str(sg + 1)]
-
-                # Strain value from the data source. We float() because the data comes as binary, and we want decimal
-                strain_reading = float(strains[sg])
-                
-                # Get a color based on the strain. 
-                color = self.get_color(float(strain_reading))
-
-                # Update the color of the mesh
-                
-                # TODO works to set the mesh color initially but it doesn't change afterwards
-                print("Set color to", color)
-                self._mesh_models[ss_index].setColor(color)
-
 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -228,7 +227,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.R.create_meshes()
         self.R.setup_arduino("COM3")
         self.add_rocket_to_graph(self.R)
-        self.update_timer(550)
+        self.update_timer(10)
 
     def update_timer(self, framerate: int):
         self.timer = QtCore.QTimer()
@@ -266,8 +265,10 @@ class MainWindow(QtWidgets.QMainWindow):
         zgrid.setSize(2000, 2000, 0)
 
     def update_graph(self):
-        # Called constantly by update_timer()
-        self.R.update()
+        # Called constantly by update_timer(). We pass the line number from the gui as well.
+        # This is for when we are reading from a log file.
+        linenum = int(self.UI_linenum_LE.text())
+        self.R.update(linenum)
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
@@ -298,6 +299,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_browse_btn.clicked.connect(self.browse_btn)
         self.UI_logfile_btn.clicked.connect(self.logfile_btn)
         self.UI_closelog_btn.clicked.connect(self.closelog_btn)
+        self.UI_livemode_CB.stateChanged.connect(self.livemode_CB)
 
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
@@ -311,14 +313,28 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_browse_LE.setText(fname)
 
     def logfile_btn(self):
-        fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.rocket")
+        fname, filter = QFileDialog.getOpenFileName(self, 'Open file')
         
         # Update the lineEdit beside "Load File" button on the GUI.
         self.UI_logfile_LE.setText(fname)
+
+        # Update our Rocket's filepath
+        self.R._logfile_path = fname
     
     def closelog_btn(self):
         # Clear the text on the line edit. This is for switching to live mode
         self.UI_logfile_LE.setText("")
+
+    def livemode_CB(self):
+        # Switch between livemode (reading from arduino) and logfile mode 
+        if self.UI_livemode_CB.isChecked():
+            print("Enabled live mode\n")
+            self.R._livemode = True
+        else:
+            print("Disabled live mode\n")
+            self.R._livemode = False
+
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
