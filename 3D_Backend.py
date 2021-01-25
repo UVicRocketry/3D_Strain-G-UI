@@ -223,9 +223,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.add_rocket_to_graph(self._R)
 
     def set_framerate(self):
-        # Update timer
+        # Update timer   
         self.timer = QtCore.QTimer()
-        self.timer.setInterval(int(1000/self.UI_framerate_slider.value()))
+        if self.UI_framerate_slider.value() != 0:
+            self.timer.setInterval(int(1000/self.UI_framerate_slider.value()))
+        else:
+            self.timer.setInterval(2147483646)
         self.timer.timeout.connect(self.update_gui)
         self.timer.start()
         
@@ -275,16 +278,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self._prev_altitude = self._R._altitude
 
         if self._grid_height < 0:
-            self._altitude_grid.translate(0, 0, 2000)
+            self._altitude_grid.translate(0, 0, 2000 - self._grid_height)
             self._grid_height = 2000
         elif self._grid_height > 2000:
-            self._altitude_grid.translate(0, 0, -2000)
+            self._altitude_grid.translate(0, 0, self._grid_height)
             self._grid_height = 0
         
-        # TODO Change the 15 here to be based on the data rate. That way the altitude grid
+        # TODO Change the 30 here to be based on the data rate. That way the altitude grid
         # moves in a realistic way when compared with the length of the model.
-        self._altitude_grid.translate(0, 0, 15*dz)
-        self._grid_height += 15*dz
+        self._altitude_grid.translate(0, 0, 30*dz)
+        self._grid_height += 30*dz
 
         # Update the altitude line edit on the gui
         self.UI_altitude_LE.setText(str(self._R._altitude))
@@ -340,11 +343,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Update our Rocket's filepath
         self._R._logfile_path = fname
+
+        print("Opened log file:", fname, "\n\n")
     
     def closelog_btn(self):
         # Clear the text on the line edit. This is for switching to live mode
         self.UI_logfile_LE.setText("")
         self._R._logfile_path = ""
+        
+        print("Closed log file.\n\n")
 
     def livemode_CB(self):
         # Switch between livemode (reading from arduino) and logfile mode 
