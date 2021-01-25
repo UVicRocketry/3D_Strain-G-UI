@@ -170,7 +170,7 @@ class Rocket():
             list_data   = line.split(',')       # Delimiting on commas
 
         angles      = list_data[0:3]            # Get ypr values
-        altitude    = list_data[3:4]            # Get altitude value
+        altitude    = float(list_data[3])       # Get altitude value
         strains     = list_data[4:]             # Get strain values. [n:] means from n to the end of the list
 
         # Now with list_data, we can update the model
@@ -200,7 +200,10 @@ class Rocket():
 class MainWindow(QtWidgets.QMainWindow):
 
     # Declare our Rocket. __init__ will do the rest
-    R = Rocket()
+    _R = Rocket()
+    _grid_height = 0.0
+    _alititude_grid = None
+    _prev_altitude = 0.0
 
     def __init__(self, *args, **kwargs):
         
@@ -213,18 +216,18 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # The rest of the methods will be called by the user in the GUI
         # TODO Use the configparser library to load .rocket files with this info in them
-        self.R._stl_dir = "STL_files"
-        self.R._r = 3
-        self.R._n = 4
-        self.R._gradients_per_section = 1
-        self.R.create_meshes()
-        self.R.setup_arduino("COM3")
-        self.add_rocket_to_graph(self.R)
-        self.update_timer(550)
+        self._R._stl_dir = "STL_files"
+        self._R._r = 3
+        self._R._n = 4
+        self._R._gradients_per_section = 1
+        self._R.create_meshes()
+        self._R.setup_arduino("COM3")
+        self.add_rocket_to_graph(self._R)
 
-    def update_timer(self, framerate: int):
+    def set_framerate(self):
+        # Update timer
         self.timer = QtCore.QTimer()
-        self.timer.setInterval(int(1000/framerate))
+        self.timer.setInterval(int(1000/self.UI_framerate_slider.value()))
         self.timer.timeout.connect(self.update_graph)
         self.timer.start()
         
@@ -234,9 +237,11 @@ class MainWindow(QtWidgets.QMainWindow):
         xgrid = gl.GLGridItem()
         ygrid = gl.GLGridItem()
         zgrid = gl.GLGridItem()
+        self._altitude_grid = gl.GLGridItem()
         self.graph.addItem(xgrid)
         self.graph.addItem(ygrid)
         self.graph.addItem(zgrid)
+        self.graph.addItem(self._altitude_grid)
         
         # Rotate x and y grids to face the correct direction
         xgrid.rotate(90, 0, 1, 0)
@@ -246,29 +251,46 @@ class MainWindow(QtWidgets.QMainWindow):
         xgrid.translate(-1000, 0, 0)
         ygrid.translate(0, -1000, 0)
         zgrid.translate(0, 0, -1000)
+        self._altitude_grid.translate(0, 0, -1000)
 
         # Set grid widths
         xgrid.setSpacing(100, 100, 0)
         ygrid.setSpacing(100, 100, 0)
         zgrid.setSpacing(100, 100, 0)
+        self._altitude_grid.setSpacing(500, 500, 0)
 
         # Set total grid size
         xgrid.setSize(2000, 2000, 0)
         ygrid.setSize(2000, 2000, 0)
         zgrid.setSize(2000, 2000, 0)
+        self._altitude_grid.setSize(2000, 2000, 0)
 
     def update_graph(self):
         # Called constantly by update_timer(). We pass the line number from the gui as well.
         # This is for when we are reading from a log file.
         linenum = int(self.UI_linenum_LE.text())
-        self.R.update(linenum)
+        self._R.update(linenum)
         self.UI_linenum_LE.setText(str(linenum + 1))
+
+        # Update the altitude grid. If rocket went up, dz is negative
+        dz = self._prev_altitude - self._R._altitude
+        self._prev_altitude = self._R._altitude
+
+        if self._grid_height < 0:
+            self._altitude_grid.translate(0, 0, 2000)
+            self._grid_height = 2000
+        elif self._grid_height > 2000:
+            self._altitude_grid.translate(0, 0, -2000)
+            self._grid_height = 0
+        
+        self._altitude_grid.translate(0, 0, 10*dz)
+        self._grid_height += 10*dz
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
-        self.R.create_meshes()
-        self.add_rocket(self.R)
-        self.R.setup_arduino()
+        self._R.create_meshes()
+        self.add_rocket(self._R)
+        self._R.setup_arduino()
 
     def add_rocket_to_graph(self, R: Rocket):
         # Add meshes to the graph. The enumerate bit is from
@@ -290,6 +312,7 @@ class MainWindow(QtWidgets.QMainWindow):
         #   backend methods:    description_objecttype
 
         # This makes things much easier to understand.
+        self.UI_framerate_slider.valueChanged.connect(self.set_framerate)
         self.UI_browse_btn.clicked.connect(self.browse_btn)
         self.UI_logfile_btn.clicked.connect(self.logfile_btn)
         self.UI_closelog_btn.clicked.connect(self.closelog_btn)
@@ -313,7 +336,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_logfile_LE.setText(fname)
 
         # Update our Rocket's filepath
-        self.R._logfile_path = fname
+        self._R._logfile_path = fname
     
     def closelog_btn(self):
         # Clear the text on the line edit. This is for switching to live mode
@@ -323,10 +346,10 @@ class MainWindow(QtWidgets.QMainWindow):
         # Switch between livemode (reading from arduino) and logfile mode 
         if self.UI_livemode_CB.isChecked():
             print("Enabled live mode\n")
-            self.R._livemode = True
+            self._R._livemode = True
         else:
             print("Disabled live mode\n")
-            self.R._livemode = False
+            self._R._livemode = False
 
 
 def main():
