@@ -38,7 +38,7 @@ class Rocket():
 
     # How much the color of a strain section changes based on a strain reading
     # Higher numbers means more sensitive
-    _color_sensitivity = 0.01
+    _color_sensitivity = 0.02
 
     # Strain locations
     # This is gonna depend on the layout of the strain gauges. For now we will assume there are r rings of n gauges mounted
@@ -148,7 +148,7 @@ class Rocket():
         # Tensile strain readings greater than 0 so the sigmoid returns a number greater than 0.5
         # Higher strain means increased red and decreased blue
         sigmoid = 1 / (1 + math.exp(-n*self._color_sensitivity))
-        color   = QtGui.QColor(int(255*sigmoid), 0, 0)
+        color   = QtGui.QColor(int(255*sigmoid), 0, int(255*(1-sigmoid)))
 
         return color
 
@@ -341,6 +341,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def closelog_btn(self):
         # Clear the text on the line edit. This is for switching to live mode
         self.UI_logfile_LE.setText("")
+        self._R._logfile_path = ""
 
     def livemode_CB(self):
         # Switch between livemode (reading from arduino) and logfile mode 
