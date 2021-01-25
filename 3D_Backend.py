@@ -1,5 +1,5 @@
 from OpenGL.raw.GL.VERSION.GL_1_0 import GL_LINEAR_ATTENUATION
-from PyQt5 import QtWidgets, uic, QtCore
+from PyQt5 import QtGui, QtWidgets, uic, QtCore
 from PyQt5.QtWidgets import QFileDialog
 import pyqtgraph.opengl as gl
 import numpy as np
@@ -38,7 +38,7 @@ class Rocket():
 
     # How much the color of a strain section changes based on a strain reading
     # Higher numbers means more sensitive
-    _color_sensitivity = 0.02
+    _color_sensitivity = 0.01
 
     # Strain locations
     # This is gonna depend on the layout of the strain gauges. For now we will assume there are r rings of n gauges mounted
@@ -65,18 +65,14 @@ class Rocket():
     # The main reason we do it this way is that not all of the entries in _mesh_models are strain sections (ie the nosecone and fins)
     # This lets us use whatever we want for the model, but we only have to name the strain sections in solidworks
     # Another nice thing is that at least in the layout described above, when creating the assembly, we first add a strain section,
-    # then create a circular pattern for a ring of strain sections, then a linear pattern of that ring. This *should* get you the right name
+    # then create a series of circular patterns for a ring of strain sections. This should get you the right name
     # for all the strain sections without too much trouble
 
     _strain_sections = {}
     _r = 0
     _n = 0
 
-    # TODO this is gonna be tricky to implement for values more than 1. Only gonna make it work for 1, but in the future this
-    # would be nice to have scalable.
-    # This is how many sections there are in the assembly for color gradient. These sections don't have strain gauges on them
-    # but are instead colored based on the average of the adjacent sections.
-    
+    # TODO, implement this in update() (Its a really tricky problem to solve)  
     # For instance if the solidworks model has 8 strain sections per ring, but only 4 gauges per ring, _gradients_per_section = 1
     # if sw model has 16 ss per ring, and 4 sgs per ring, _gradients_per_section = 3
     _gradients_per_section = 0
@@ -116,7 +112,6 @@ class Rocket():
 
                     # Now if we want to access a strain section in _mesh_models to change its color, we can find its
                     # index in _mesh_models by accessing _strain_sections
-
         print("\n")
 
     def stl2mesh3d(self, stl_mesh):
@@ -153,8 +148,7 @@ class Rocket():
         # Tensile strain readings greater than 0 so the sigmoid returns a number greater than 0.5
         # Higher strain means increased red and decreased blue
         sigmoid = 1 / (1 + math.exp(-n*self._color_sensitivity))
-        print(sigmoid)
-        color   = (int(255*sigmoid), 0, 0, 1)    # (r, g, b, gamma? idk lol)
+        color   = QtGui.QColor(int(255*sigmoid), 0, 0)
 
         return color
 
@@ -181,45 +175,27 @@ class Rocket():
 
         # Now with list_data, we can update the model
 
-        try:
-            # Rotate by the difference in angle
-            for m in self._mesh_models:
-                m.rotate(self._yaw   - float(angles[2]), 1, 0, 0)
-                m.rotate(self._pitch - float(angles[1]), 0, 1, 0)
-                m.rotate(self._roll  - float(angles[0]), 0, 0, 1)
+        # Rotate by the difference in angle
+        for m in self._mesh_models:
+            m.rotate(self._yaw   - float(angles[2]), 1, 0, 0)
+            m.rotate(self._pitch - float(angles[1]), 0, 1, 0)
+            m.rotate(self._roll  - float(angles[0]), 0, 0, 1)
 
-            # Update class variables to reflect new data
-            self._yaw = float(angles[2])
-            self._pitch = float(angles[1])
-            self._roll = float(angles[0])
+        # Update class variables to reflect new data
+        self._yaw = float(angles[2])
+        self._pitch = float(angles[1])
+        self._roll = float(angles[0])
 
-            self._altitude = altitude
+        self._altitude = altitude
 
+        for i in range(len(strains)):
+            strain = float(strains[i])                      # Strain reading
+            ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
+            color = self.get_color(strain)                  # Color based on the strain
+            print("i =", i, "strain =", strain)
             
-            # Update the strain section colors. self._r*self._n is the total number of strain gauges on the rocket
-            # TODO add support for strain sections with no strain gauge on them
+            self._mesh_models[ss_index].setColor(color)     # Update the color of the strain mesh
 
-            for sg in range(0, self._r*self._n):
-                    
-                    # Get the index of _mesh_models that corresponds to our data point from the _strain_sections dictionary
-                    # Keys are just a plain old integer. See create_meshes() for more
-
-                    # sg is an int, so we cast to a string to access our dict value. We have to do +1 because our dict
-                    # keys are based on the solidworks names which start at 1, not 0
-                    ss_index = self._strain_sections[str(sg + 1)]
-
-                    # Strain value from the data source. We float() because the data comes as binary, and we want decimal
-                    strain_reading = float(strains[sg])
-                    
-                    # Get a color based on the strain. 
-                    color = self.get_color(int(strain_reading))
-                    print(color)
-
-                    # Update the color of the mesh
-                    # TODO works to set the mesh color initially but it doesn't change afterwards
-                    self._mesh_models[ss_index].setColor(color)
-        except:
-            None
 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -240,10 +216,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.R._stl_dir = "STL_files"
         self.R._r = 3
         self.R._n = 4
+        self.R._gradients_per_section = 1
         self.R.create_meshes()
         self.R.setup_arduino("COM3")
         self.add_rocket_to_graph(self.R)
-        self.update_timer(30)
+        self.update_timer(550)
 
     def update_timer(self, framerate: int):
         self.timer = QtCore.QTimer()
