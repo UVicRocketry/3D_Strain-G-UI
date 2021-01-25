@@ -192,8 +192,6 @@ class Rocket():
             strain = float(strains[i])                      # Strain reading
             ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
             color = self.get_color(strain)                  # Color based on the strain
-            print("i =", i, "strain =", strain)
-            
             self._mesh_models[ss_index].setColor(color)     # Update the color of the strain mesh
 
 
@@ -228,7 +226,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # Update timer
         self.timer = QtCore.QTimer()
         self.timer.setInterval(int(1000/self.UI_framerate_slider.value()))
-        self.timer.timeout.connect(self.update_graph)
+        self.timer.timeout.connect(self.update_gui)
         self.timer.start()
         
     def setup_graph(self):    
@@ -265,7 +263,7 @@ class MainWindow(QtWidgets.QMainWindow):
         zgrid.setSize(2000, 2000, 0)
         self._altitude_grid.setSize(2000, 2000, 0)
 
-    def update_graph(self):
+    def update_gui(self):
         # Called constantly by update_timer(). We pass the line number from the gui as well.
         # This is for when we are reading from a log file.
         linenum = int(self.UI_linenum_LE.text())
@@ -283,8 +281,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self._altitude_grid.translate(0, 0, -2000)
             self._grid_height = 0
         
-        self._altitude_grid.translate(0, 0, 10*dz)
-        self._grid_height += 10*dz
+        # TODO Change the 15 here to be based on the data rate. That way the altitude grid
+        # moves in a realistic way when compared with the length of the model.
+        self._altitude_grid.translate(0, 0, 15*dz)
+        self._grid_height += 15*dz
+
+        # Update the altitude line edit on the gui
+        self.UI_altitude_LE.setText(str(self._R._altitude))
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
