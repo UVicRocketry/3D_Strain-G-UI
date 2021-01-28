@@ -296,7 +296,7 @@
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string>TIme</string>
                    </property>
                   </widget>
                  </item>

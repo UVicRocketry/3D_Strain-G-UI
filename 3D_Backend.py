@@ -29,6 +29,7 @@ class Rocket():
     _roll = 0.0
 
     _altitude = 0.0
+    _time = 0.0
 
     # Set by the "Live Mode?" checkbox in the gui
     _livemode = False
@@ -187,6 +188,7 @@ class Rocket():
         self._roll = float(angles[0])
 
         self._altitude = altitude
+        self._time = altitude
 
         for i in range(len(strains)):
             strain = float(strains[i])                      # Strain reading
@@ -295,6 +297,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Update the altitude line edit on the gui
         self.UI_altitude_LE.setText(str(self._R._altitude))
+        self.UI_altitude_time_LE.setText(str(self._R._time))
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
@@ -330,7 +333,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_playpause_btn.clicked.connect(self.playpause_btn)
         self.UI_forward_btn.clicked.connect(self.forward_btn)
         self.UI_backward_btn.clicked.connect(self.backward_btn)
-        self.UI_altitude_time_LE.clicked.connect(self.altitude_time_LE)
+        #self.UI_altitude_time_LE.connect(self.altitude_time_LE)
 
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
@@ -370,13 +373,11 @@ class MainWindow(QtWidgets.QMainWindow):
             print("Disabled live mode\n")
             self._R._livemode = False
     def playpause_btn(self):
-
+        None
     def forward_btn(self):
-
+        None
     def backward_btn(self):
-
-    def altitude_time_LE(self):
-
+        None
 def main():
     app = QtWidgets.QApplication(sys.argv)
     main = MainWindow()
