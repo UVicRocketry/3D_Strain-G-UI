@@ -196,7 +196,11 @@ class Rocket():
 
 
 class MainWindow(QtWidgets.QMainWindow):
-
+    # TODO make it so the camera is not zoomed in
+    # TODO add a time stamp with altitude.'
+    # TODO pause and play button, and step fwrd and reverse.
+    # TODO add a xyz coor graphic.
+    
     # Declare our Rocket. __init__ will do the rest
     _R = Rocket()
     _grid_height = 0.0
