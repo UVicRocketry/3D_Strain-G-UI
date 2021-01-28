@@ -327,6 +327,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_logfile_btn.clicked.connect(self.logfile_btn)
         self.UI_closelog_btn.clicked.connect(self.closelog_btn)
         self.UI_livemode_CB.stateChanged.connect(self.livemode_CB)
+        self.UI_playpause_btn.clicked.connect(self.playpause_btn)
+        self.UI_forward_btn.clicked.connect(self.forward_btn)
+        self.UI_backward_btn.clicked.connect(self.backward_btn)
+        self.UI_altitude_time_LE.clicked.connect(self.altitude_time_LE)
 
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
@@ -365,7 +369,13 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             print("Disabled live mode\n")
             self._R._livemode = False
+    def playpause_btn(self):
 
+    def forward_btn(self):
+
+    def backward_btn(self):
+
+    def altitude_time_LE(self):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
