@@ -184,16 +184,16 @@
               <layout class="QGridLayout" name="gridLayout_7">
                <item row="0" column="0">
                 <layout class="QGridLayout" name="gridLayout">
-                 <item row="0" column="1">
-                  <widget class="QSlider" name="UI_framerate_slider">
-                   <property name="minimum">
-                    <number>0</number>
+                 <item row="1" column="0">
+                  <widget class="QPushButton" name="UI_playpause_btn">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
                    </property>
-                   <property name="maximum">
-                    <number>300</number>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                   <property name="text">
+                    <string>Play/Pause</string>
                    </property>
                   </widget>
                  </item>
@@ -207,6 +207,45 @@
                    </property>
                    <property name="text">
                     <string>Frame Rate:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QPushButton" name="UI_backward_btn">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Backward</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QPushButton" name="UI_forward_btn">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Forward</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" colspan="2">
+                  <widget class="QSlider" name="UI_framerate_slider">
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>300</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -238,6 +277,9 @@
               <layout class="QGridLayout" name="gridLayout_8">
                <item row="0" column="0">
                 <layout class="QGridLayout" name="gridLayout_5">
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="UI_altitude_LE"/>
+                 </item>
                  <item row="0" column="0">
                   <widget class="QLabel" name="UI_altitude_label">
                    <property name="text">
@@ -245,8 +287,21 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="0" column="1">
-                  <widget class="QLineEdit" name="UI_altitude_LE"/>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="UI_altitude_time_label">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLineEdit" name="UI_altitude_time_LE"/>
                  </item>
                 </layout>
                </item>
@@ -283,7 +338,7 @@
      <x>0</x>
      <y>0</y>
      <width>1388</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
