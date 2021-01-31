@@ -281,6 +281,10 @@ class MainWindow(QtWidgets.QMainWindow):
         zgrid.setSize(2000, 2000, 0)
         self._altitude_grid.setSize(2000, 2000, 0)
 
+        # Zoom the camera out so we are not inside our model
+        self.graph.setCameraPosition(distance=2000)
+        print("Camera postion is:", self.graph.cameraPosition(), "\n")
+
     def update_gui(self):
         if self._playing:
             
