@@ -216,8 +216,7 @@ class MainWindow(QtWidgets.QMainWindow):
     _prev_altitude = 0.0    # The previous _grid_height
 
     _playing = 0            # Set by the frame pause/play button on the gui
-    _frame_direction = 0
-                            
+    _frame_direction = 0    # Which direction we are moving in the log file. 1 = fwrd, -1 = rvrs, 0 = paused
 
     def __init__(self, *args, **kwargs):
         
@@ -285,6 +284,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_gui(self):
         if self._playing:
             
+            # TODO this will break when we are on line 0 and step backwards
             # Step forward or reverse in our log file
             line_num = int(self.UI_linenum_LE.text()) + self._frame_direction
             self._R.update(line_num)
@@ -387,7 +387,11 @@ class MainWindow(QtWidgets.QMainWindow):
     def playpause_btn(self):
         self._playing = self.UI_playpause_btn.isChecked()
         self._frame_direction = int(self._playing)
-        print("Playing is set to:", self._playing)
+        
+        if self._playing:
+            print("Playing\n")
+        else:
+            print("Paused\n")
             
     def forward_btn(self):
         # Step one frame forward, then pause
@@ -396,6 +400,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.update_gui()
         self._playing = False
         self.UI_playpause_btn.setChecked(False)
+        print("Stepped forward 1 frame\n")
 
     def backward_btn(self):
         # Step one frame reverse, then pause
@@ -405,6 +410,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self._playing = False
         self._frame_direction = 1
         self.UI_playpause_btn.setChecked(False)
+        print("Stepped backwards 1 frame\n")
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
