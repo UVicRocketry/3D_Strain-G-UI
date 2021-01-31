@@ -1,6 +1,7 @@
 from OpenGL.raw.GL.VERSION.GL_1_0 import GL_LINEAR_ATTENUATION
 from PyQt5 import QtGui, QtWidgets, uic, QtCore
 from PyQt5.QtWidgets import QFileDialog
+from numpy.lib.function_base import sinc
 import pyqtgraph.opengl as gl
 import numpy as np
 from pyqtgraph.opengl.items.GLGridItem import GLGridItem
@@ -176,7 +177,10 @@ class Rocket():
 
         # Now with list_data, we can update the model
 
-        # Rotate by the difference in angle
+        # Rotate by the difference in angle. (1, 0, 0) means rotate around x axis etc.
+        # TODO Not sure if it is this simple because it rotates relative to the absolute coordinates.
+        # This means we have to account for the roll when rotating. Should be some basic trig to convert pitch and 
+        # yaw to roll coords.
         for m in self._mesh_models:
             m.rotate(self._yaw   - float(angles[2]), 1, 0, 0)
             m.rotate(self._pitch - float(angles[1]), 0, 1, 0)
@@ -199,15 +203,14 @@ class Rocket():
 
 class MainWindow(QtWidgets.QMainWindow):
     # TODO make it so the camera is not zoomed in
-    # TODO add a time stamp with altitude.'
-    # TODO pause and play button, and step fwrd and reverse.
+    # TODO Added pause and play button, and step fwrd and reverse, now make them work.
     # TODO add a xyz coor graphic.
     
     # Declare our Rocket. __init__ will do the rest
     _R = Rocket()
-    _grid_height = 0.0
-    _alititude_grid = None
-    _prev_altitude = 0.0
+    _grid_height = 0.0      # The height with respect to the "bottom" z grid.
+    _alititude_grid = None  # Becomes a GLMeshItem
+    _prev_altitude = 0.0    # The previous _grid_height
 
     def __init__(self, *args, **kwargs):
         
@@ -287,7 +290,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self._altitude_grid.translate(0, 0, 2000 - self._grid_height)
             self._grid_height = 2000
         elif self._grid_height > 2000:
-            self._altitude_grid.translate(0, 0, self._grid_height)
+            self._altitude_grid.translate(0, 0, -self._grid_height)
             self._grid_height = 0
         
         # TODO Change the 30 here to be based on the data rate. That way the altitude grid
@@ -378,6 +381,7 @@ class MainWindow(QtWidgets.QMainWindow):
         None
     def backward_btn(self):
         None
+
 def main():
     app = QtWidgets.QApplication(sys.argv)
     main = MainWindow()
