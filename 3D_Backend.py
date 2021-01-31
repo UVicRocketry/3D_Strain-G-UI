@@ -215,6 +215,10 @@ class MainWindow(QtWidgets.QMainWindow):
     _alititude_grid = None  # Becomes a GLMeshItem
     _prev_altitude = 0.0    # The previous _grid_height
 
+    _playing = 0            # Set by the frame pause/play button on the gui
+    _frame_direction = 0
+                            
+
     def __init__(self, *args, **kwargs):
         
         super(MainWindow, self).__init__(*args, **kwargs)
@@ -279,31 +283,32 @@ class MainWindow(QtWidgets.QMainWindow):
         self._altitude_grid.setSize(2000, 2000, 0)
 
     def update_gui(self):
-        # Called constantly by update_timer(). We pass the line number from the gui as well.
-        # This is for when we are reading from a log file.
-        linenum = int(self.UI_linenum_LE.text())
-        self._R.update(linenum)
-        self.UI_linenum_LE.setText(str(linenum + 1))
+        if self._playing:
+            
+            # Step forward or reverse in our log file
+            line_num = int(self.UI_linenum_LE.text()) + self._frame_direction
+            self._R.update(line_num)
+            self.UI_linenum_LE.setText(str(line_num))
 
-        # Update the altitude grid. If rocket went up, dz is negative
-        dz = self._prev_altitude - self._R._altitude
-        self._prev_altitude = self._R._altitude
+            # Update the altitude grid. If rocket went up, dz is negative
+            dz = self._prev_altitude - self._R._altitude
+            self._prev_altitude = self._R._altitude
 
-        if self._grid_height < 0:
-            self._altitude_grid.translate(0, 0, 2000 - self._grid_height)
-            self._grid_height = 2000
-        elif self._grid_height > 2000:
-            self._altitude_grid.translate(0, 0, -self._grid_height)
-            self._grid_height = 0
-        
-        # TODO Change the 30 here to be based on the data rate. That way the altitude grid
-        # moves in a realistic way when compared with the length of the model.
-        self._altitude_grid.translate(0, 0, 30*dz)
-        self._grid_height += 30*dz
+            if self._grid_height < 0:
+                self._altitude_grid.translate(0, 0, 2000 - self._grid_height)
+                self._grid_height = 2000
+            elif self._grid_height > 2000:
+                self._altitude_grid.translate(0, 0, -self._grid_height)
+                self._grid_height = 0
+            
+            # TODO Change the 30 here to be based on the data rate. That way the altitude grid
+            # moves in a realistic way when compared with the length of the model
+            self._altitude_grid.translate(0, 0, 30*dz)
+            self._grid_height += 30*dz
 
-        # Update the altitude line edit on the gui
-        self.UI_altitude_LE.setText(str(self._R._altitude))
-        self.UI_altitude_time_LE.setText(str(self._R._time))
+            # Update the altitude line edit on the gui
+            self.UI_altitude_LE.setText(str(self._R._altitude))
+            self.UI_altitude_time_LE.setText(str(self._R._time))
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
@@ -378,12 +383,28 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             print("Disabled live mode\n")
             self._R._livemode = False
+    
     def playpause_btn(self):
-        None
+        self._playing = self.UI_playpause_btn.isChecked()
+        self._frame_direction = int(self._playing)
+        print("Playing is set to:", self._playing)
+            
     def forward_btn(self):
-        None
+        # Step one frame forward, then pause
+        self._frame_direction = 1
+        self._playing = True
+        self.update_gui()
+        self._playing = False
+        self.UI_playpause_btn.setChecked(False)
+
     def backward_btn(self):
-        None
+        # Step one frame reverse, then pause
+        self._frame_direction = -1
+        self._playing = True
+        self.update_gui()
+        self._playing = False
+        self._frame_direction = 1
+        self.UI_playpause_btn.setChecked(False)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
