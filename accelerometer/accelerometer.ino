@@ -138,7 +138,7 @@ void loop()
 //    Serial.println(ypr[2] * 180/M_PI);
 
     // Format of data string is y,p,r,altitude,strain-sections...
-    String data = String(ypr[0] * 180/M_PI) + ',' + String(ypr[1] * 180/M_PI) + ',' + String(ypr[2] * 180/M_PI) + ',' + '0';
+    String data = "0.00" + ',' + String(ypr[0] * 180/M_PI) + ',' + String(ypr[1] * 180/M_PI) + ',' + String(ypr[2] * 180/M_PI) + ',' + '0';
 
     for(int i = 0; i < 12; i++){
       data += ',' + String(cos(i*cos(ypr[0]*180/M_PI)));

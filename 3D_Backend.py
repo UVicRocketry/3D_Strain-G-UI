@@ -160,7 +160,7 @@ class Rocket():
         # This is causing some weird behaviour so leaving it out and cranking up the frame rate so the buffer doesn't overflow
         # Should only be a problem when updating live from an arduino
 
-        # Read an entire line in the form "yaw,pitch,roll,altitude,strain1,strain2,strain3,..."
+        # Read an entire line in the form "time,yaw,pitch,roll,altitude,strain1,strain2,strain3,..."
         # We read from either live from an arduino or from a log file
         if self._livemode:
             line        = self.ser.readline()
@@ -171,20 +171,23 @@ class Rocket():
             line        = line.strip()          
             list_data   = line.split(',')       # Delimiting on commas
 
-        angles      = list_data[0:3]            # Get ypr values
-        altitude    = float(list_data[3])       # Get altitude value
-        strains     = list_data[4:]             # Get strain values. [n:] means from n to the end of the list
+        time        = list_data[0]              # Get timestamp
+        angles      = list_data[1:4]            # Get ypr values
+        altitude    = float(list_data[4])       # Get altitude value
+        strains     = list_data[5:]             # Get strain values. [n:] means from n to the end of the list
 
         # Now with list_data, we can update the model
 
-        # Rotate by the difference in angle. (1, 0, 0) means rotate around x axis etc.
-        # TODO Not sure if it is this simple because it rotates relative to the absolute coordinates.
-        # This means we have to account for the roll when rotating. Should be some basic trig to convert pitch and 
-        # yaw to roll coords.
+        # Rotate by the difference in angle. rotate() takes 5 params: rotate(degrees, x, y, z, coord sys)
+        # The x,y,z represent the axis to rotate around. We use cos and sin a bunch here because we want 
+        # to rotate relative to the rocket coords, not to the global coords.
+        # TODO this needs to be double checked. It seems to work fine but my linear algebra skills were never
+        # the best.
+        roll_radians = math.radians(self._roll)
         for m in self._mesh_models:
-            m.rotate(self._yaw   - float(angles[2]), 1, 0, 0)
-            m.rotate(self._pitch - float(angles[1]), 0, 1, 0)
-            m.rotate(self._roll  - float(angles[0]), 0, 0, 1)
+            m.rotate(self._yaw   - float(angles[2]), math.cos(roll_radians), math.sin(roll_radians), 0, True)
+            m.rotate(self._pitch - float(angles[1]), math.sin(roll_radians), math.cos(roll_radians), 0, True)
+            m.rotate(self._roll  - float(angles[0]), 0, 0, 1, True)
 
         # Update class variables to reflect new data
         self._yaw = float(angles[2])
@@ -192,8 +195,9 @@ class Rocket():
         self._roll = float(angles[0])
 
         self._altitude = altitude
-        self._time = altitude
+        self._time = time # TODO This breaks in live mode for some reason??
 
+        # Color the strain sections based on strain values
         for i in range(len(strains)):
             strain = float(strains[i])                      # Strain reading
             ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
@@ -202,7 +206,6 @@ class Rocket():
 
 
 class MainWindow(QtWidgets.QMainWindow):
-    # TODO make it so the camera is not zoomed in
     # TODO Added pause and play button, and step fwrd and reverse, now make them work.
     # TODO add a xyz coor graphic.
     
