@@ -15,7 +15,7 @@ import linecache
 # pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph pyopengl
 
 class Rocket():
-    # Used for log files
+    # Will be used for log files
     _name = ""
 
     # List of meshes created from STL files
@@ -80,7 +80,7 @@ class Rocket():
     _gradients_per_section = 0
 
     def __init__(self):
-        print("Created Rocket!\n\n")
+        print("Created Rocket!\n")
 
     def create_meshes(self):
         # Create a list of meshes from all the STL files in the STL_files folder according
@@ -348,7 +348,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_playpause_btn.clicked.connect(self.playpause_btn)
         self.UI_forward_btn.clicked.connect(self.forward_btn)
         self.UI_backward_btn.clicked.connect(self.backward_btn)
-        #self.UI_altitude_time_LE.connect(self.altitude_time_LE)
+        self.UI_resetview_btn.clicked.connect(self.resetview_btn)
 
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
@@ -370,14 +370,14 @@ class MainWindow(QtWidgets.QMainWindow):
         # Update our Rocket's filepath
         self._R._logfile_path = fname
 
-        print("Opened log file:", fname, "\n\n")
+        print("Opened log file:", fname, "\n")
     
     def closelog_btn(self):
         # Clear the text on the line edit. This is for switching to live mode
         self.UI_logfile_LE.setText("")
         self._R._logfile_path = ""
         
-        print("Closed log file.\n\n")
+        print("Closed log file\n")
 
     def livemode_CB(self):
         # Switch between livemode (reading from arduino) and logfile mode 
@@ -415,6 +415,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self._frame_direction = 1
         self.UI_playpause_btn.setChecked(False)
         print("Stepped backwards 1 frame\n")
+
+    def resetview_btn(self):
+        self.graph.reset()
+        self.graph.setCameraPosition(distance=2000)
+        print("Reset view")
+        print("Camera postion is:", self.graph.cameraPosition(), "\n")
+
 
 
 def main():

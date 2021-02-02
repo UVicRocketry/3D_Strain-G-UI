@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1388</width>
-    <height>846</height>
+    <height>845</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -270,7 +270,7 @@
                  </item>
                 </layout>
                </item>
-               <item row="1" column="0">
+               <item row="2" column="0">
                 <spacer name="verticalSpacer">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -285,6 +285,19 @@
                   </size>
                  </property>
                 </spacer>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="UI_resetview_btn">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Reset View</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
