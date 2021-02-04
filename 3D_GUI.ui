@@ -213,6 +213,12 @@
                </item>
                <item row="1" column="1">
                 <widget class="QSlider" name="UI_colorsensitivity_slider">
+                 <property name="minimum">
+                  <number>10</number>
+                 </property>
+                 <property name="maximum">
+                  <number>500</number>
+                 </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
