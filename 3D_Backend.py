@@ -350,6 +350,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_backward_btn.clicked.connect(self.backward_btn)
         self.UI_resetview_btn.clicked.connect(self.resetview_btn)
         self.UI_colorsensitivity_slider.valueChanged.connect(self.set_colorsensitivity)
+    
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
         # getOpenFileName() returns the file path selected by the user AND the filter used 
@@ -423,7 +424,7 @@ class MainWindow(QtWidgets.QMainWindow):
         print("Camera postion is:", self.graph.cameraPosition(), "\n")
     
     def set_colorsensitivity(self):
-        self._R._color_sensitivity = self.UI_colorsensitivity_slider.value()/1000
+        self._R._color_sensitivity = self.UI_colorsensitivity_slider.value()/5000
 
 
 def main():

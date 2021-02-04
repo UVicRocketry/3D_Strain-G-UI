@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1388</width>
-    <height>845</height>
+    <height>844</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -182,35 +182,6 @@
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_7">
-               <item row="3" column="1">
-                <spacer name="verticalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Expanding</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="2" column="1">
-                <widget class="QPushButton" name="UI_resetview_btn">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>Reset View</string>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="1">
                 <widget class="QSlider" name="UI_colorsensitivity_slider">
                  <property name="minimum">
@@ -319,6 +290,35 @@
                  </item>
                 </layout>
                </item>
+               <item row="2" column="0" colspan="2">
+                <widget class="QPushButton" name="UI_resetview_btn">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Reset View</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="2">
+                <spacer name="verticalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Expanding</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
              </widget>
             </item>
@@ -412,7 +412,7 @@
      <x>0</x>
      <y>0</y>
      <width>1388</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
