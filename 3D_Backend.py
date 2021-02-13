@@ -75,7 +75,7 @@ class Rocket():
     _n = 0
 
     # TODO, implement this in update() (Its a really tricky problem to solve)  
-    # For instance if the solidworks model has 8 strain sections per ring, but only 4 gauges per ring, _gradients_per_section = 1
+    # If the solidworks model has 8 strain sections per ring, but only 4 gauges per ring, _gradients_per_section = 1
     # if sw model has 16 ss per ring, and 4 sgs per ring, _gradients_per_section = 3
     _gradients_per_section = 0
 
