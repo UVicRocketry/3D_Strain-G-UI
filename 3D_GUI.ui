@@ -236,7 +236,7 @@
                     <enum>QLayout::SetMinimumSize</enum>
                    </property>
                    <item>
-                    <widget class="QToolButton" name="UI_backward_btn">
+                    <widget class="QPushButton" name="UI_backward_btn">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                        <horstretch>0</horstretch>
@@ -249,8 +249,10 @@
                      <property name="text">
                       <string/>
                      </property>
-                     <property name="arrowType">
-                      <enum>Qt::LeftArrow</enum>
+                     <property name="icon">
+                      <iconset>
+                       <normalon>icons/skip_previous-24px.svg</normalon>
+                      </iconset>
                      </property>
                     </widget>
                    </item>
@@ -263,7 +265,12 @@
                       </sizepolicy>
                      </property>
                      <property name="text">
-                      <string>Play/Pause</string>
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>../../../Downloads/play_arrow-24px.svg</normaloff>
+                       <normalon>../../../Downloads/pause-24px.svg</normalon>../../../Downloads/play_arrow-24px.svg</iconset>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -271,18 +278,22 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QToolButton" name="UI_forward_btn">
+                    <widget class="QPushButton" name="UI_forward_btn">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                        <horstretch>0</horstretch>
                        <verstretch>0</verstretch>
                       </sizepolicy>
                      </property>
+                     <property name="toolTipDuration">
+                      <number>-1</number>
+                     </property>
                      <property name="text">
                       <string/>
                      </property>
-                     <property name="arrowType">
-                      <enum>Qt::RightArrow</enum>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>../../../Downloads/skip_next-24px.svg</normaloff>../../../Downloads/skip_next-24px.svg</iconset>
                      </property>
                     </widget>
                    </item>
@@ -385,24 +396,36 @@
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="GLViewWidget" name="graph">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>500</width>
-          <height>500</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QFrame" name="frame_7">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="GLViewWidget" name="graph">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>500</width>
+             <height>500</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>

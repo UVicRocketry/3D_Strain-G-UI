@@ -137,13 +137,13 @@ void loop()
 //    Serial.print(',');
 //    Serial.println(ypr[2] * 180/M_PI);
 
-    // Format of data string is y,p,r,altitude,strain-sections...
-    String data = "0.00" + ',' + String(ypr[0] * 180/M_PI) + ',' + String(ypr[1] * 180/M_PI) + ',' + String(ypr[2] * 180/M_PI) + ',' + '0';
+    // Format of data string is time,y,p,r,altitude,strain-sections...
+    String data = String(ypr[0] * 180/M_PI) + ',' + String(ypr[1] * 180/M_PI) + ',' + String(ypr[2] * 180/M_PI) + ',' + '0';
 
     for(int i = 0; i < 12; i++){
       data += ',' + String(cos(i*cos(ypr[0]*180/M_PI)));
     }
-
+    Serial.print("0,"); // Time is 0 for live mode
     Serial.println(data);
     
 //    Serial.print(aaReal.x);
