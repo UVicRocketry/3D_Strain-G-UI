@@ -206,7 +206,6 @@ class Rocket():
 
 
 class MainWindow(QtWidgets.QMainWindow):
-    # TODO Added pause and play button, and step fwrd and reverse, now make them work.
     # TODO add a xyz coor graphic.
     
     # Declare our Rocket. __init__ will do the rest
@@ -236,6 +235,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._R.create_meshes()
         self._R.setup_arduino("COM3")
         self.add_rocket_to_graph(self._R)
+        self.set_framerate() # Initialize the framerate so that the user doesn't have to move the slider to start playback
 
     def set_framerate(self):
         # Update timer   

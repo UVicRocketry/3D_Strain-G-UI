@@ -217,19 +217,6 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="0" column="2" colspan="2">
-                  <widget class="QSlider" name="UI_framerate_slider">
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>300</number>
-                   </property>
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="1" column="1" colspan="3">
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <property name="sizeConstraint">
@@ -269,8 +256,8 @@
                      </property>
                      <property name="icon">
                       <iconset>
-                       <normaloff>../../../Downloads/play_arrow-24px.svg</normaloff>
-                       <normalon>../../../Downloads/pause-24px.svg</normalon>../../../Downloads/play_arrow-24px.svg</iconset>
+                       <normaloff>icons/play_arrow-24px.svg</normaloff>
+                       <normalon>../../../Downloads/pause-24px.svg</normalon>icons/play_arrow-24px.svg</iconset>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -293,11 +280,27 @@
                      </property>
                      <property name="icon">
                       <iconset>
-                       <normaloff>../../../Downloads/skip_next-24px.svg</normaloff>../../../Downloads/skip_next-24px.svg</iconset>
+                       <normaloff>icons/skip_next-24px.svg</normaloff>icons/skip_next-24px.svg</iconset>
                      </property>
                     </widget>
                    </item>
                   </layout>
+                 </item>
+                 <item row="0" column="2" colspan="2">
+                  <widget class="QSlider" name="UI_framerate_slider">
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>300</number>
+                   </property>
+                   <property name="value">
+                    <number>50</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
@@ -419,6 +422,13 @@
              <width>500</width>
              <height>500</height>
             </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="horizontalSlider">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
