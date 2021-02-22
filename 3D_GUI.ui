@@ -185,10 +185,10 @@
                <item row="1" column="1">
                 <widget class="QSlider" name="UI_colorsensitivity_slider">
                  <property name="minimum">
-                  <number>10</number>
+                  <number>1</number>
                  </property>
                  <property name="maximum">
-                  <number>500</number>
+                  <number>1</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -426,7 +426,13 @@
           </widget>
          </item>
          <item>
-          <widget class="QSlider" name="horizontalSlider">
+          <widget class="QSlider" name="UI_scrub_slider">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -445,7 +451,7 @@
      <x>0</x>
      <y>0</y>
      <width>1388</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
