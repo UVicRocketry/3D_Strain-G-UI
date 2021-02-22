@@ -257,7 +257,7 @@
                      <property name="icon">
                       <iconset>
                        <normaloff>icons/play_arrow-24px.svg</normaloff>
-                       <normalon>../../../Downloads/pause-24px.svg</normalon>icons/play_arrow-24px.svg</iconset>
+                       <normalon>icons/pause-24px.svg</normalon>icons/play_arrow-24px.svg</iconset>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
