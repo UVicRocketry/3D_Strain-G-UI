@@ -210,12 +210,13 @@ class MainWindow(QtWidgets.QMainWindow):
     
     # Declare our Rocket. __init__ will do the rest
     _R = Rocket()
-    _grid_height = 0.0      # The height with respect to the "bottom" z grid.
-    _alititude_grid = None  # Becomes a GLMeshItem
-    _prev_altitude = 0.0    # The previous _grid_height
+    _grid_height = 0.0          # The height with respect to the "bottom" z grid.
+    _alititude_grid = None      # Becomes a GLMeshItem
+    _prev_altitude = 0.0        # The previous _grid_height
 
-    _playing = 0            # Set by the frame pause/play button on the gui
-    _frame_direction = 0    # Which direction we are moving in the log file. 1 = fwrd, -1 = rvrs, 0 = paused
+    _playing = 0                # Set by the frame pause/play button on the gui
+    _frame_direction = 0        # Which direction we are moving in the log file. 1 = fwrd, -1 = rvrs, 0 = paused
+    _total_logfile_lines = 0    # Set by logfile_btn(). Stores the total number of lines in the log file. Used by scrub_slider()
 
     def __init__(self, *args, **kwargs):
         
@@ -349,8 +350,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_forward_btn.clicked.connect(self.forward_btn)
         self.UI_backward_btn.clicked.connect(self.backward_btn)
         self.UI_resetview_btn.clicked.connect(self.resetview_btn)
-        self.UI_colorsensitivity_slider.valueChanged.connect(self.set_colorsensitivity)
-        self.UI_scrub_slider.valueChanged.connect(self.set_scrub_slider)
+        self.UI_colorsensitivity_slider.valueChanged.connect(self.colorsensitivity_slider)
+        self.UI_scrub_slider.valueChanged.connect(self.scrub_slider)
+    
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
         # getOpenFileName() returns the file path selected by the user AND the filter used 
@@ -370,8 +372,16 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # Update our Rocket's filepath
         self._R._logfile_path = fname
-    
-        print("Opened log file:", fname, "\n")
+        
+        # Get the total number of lines in the file. - 1
+        with open(fname) as f:
+            _total_logfile_lines = sum(1 for line in f) - 1
+
+        # Update the max value of the slider
+        self.UI_scrub_slider.setMaximum(_total_logfile_lines)
+
+        print("Opened log file:", fname)
+        print("Total lines:", _total_logfile_lines, "\n")
 
     def closelog_btn(self):
         # Clear the text on the line edit. This is for switching to live mode
@@ -423,15 +433,15 @@ class MainWindow(QtWidgets.QMainWindow):
         print("Reset view")
         print("Camera postion is:", self.graph.cameraPosition(), "\n")
     
-    def set_colorsensitivity(self):
+    def colorsensitivity_slider(self):
         self._R._color_sensitivity = self.UI_colorsensitivity_slider.value()/5000
 
-    def set_scrub_slider(self):
-        fname, filter = QFileDialog.getOpenFileName(self, 'Open file')
-        with open(fname) as f:
-            total_lines = sum(1 for line in f)
-        self.set_scrub_slider.value.setMaximum(total_lines)
-        self._frame_direction = self.UI_scrub_slider.value()
+    def scrub_slider(self):
+        # The max value of the slider is set to the total number of lines in the logfile
+        # We can then use the slider to "scrub" through the logfile like a youtube video
+        # By setting the text of UI_linenum_LE to the slider value, it will integrate nicely
+        # with the rest of the methods that use the log files.
+        self.UI_linenum_LE.setText(str(self.UI_scrub_slider.value()))
         
 
 def main():
