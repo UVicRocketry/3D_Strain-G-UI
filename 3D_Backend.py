@@ -236,7 +236,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._R.setup_arduino("COM3")
         self.add_rocket_to_graph(self._R)
         self.set_framerate() # Initialize the framerate so that the user doesn't have to move the slider to start playback
-
+        
     def set_framerate(self):
         # Update timer   
         self.timer = QtCore.QTimer()
@@ -350,7 +350,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_backward_btn.clicked.connect(self.backward_btn)
         self.UI_resetview_btn.clicked.connect(self.resetview_btn)
         self.UI_colorsensitivity_slider.valueChanged.connect(self.set_colorsensitivity)
-    
+        self.UI_scrub_slider.valueChanged.connect(self.set_scrub_slider)
     def browse_btn(self):
         # This creates a file dialog box so we can select a data file
         # getOpenFileName() returns the file path selected by the user AND the filter used 
@@ -367,12 +367,12 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # Update the lineEdit beside "Load File" button on the GUI.
         self.UI_logfile_LE.setText(fname)
-
+        
         # Update our Rocket's filepath
         self._R._logfile_path = fname
-
-        print("Opened log file:", fname, "\n")
     
+        print("Opened log file:", fname, "\n")
+
     def closelog_btn(self):
         # Clear the text on the line edit. This is for switching to live mode
         self.UI_logfile_LE.setText("")
@@ -426,6 +426,13 @@ class MainWindow(QtWidgets.QMainWindow):
     def set_colorsensitivity(self):
         self._R._color_sensitivity = self.UI_colorsensitivity_slider.value()/5000
 
+    def set_scrub_slider(self):
+        fname, filter = QFileDialog.getOpenFileName(self, 'Open file')
+        with open(fname) as f:
+            total_lines = sum(1 for line in f)
+        self.set_scrub_slider.value.setMaximum(total_lines)
+        self._frame_direction = self.UI_scrub_slider.value()
+        
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
