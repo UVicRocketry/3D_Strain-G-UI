@@ -315,6 +315,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.UI_altitude_LE.setText(str(self._R._altitude))
             self.UI_altitude_time_LE.setText(str(self._R._time))
 
+            # Update the scrub_slider position even if user hasn't moved it but the file is still playing
+            self.UI_scrub_slider.setValue(int(self.UI_linenum_LE.text()))
+
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
         self._R.create_meshes()
