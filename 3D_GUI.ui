@@ -320,7 +320,7 @@
                <item row="3" column="0" colspan="2">
                 <widget class="QTableWidget" name="UI_strain_table">
                  <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
@@ -471,7 +471,7 @@
      <x>0</x>
      <y>0</y>
      <width>1388</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -200,8 +200,8 @@ class Rocket():
         self._time = time # TODO This breaks in live mode for some reason??
 
         # Color the strain sections based on strain values
-        for i in range(len(self.strains_values)):
-            strain = float(self.strains_values[i])                      # Strain reading
+        for i in range(len(self._strain_values)):
+            strain = float(self._strain_values[i])                      # Strain reading
             ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
             color = self.get_color(strain)                  # Color based on the strain
             self._mesh_models[ss_index].setColor(color)     # Update the color of the strain mesh
@@ -323,6 +323,9 @@ class MainWindow(QtWidgets.QMainWindow):
             # Update the number of rows in UI_strain_table (It gets updated in here in case the user loads
             # a new rocket into the gui). There is one row per strain gauge. (r*n)
             self.UI_strain_table.setRowCount(self._R._r * self._R._n)
+
+            for i in range(self._R._r*self._R._n):
+               self.UI_strain_table.item(i, 1, str(self._R._strain_values[i]))  
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
