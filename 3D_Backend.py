@@ -74,6 +74,8 @@ class Rocket():
     _r = 0
     _n = 0
 
+    _strain_values = []
+
     # TODO, implement this in update() (Its a really tricky problem to solve)  
     # If the solidworks model has 8 strain sections per ring, but only 4 gauges per ring, _gradients_per_section = 1
     # if sw model has 16 ss per ring, and 4 sgs per ring, _gradients_per_section = 3
@@ -171,10 +173,10 @@ class Rocket():
             line        = line.strip()          
             list_data   = line.split(',')       # Delimiting on commas
 
-        time        = list_data[0]              # Get timestamp
-        angles      = list_data[1:4]            # Get ypr values
-        altitude    = float(list_data[4])       # Get altitude value
-        strains     = list_data[5:]             # Get strain values. [n:] means from n to the end of the list
+        time                = list_data[0]              # Get timestamp
+        angles              = list_data[1:4]            # Get ypr values
+        altitude            = float(list_data[4])       # Get altitude value
+        self._strain_values = list_data[5:]             # Get strain values. [n:] means from n to the end of the list
 
         # Now with list_data, we can update the model
 
@@ -198,8 +200,8 @@ class Rocket():
         self._time = time # TODO This breaks in live mode for some reason??
 
         # Color the strain sections based on strain values
-        for i in range(len(strains)):
-            strain = float(strains[i])                      # Strain reading
+        for i in range(len(self.strains_values)):
+            strain = float(self.strains_values[i])                      # Strain reading
             ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
             color = self.get_color(strain)                  # Color based on the strain
             self._mesh_models[ss_index].setColor(color)     # Update the color of the strain mesh
@@ -317,6 +319,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
             # Update the scrub_slider position even if user hasn't moved it but the file is still playing
             self.UI_scrub_slider.setValue(int(self.UI_linenum_LE.text()))
+
+            # Update the number of rows in UI_strain_table (It gets updated in here in case the user loads
+            # a new rocket into the gui). There is one row per strain gauge. (r*n)
+            self.UI_strain_table.setRowCount(self._R._r * self._R._n)
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
@@ -445,7 +451,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # By setting the text of UI_linenum_LE to the slider value, it will integrate nicely
         # with the rest of the methods that use the log files.
         self.UI_linenum_LE.setText(str(self.UI_scrub_slider.value()))
-        
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
