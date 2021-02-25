@@ -1,6 +1,6 @@
 from OpenGL.raw.GL.VERSION.GL_1_0 import GL_LINEAR_ATTENUATION
 from PyQt5 import QtGui, QtWidgets, uic, QtCore
-from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtWidgets import QFileDialog, QTableWidget, QTableWidgetItem
 from numpy.lib.function_base import sinc
 import pyqtgraph.opengl as gl
 import numpy as np
@@ -74,6 +74,8 @@ class Rocket():
     _r = 0
     _n = 0
 
+    # Contains a list of the actual strain readings from the strain gauges
+    # Used to update the strain values table in the gui (in update_gui())
     _strain_values = []
 
     # TODO, implement this in update() (Its a really tricky problem to solve)  
@@ -197,11 +199,11 @@ class Rocket():
         self._roll = float(angles[0])
 
         self._altitude = altitude
-        self._time = time # TODO This breaks in live mode for some reason??
+        self._time = time
 
         # Color the strain sections based on strain values
         for i in range(len(self._strain_values)):
-            strain = float(self._strain_values[i])                      # Strain reading
+            strain = float(self._strain_values[i])          # Strain reading
             ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
             color = self.get_color(strain)                  # Color based on the strain
             self._mesh_models[ss_index].setColor(color)     # Update the color of the strain mesh
@@ -324,8 +326,10 @@ class MainWindow(QtWidgets.QMainWindow):
             # a new rocket into the gui). There is one row per strain gauge. (r*n)
             self.UI_strain_table.setRowCount(self._R._r * self._R._n)
 
+            # Add the strain values in _strain_values to the table. QTableWidgets only accept QTableWidgetItem
+            # so we create those first, assign our strain value to it, then insert it into the table
             for i in range(self._R._r*self._R._n):
-               self.UI_strain_table.item(i, 1, str(self._R._strain_values[i]))  
+                self.UI_strain_table.setItem(i, 1, QTableWidgetItem(self._R._strain_values[i]))
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
@@ -353,8 +357,8 @@ class MainWindow(QtWidgets.QMainWindow):
         #   backend methods:    description_objecttype
 
         # This makes things much easier to understand.
-        self.UI_framerate_slider.valueChanged.connect(self.set_framerate)
         self.UI_browse_btn.clicked.connect(self.browse_btn)
+        self.UI_framerate_slider.valueChanged.connect(self.set_framerate)
         self.UI_logfile_btn.clicked.connect(self.logfile_btn)
         self.UI_closelog_btn.clicked.connect(self.closelog_btn)
         self.UI_livemode_CB.stateChanged.connect(self.livemode_CB)
