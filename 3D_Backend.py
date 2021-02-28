@@ -331,13 +331,11 @@ class MainWindow(QtWidgets.QMainWindow):
             for i in range(self._R._r*self._R._n):
                 self.UI_strain_table.setItem(i, 1, QTableWidgetItem(self._R._strain_values[i]))
             
-            self.UI_pry_table.setItem(0, 0, QTableWidgetItem(self._R._pitch))
-            self.UI_pry_table.setItem(1, 0, QTableWidgetItem(self._R._roll))
-            self.UI_pry_table.setItem(2, 0, QTableWidgetItem(self._R._yaw))
-            self.UI_pry_table.setItem(3, 0, QTableWidgetItem(self._R._altitude))
-            self.UI_pry_table.setItem(4, 0, QTableWidgetItem(self._R._time))
-            
-            
+            self.UI_pry_table.setItem(0, 0, QTableWidgetItem(str(self._R._pitch)))
+            self.UI_pry_table.setItem(1, 0, QTableWidgetItem(str(self._R._roll)))
+            self.UI_pry_table.setItem(2, 0, QTableWidgetItem(str(self._R._yaw)))
+            self.UI_pry_table.setItem(3, 0, QTableWidgetItem(str(self._R._altitude)))
+            self.UI_pry_table.setItem(4, 0, QTableWidgetItem(str(self._R._time)))        
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
