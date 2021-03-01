@@ -474,50 +474,7 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QGridLayout" name="gridLayout_6">
-            <item row="0" column="0">
-             <widget class="QFrame" name="frame_6">
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_8">
-               <item row="0" column="0">
-                <layout class="QGridLayout" name="gridLayout_5">
-                 <item row="0" column="1">
-                  <widget class="QLineEdit" name="UI_altitude_LE"/>
-                 </item>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="UI_altitude_label">
-                   <property name="text">
-                    <string>Altitude (ft):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="UI_altitude_time_label">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Time</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QLineEdit" name="UI_altitude_time_LE"/>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </item>
-           </layout>
+           <layout class="QGridLayout" name="gridLayout_6"/>
           </widget>
          </item>
         </layout>

@@ -316,8 +316,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self._grid_height += 30*dz
 
             # Update the altitude line edit on the gui
-            self.UI_altitude_LE.setText(str(self._R._altitude))
-            self.UI_altitude_time_LE.setText(str(self._R._time))
+            #self.UI_altitude_LE.setText(str(self._R._altitude))
+            #self.UI_altitude_time_LE.setText(str(self._R._time))
 
             # Update the scrub_slider position even if user hasn't moved it but the file is still playing
             self.UI_scrub_slider.setValue(int(self.UI_linenum_LE.text()))
