@@ -326,8 +326,9 @@ class MainWindow(QtWidgets.QMainWindow):
             # a new rocket into the gui). There is one row per strain gauge. (r*n)
             self.UI_strain_table.setRowCount(self._R._r * self._R._n)
 
-            # Add the strain values in _strain_values to the table. QTableWidgets only accept QTableWidgetItem
-            # so we create those first, assign our strain value to it, then insert it into the table
+            # Add the values and labels to the tables on the gui. QTableWidgets only accept QTableWidgetItem
+            # so we create those first, assign our value to it, then insert it into the table
+            # Tables are accessed in the form (row, col, value)
             for i in range(self._R._r*self._R._n):
                 self.UI_strain_table.setItem(i, 1, QTableWidgetItem(self._R._strain_values[i]))
             
@@ -387,7 +388,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_browse_LE.setText(fname)
 
     def logfile_btn(self):
-        fname, filter = QFileDialog.getOpenFileName(self, 'Open file')
+        fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.csv")
         
         # Update the lineEdit beside "Load File" button on the GUI.
         self.UI_logfile_LE.setText(fname)
