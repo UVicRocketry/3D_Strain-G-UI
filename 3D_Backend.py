@@ -12,8 +12,9 @@ from serial import Serial
 import math
 import linecache
 import json
+import qdarkstyle
 
-# pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph pyopengl
+# pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph pyopengl qdarkstyle
 
 class Rocket():
     # Will be used for log files
@@ -88,7 +89,7 @@ class Rocket():
     _gradients_per_section = 0
 
     def __init__(self):
-        print("Created Rocket:", self._name, "\n")
+        print("Created Rocket!\n")
 
     def create_meshes(self):
         # Create a list of meshes from all the STL files in the STL_files folder according
@@ -211,7 +212,6 @@ class Rocket():
             ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
             color = self.get_color(strain)                  # Color based on the strain
             self._mesh_models[ss_index].setColor(color)     # Update the color of the strain mesh
-
 
 class MainWindow(QtWidgets.QMainWindow):
     # TODO add a xyz coor graphic.
@@ -500,9 +500,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self._playing = False
         
 
-
 def main():
     app = QtWidgets.QApplication(sys.argv)
+
+    # Load the dark theme from qdarkstyle following this guide
+    # https://github.com/ColinDuquesnoy/QDarkStyleSheet
+    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+
     main = MainWindow()
     main.show()
     sys.exit(app.exec_())
