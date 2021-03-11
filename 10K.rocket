@@ -1,0 +1,7 @@
+{
+    "NAME": "Arturo's Starship",
+    "STL_DIRECTORY" : "STL_Files",
+    "RINGS" : 3,
+    "SG_PER_RING" : 4,
+    "COLOR_SENSITIVITY" : 0.02
+}

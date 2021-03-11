@@ -11,6 +11,7 @@ import os
 from serial import Serial
 import math
 import linecache
+import json
 
 # pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph pyopengl
 
@@ -35,12 +36,15 @@ class Rocket():
     # Set by the "Live Mode?" checkbox in the gui
     _livemode = False
 
-    # Set by logfile_btn(). Contains the path of the log file we are reading from
+    # Set by logfile_btn(). Contains the path of the .csv log file we are reading from
     _logfile_path = ""
 
+    # Set by loadrocket_btn(). Contains the path of the .rocket file we are reading from
+    _rocketfile_path = ""
+
     # How much the color of a strain section changes based on a strain reading
-    # Higher numbers means more sensitive
-    _color_sensitivity = 0.02
+    # Higher numbers means more sensitive. 0.02 is a good bet
+    _color_sensitivity = 0
 
     # Strain locations
     # This is gonna depend on the layout of the strain gauges. For now we will assume there are r rings of n gauges mounted
@@ -84,7 +88,7 @@ class Rocket():
     _gradients_per_section = 0
 
     def __init__(self):
-        print("Created Rocket!\n")
+        print("Created Rocket:", self._name, "\n")
 
     def create_meshes(self):
         # Create a list of meshes from all the STL files in the STL_files folder according
@@ -118,7 +122,7 @@ class Rocket():
 
                     # Now if we want to access a strain section in _mesh_models to change its color, we can find its
                     # index in _mesh_models by accessing _strain_sections
-        print("\n")
+        print("")
 
     def stl2mesh3d(self, stl_mesh):
         # Taken from https://chart-studio.plotly.com/~empet/15434.embed
@@ -143,7 +147,7 @@ class Rocket():
             self.ser = Serial(serial_port, baud_rate)
             #self._livemode = True
         except:
-            print("Could not set up serial connection with Arduino. Check the connection and try again!\n\n")
+            print("Could not set up serial connection with Arduino. Check the connection and try again!\n")
 
     def get_color(self, n: int):
         # Given a strain reading, returns a color (tuple). Used to color the strain sections based on readings from the strain gauges.
@@ -212,7 +216,6 @@ class Rocket():
 class MainWindow(QtWidgets.QMainWindow):
     # TODO add a xyz coor graphic.
     
-    # Declare our Rocket. __init__ will do the rest
     _R = Rocket()
     _grid_height = 0.0          # The height with respect to the "bottom" z grid.
     _alititude_grid = None      # Becomes a GLMeshItem
@@ -228,19 +231,13 @@ class MainWindow(QtWidgets.QMainWindow):
         # Load the UI Page. uic is the thing that lets us use a .ui file
         uic.loadUi('3D_GUI.ui', self)
         
+        # Add the grids to the graph in the gui
         self.setup_graph()
+
+        # Connect the buttons on the gui to the backend logic
         self.connect_gui()
 
-        # The rest of the methods will be called by the user in the GUI
-        # TODO Use the configparser library to load .rocket files with this info in them
-        self._R._stl_dir = "STL_files"
-        self._R._r = 3
-        self._R._n = 4
-        self._R._gradients_per_section = 1
-        self._R.create_meshes()
-        self._R.setup_arduino("COM3")
-        self.add_rocket_to_graph(self._R)
-        self.set_framerate() # Initialize the framerate so that the user doesn't have to move the slider to start playback
+        # The rest of the set up will happen when the user loads a .rocket file
         
     def set_framerate(self):
         # Update timer   
@@ -332,11 +329,11 @@ class MainWindow(QtWidgets.QMainWindow):
             for i in range(self._R._r*self._R._n):
                 self.UI_strain_table.setItem(i, 1, QTableWidgetItem(self._R._strain_values[i]))
             
-            self.UI_pry_table.setItem(0, 1, QTableWidgetItem(str(self._R._pitch)))
-            self.UI_pry_table.setItem(1, 1, QTableWidgetItem(str(self._R._roll)))
-            self.UI_pry_table.setItem(2, 1, QTableWidgetItem(str(self._R._yaw)))
-            self.UI_pry_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude)))
-            self.UI_pry_table.setItem(4, 1, QTableWidgetItem(str(self._R._time)))        
+            self.UI_ypr_table.setItem(0, 1, QTableWidgetItem(str(self._R._pitch)))
+            self.UI_ypr_table.setItem(1, 1, QTableWidgetItem(str(self._R._roll)))
+            self.UI_ypr_table.setItem(2, 1, QTableWidgetItem(str(self._R._yaw)))
+            self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude)))
+            self.UI_ypr_table.setItem(4, 1, QTableWidgetItem(str(self._R._time)))        
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
@@ -356,15 +353,15 @@ class MainWindow(QtWidgets.QMainWindow):
     ## GUI Methods
     def connect_gui(self):
         # These methods connect a gui object's event to a method.
-        # Here we can see UI_browse_btn's "clicked" event is being connected to the browse_btn()
-        # method in the backend. This means if UI_browse_btn is clicked, browse_btn() runs.
+        # Here we can see UI_loadrocket_btn's "clicked" event is being connected to the UI_loadrocket_btn()
+        # method in the backend. This means if UI_loadrocket_btn is clicked, UI_loadrocket_btn() runs.
 
         # Our naming convention is:
         #   gui objects:        UI_description_objecttype
         #   backend methods:    description_objecttype
 
         # This makes things much easier to understand.
-        self.UI_browse_btn.clicked.connect(self.browse_btn)
+        self.UI_loadrocket_btn.clicked.connect(self.loadrocket_btn)
         self.UI_framerate_slider.valueChanged.connect(self.set_framerate)
         self.UI_logfile_btn.clicked.connect(self.logfile_btn)
         self.UI_closelog_btn.clicked.connect(self.closelog_btn)
@@ -376,7 +373,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_colorsensitivity_slider.valueChanged.connect(self.colorsensitivity_slider)
         self.UI_scrub_slider.valueChanged.connect(self.scrub_slider)
     
-    def browse_btn(self):
+    def loadrocket_btn(self):
         # This creates a file dialog box so we can select a data file
         # getOpenFileName() returns the file path selected by the user AND the filter used 
         # as a tuple. In our case the filter is *.rocket but we only want the file path so we 
@@ -384,8 +381,30 @@ class MainWindow(QtWidgets.QMainWindow):
         # https://stackoverflow.com/questions/43509220/qtwidgets-qfiledialog-getopenfilename-returns-a-tuple
         fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.rocket")
         
-        # Update the lineEdit beside "Browse" button on the GUI.
-        self.UI_browse_LE.setText(fname)
+        # Update the lineEdit beside "Load Rocket" button on the GUI.
+        self.UI_loadrocket_LE.setText(fname)
+        
+        # Read the data from the file using the json library into a dictionary 
+        with open(fname) as f:
+            data_string = f.read()
+        data_dict = json.loads(data_string) 
+
+        # Assign the values read from the file to our rocket
+        self._R._rocketfile_path    = fname
+        self._R._name               = data_dict["NAME"]
+        self._R._stl_dir            = data_dict["STL_DIRECTORY"]
+        self._R._r                  = data_dict["RINGS"]
+        self._R._n                  = data_dict["SG_PER_RING"]
+        self._R._color_sensitivity  = data_dict["COLOR_SENSITIVITY"]
+
+        # Create the rocket meshes from the stls
+        self._R.create_meshes()
+
+        # Add the meshes to the graph
+        self.add_rocket_to_graph(self._R)
+        
+        # Initialize the framerate so that the user doesn't have to move the slider to start playback
+        self.set_framerate() 
 
     def logfile_btn(self):
         fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.csv")
@@ -423,13 +442,17 @@ class MainWindow(QtWidgets.QMainWindow):
             self._R._livemode = False
     
     def playpause_btn(self):
-        self._playing = self.UI_playpause_btn.isChecked()
-        self._frame_direction = int(self._playing)
-        
-        if self._playing:
-            print("Playing\n")
+        if len(self._R._logfile_path) != 0:
+            self._playing = self.UI_playpause_btn.isChecked()
+            self._frame_direction = int(self._playing)
+            
+            if self._playing:
+                print("Playing\n")
+            else:
+                print("Paused\n")
         else:
-            print("Paused\n")
+            print("No logfile loaded. Click the \"Load Log File\" button\n")
+            self.UI_playpause_btn.setChecked(False)
             
     def forward_btn(self):
         # Step one frame forward, then pause
@@ -442,13 +465,16 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def backward_btn(self):
         # Step one frame reverse, then pause
-        self._frame_direction = -1
-        self._playing = True
-        self.update_gui()
-        self._playing = False
-        self._frame_direction = 1
-        self.UI_playpause_btn.setChecked(False)
-        print("Stepped backwards 1 frame\n")
+
+        # Makes sure we don't try to access line numbers below 1
+        if int(self.UI_linenum_LE.text()) != 1:
+            self._frame_direction = -1
+            self._playing = True
+            self.update_gui()
+            self._playing = False
+            self._frame_direction = 1
+            self.UI_playpause_btn.setChecked(False)
+            print("Stepped backwards 1 frame\n")
 
     def resetview_btn(self):
         self.graph.reset()
@@ -463,8 +489,16 @@ class MainWindow(QtWidgets.QMainWindow):
         # The max value of the slider is set to the total number of lines in the logfile
         # We can then use the slider to "scrub" through the logfile like a youtube video
         # By setting the text of UI_linenum_LE to the slider value, it will integrate nicely
-        # with the rest of the methods that use the log files.
+        # with the rest of the methods that use the log files
         self.UI_linenum_LE.setText(str(self.UI_scrub_slider.value()))
+        
+        # If we are paused, we still want the scrub slider to update the gui when it moves so
+        # we have to toggle between playing and paused in order to update
+        if not self._playing:
+            self._playing = True
+            self.update_gui()
+            self._playing = False
+        
 
 
 def main():

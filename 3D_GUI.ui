@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1388</width>
-    <height>862</height>
+    <width>1366</width>
+    <height>860</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,6 +21,21 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QFrame" name="frame">
       <property name="sizePolicy">
@@ -72,21 +87,8 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="0">
-               <widget class="QPushButton" name="UI_browse_btn">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Browse</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="UI_browse_LE">
+               <widget class="QLineEdit" name="UI_loadrocket_LE">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -98,6 +100,19 @@
                 </property>
                 <property name="placeholderText">
                  <string>No rocket selected</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="UI_loadrocket_btn">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Load Rocket</string>
                 </property>
                </widget>
               </item>
@@ -114,6 +129,19 @@
                 </property>
                </widget>
               </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="UI_logfile_btn">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Load Log File</string>
+                </property>
+               </widget>
+              </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="UI_logfile_LE">
                 <property name="sizePolicy">
@@ -127,19 +155,6 @@
                 </property>
                 <property name="placeholderText">
                  <string>No log file selected</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="UI_logfile_btn">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Load Log File</string>
                 </property>
                </widget>
               </item>
@@ -182,29 +197,6 @@
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_7">
-               <item row="1" column="0">
-                <widget class="QLabel" name="UI_colorsensitivity_label">
-                 <property name="text">
-                  <string>Color Sensitivity</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QSlider" name="UI_colorsensitivity_slider">
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>100</number>
-                 </property>
-                 <property name="value">
-                  <number>25</number>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="0" colspan="2">
                 <layout class="QGridLayout" name="gridLayout">
                  <item row="0" column="1">
@@ -217,6 +209,22 @@
                    </property>
                    <property name="text">
                     <string>Frame Rate:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="2" colspan="2">
+                  <widget class="QSlider" name="UI_framerate_slider">
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>300</number>
+                   </property>
+                   <property name="value">
+                    <number>50</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
@@ -289,164 +297,46 @@
                    </item>
                   </layout>
                  </item>
-                 <item row="0" column="2" colspan="2">
-                  <widget class="QSlider" name="UI_framerate_slider">
+                 <item row="2" column="2" colspan="2">
+                  <widget class="QSlider" name="UI_colorsensitivity_slider">
                    <property name="minimum">
-                    <number>0</number>
+                    <number>1</number>
                    </property>
                    <property name="maximum">
-                    <number>300</number>
+                    <number>100</number>
                    </property>
                    <property name="value">
-                    <number>50</number>
+                    <number>25</number>
                    </property>
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
+                 <item row="2" column="1">
+                  <widget class="QLabel" name="UI_colorsensitivity_label">
+                   <property name="text">
+                    <string>Color Sensitivity</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1" colspan="3">
+                  <widget class="QPushButton" name="UI_resetview_btn">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Reset View</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
-               </item>
-               <item row="2" column="0" colspan="2">
-                <widget class="QPushButton" name="UI_resetview_btn">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="text">
-                  <string>Reset View</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0" colspan="2">
-                <widget class="QTableWidget" name="UI_strain_table">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="alternatingRowColors">
-                  <bool>true</bool>
-                 </property>
-                 <property name="textElideMode">
-                  <enum>Qt::ElideRight</enum>
-                 </property>
-                 <property name="rowCount">
-                  <number>0</number>
-                 </property>
-                 <property name="columnCount">
-                  <number>1</number>
-                 </property>
-                 <attribute name="horizontalHeaderVisible">
-                  <bool>false</bool>
-                 </attribute>
-                 <attribute name="horizontalHeaderStretchLastSection">
-                  <bool>true</bool>
-                 </attribute>
-                 <attribute name="verticalHeaderVisible">
-                  <bool>true</bool>
-                 </attribute>
-                 <attribute name="verticalHeaderStretchLastSection">
-                  <bool>false</bool>
-                 </attribute>
-                 <column/>
-                </widget>
-               </item>
-               <item row="4" column="0" colspan="2">
-                <widget class="QTableWidget" name="UI_pry_table">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="mouseTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="tabletTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="tabKeyNavigation">
-                  <bool>true</bool>
-                 </property>
-                 <property name="showDropIndicator" stdset="0">
-                  <bool>true</bool>
-                 </property>
-                 <property name="dragDropOverwriteMode">
-                  <bool>true</bool>
-                 </property>
-                 <property name="alternatingRowColors">
-                  <bool>false</bool>
-                 </property>
-                 <property name="showGrid">
-                  <bool>true</bool>
-                 </property>
-                 <property name="gridStyle">
-                  <enum>Qt::SolidLine</enum>
-                 </property>
-                 <property name="sortingEnabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="wordWrap">
-                  <bool>true</bool>
-                 </property>
-                 <property name="cornerButtonEnabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="rowCount">
-                  <number>5</number>
-                 </property>
-                 <property name="columnCount">
-                  <number>2</number>
-                 </property>
-                 <attribute name="horizontalHeaderVisible">
-                  <bool>false</bool>
-                 </attribute>
-                 <attribute name="horizontalHeaderHighlightSections">
-                  <bool>true</bool>
-                 </attribute>
-                 <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-                  <bool>false</bool>
-                 </attribute>
-                 <attribute name="horizontalHeaderStretchLastSection">
-                  <bool>true</bool>
-                 </attribute>
-                 <attribute name="verticalHeaderVisible">
-                  <bool>false</bool>
-                 </attribute>
-                 <row/>
-                 <row/>
-                 <row/>
-                 <row/>
-                 <row/>
-                 <column/>
-                 <column/>
-                 <item row="0" column="0">
-                  <property name="text">
-                   <string>Pitch</string>
-                  </property>
-                 </item>
-                 <item row="1" column="0">
-                  <property name="text">
-                   <string>Roll</string>
-                  </property>
-                 </item>
-                 <item row="2" column="0">
-                  <property name="text">
-                   <string>Yaw</string>
-                  </property>
-                 </item>
-                 <item row="3" column="0">
-                  <property name="text">
-                   <string>Altitude</string>
-                  </property>
-                 </item>
-                 <item row="4" column="0">
-                  <property name="text">
-                   <string>Time</string>
-                  </property>
-                 </item>
-                </widget>
                </item>
               </layout>
              </widget>
@@ -468,10 +358,171 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QGridLayout" name="gridLayout_6"/>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QTableWidget" name="UI_ypr_table">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="mouseTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="tabletTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="tabKeyNavigation">
+                 <bool>true</bool>
+                </property>
+                <property name="showDropIndicator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="dragDropOverwriteMode">
+                 <bool>true</bool>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>false</bool>
+                </property>
+                <property name="showGrid">
+                 <bool>true</bool>
+                </property>
+                <property name="gridStyle">
+                 <enum>Qt::SolidLine</enum>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>false</bool>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+                <property name="cornerButtonEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="rowCount">
+                 <number>5</number>
+                </property>
+                <property name="columnCount">
+                 <number>2</number>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderHighlightSections">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <column/>
+                <column/>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>Pitch</string>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>Roll</string>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>Yaw</string>
+                 </property>
+                </item>
+                <item row="3" column="0">
+                 <property name="text">
+                  <string>Altitude</string>
+                 </property>
+                </item>
+                <item row="4" column="0">
+                 <property name="text">
+                  <string>Time</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="UI_strain_table">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="textElideMode">
+                 <enum>Qt::ElideRight</enum>
+                </property>
+                <property name="rowCount">
+                 <number>0</number>
+                </property>
+                <property name="columnCount">
+                 <number>1</number>
+                </property>
+                <attribute name="horizontalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderStretchLastSection">
+                 <bool>false</bool>
+                </attribute>
+                <column/>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -485,6 +536,21 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
@@ -528,7 +594,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1388</width>
+     <width>1366</width>
      <height>26</height>
     </rect>
    </property>
