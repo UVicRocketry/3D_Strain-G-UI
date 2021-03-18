@@ -158,8 +158,18 @@ class Rocket():
         # Compressive strain readings are less than 0 so the sigmoid returns a number less than 0.5
         # Tensile strain readings greater than 0 so the sigmoid returns a number greater than 0.5
         # Higher strain means increased red and decreased blue
-        sigmoid = 1 / (1 + math.exp(-n*self._color_sensitivity))
-        color   = QtGui.QColor(int(255*sigmoid), 0, int(255*(1-sigmoid)))
+
+        # This is the rough distance between the max and min strain values
+        # This is a graph of whats going on https://www.desmos.com/calculator/wyz0wqfabb
+        # The x axis is the strain reading
+        
+        strain_magnitude = 130
+
+        sigmoid_red     = 1 / (1 + math.exp((strain_magnitude+n)*self._color_sensitivity))
+        sigmoid_green   = -2 * abs((1 / (1 + math.exp(2*n*self._color_sensitivity))) - 0.5) + 1
+        sigmoid_blue    = 1 / (1 + math.exp((strain_magnitude-n)*self._color_sensitivity))
+
+        color   = QtGui.QColor(int(255*sigmoid_red), int(255*sigmoid_green), int(255*sigmoid_blue))
 
         return color
 
@@ -499,6 +509,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.update_gui()
             self._playing = False
         
+
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
