@@ -498,7 +498,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self._playing = True
             self.update_gui()
             self._playing = False
-        
+    def strain_table(self):
+        i=0
+        if self.UI_strain_table.cellClicked(i,1):
+            strain = float(self._strain_values[i])          # Strain reading
+            ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
+            color = self.get_color(strain)                  # Color based on the strain
+            self._mesh_models[ss_index].setColor(QtGui.QColor(0,0,0))     # Update the color of the strain mesh 
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
