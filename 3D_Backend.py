@@ -14,6 +14,7 @@ import linecache
 import json
 import qdarkstyle
 
+# Copy this line into the terminal and run it to install all the required libraries.
 # pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph pyopengl qdarkstyle
 
 class Rocket():
