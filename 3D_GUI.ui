@@ -557,6 +557,16 @@
         </layout>
        </item>
        <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>compression spectrum.png</pixmap>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="UVR_logo">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -671,7 +681,7 @@
      <x>0</x>
      <y>0</y>
      <width>1514</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

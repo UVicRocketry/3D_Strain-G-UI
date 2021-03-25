@@ -511,7 +511,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.update_gui()
             self._playing = False
     def strain_table(self):
-        i=0
         if self.UI_strain_table.cellClicked(i,1):
             strain = float(self._strain_values[i])          # Strain reading
             ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
