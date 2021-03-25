@@ -166,7 +166,8 @@ class Rocket():
         strain_magnitude = 130
 
         sigmoid_red     = 1 / (1 + math.exp((strain_magnitude+n)*self._color_sensitivity))
-        sigmoid_green   = -2 * abs((1 / (1 + math.exp(2*n*self._color_sensitivity))) - 0.5) + 1
+        #sigmoid_green   = -2 * abs((1 / (1 + math.exp(2*n*self._color_sensitivity))) - 0.5) + 1
+        sigmoid_green   = 1 / (math.exp(0.05*n) + math.exp(-0.05*n))
         sigmoid_blue    = 1 / (1 + math.exp((strain_magnitude-n)*self._color_sensitivity))
 
         color   = QtGui.QColor(int(255*sigmoid_red), int(255*sigmoid_green), int(255*sigmoid_blue))
