@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1514</width>
-    <height>883</height>
+    <height>943</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -562,7 +562,10 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>compression spectrum.png</pixmap>
+          <pixmap>icons/compression spectrum.png</pixmap>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -639,6 +642,9 @@
        </property>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="rightMargin">
+          <number>7</number>
+         </property>
          <item>
           <widget class="GLViewWidget" name="graph">
            <property name="sizePolicy">
@@ -681,7 +687,7 @@
      <x>0</x>
      <y>0</y>
      <width>1514</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

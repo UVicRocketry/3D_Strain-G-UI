@@ -80,6 +80,11 @@ class Rocket():
     _r = 0
     _n = 0
 
+    # Contains a list of the strain sections that are currently selected/highlighted in UI_strain_table
+    # Used in update to highlight those sections a different color
+    # Set by strain_table()
+    _selected_strain_sections = []
+
     # Contains a list of the actual strain readings from the strain gauges
     # Used to update the strain values table in the gui (in update_gui())
     _strain_values = []
@@ -219,10 +224,16 @@ class Rocket():
         self._time = time
 
         # Color the strain sections based on strain values
+        # if check to see if the current ss is selected by the user and thus needs to be highlighted
         for i in range(len(self._strain_values)):
             strain = float(self._strain_values[i])          # Strain reading
             ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
-            color = self.get_color(strain)                  # Color based on the strain
+            
+            if i not in self._selected_strain_sections:
+                color = self.get_color(strain)              # Color based on the strain
+            else:
+                color   = QtGui.QColor(255, 0, 255)         # Bright pink because section is selected in gui
+
             self._mesh_models[ss_index].setColor(color)     # Update the color of the strain mesh
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -384,6 +395,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.UI_resetview_btn.clicked.connect(self.resetview_btn)
         self.UI_colorsensitivity_slider.valueChanged.connect(self.colorsensitivity_slider)
         self.UI_scrub_slider.valueChanged.connect(self.scrub_slider)
+        self.UI_strain_table.itemSelectionChanged.connect(self.strain_table)
     
     def loadrocket_btn(self):
         # This creates a file dialog box so we can select a data file
@@ -510,13 +522,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self._playing = True
             self.update_gui()
             self._playing = False
-    def strain_table(self):
-        if self.UI_strain_table.cellClicked(i,1):
-            strain = float(self._strain_values[i])          # Strain reading
-            ss_index = self._strain_sections[str(i + 1)]    # Index in _mesh_models that corresponds to ith strain section
-            color = self.get_color(strain)                  # Color based on the strain
-            self._mesh_models[ss_index].setColor(QtGui.QColor(0,0,0))     # Update the color of the strain mesh 
 
+    def strain_table(self):
+        # Clear out the old, now possibly unselected sections
+        self._R._selected_strain_sections.clear()
+
+        # Add the new selected sections to the list
+        for cell in self.UI_strain_table.selectedItems():
+            self._R._selected_strain_sections.append(cell.row())
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
