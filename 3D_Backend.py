@@ -18,7 +18,7 @@ import qdarkstyle
 # pip3 install PyQT5 numpy numpy-stl pyserial pyqtgraph pyopengl qdarkstyle
 
 class Rocket():
-    # Will be used for log files
+    # Used for log files
     _name = ""
 
     # List of meshes created from STL files
