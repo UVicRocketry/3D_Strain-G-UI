@@ -1,0 +1,33 @@
+"Source:","C:\Users\jjder\Documents\KiCad Projects\HX711 ADC\HX711 ADC.sch"
+"Date:","3/7/2021 2:33:22 PM"
+"Tool:","Eeschema (5.1.9)-1"
+"Generator:","C:\Program Files\KiCad\bin\scripting\plugins/bom_csv_grouped_by_value.py"
+"Component Count:","10"
+
+"Individual Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"","","C1","0.01U","Device:C","Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder","~"
+"","","C2","1U","Device:C","Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder","~"
+"","","C3","1U","Device:C","Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder","~"
+"","","C4","1U","Device:C","Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder","~"
+"","","J1","Conn_01x04","Connector_Generic:Conn_01x04","Connector_JST:JST_EH_B4B-EH-A_1x04_P2.50mm_Vertical","~"
+"","","Q1","S8550","Transistor_BJT:S8550","Package_TO_SOT_SMD:SC-59_Handsoldering","http://www.unisonic.com.tw/datasheet/S8550.pdf"
+"","","R1","1k","Device:R","Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder","~"
+"","","R2","20K","Device:R","Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder","~"
+"","","R3","8.2K","Device:R","Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder","~"
+"","","U1","Hx711","HX711-ADC-rescue:Hx711-HX711","Package_SO:SOIC-16_3.9x9.9mm_P1.27mm",""
+
+
+
+"Collated Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"1","1","C1","0.01U","Device:C","Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder","~"
+"2","3","C2, C3, C4","1U","Device:C","Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder","~"
+"3","1","J1","Conn_01x04","Connector_Generic:Conn_01x04","Connector_JST:JST_EH_B4B-EH-A_1x04_P2.50mm_Vertical","~"
+"4","1","Q1","S8550","Transistor_BJT:S8550","Package_TO_SOT_SMD:SC-59_Handsoldering","http://www.unisonic.com.tw/datasheet/S8550.pdf"
+"5","1","R1","1k","Device:R","Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder","~"
+"6","1","R2","20K","Device:R","Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder","~"
+"7","1","R3","8.2K","Device:R","Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder","~"
+"8","1","U1","Hx711","HX711-ADC-rescue:Hx711-HX711","Package_SO:SOIC-16_3.9x9.9mm_P1.27mm",""
