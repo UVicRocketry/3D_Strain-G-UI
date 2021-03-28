@@ -313,7 +313,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def update_gui(self):
         if self._playing:
             
-            # TODO this will break when we are on line 0 and step backwards
             # Step forward or reverse in our log file
             line_num = int(self.UI_linenum_LE.text()) + self._frame_direction
             self._R.update(line_num)
@@ -372,6 +371,20 @@ class MainWindow(QtWidgets.QMainWindow):
             self.graph.addItem(m)
 
         print("\n")
+
+    def single_update(self):
+        # This function will force the gui to update one frame.
+        # It does not step forward in log files like update_gui()
+
+        # We do this by setting the frame direction to 0, then calling update_gui()
+        # This only needs to happen if the gui isn't already updating, hence the if 
+        if not self._playing:
+            fd = self._frame_direction
+            self._frame_direction = 0
+            self._playing = True
+            self.update_gui()
+            self._playing = False
+            self._frame_direction = fd
 
     ## GUI Methods
     def connect_gui(self):
@@ -516,12 +529,8 @@ class MainWindow(QtWidgets.QMainWindow):
         # with the rest of the methods that use the log files
         self.UI_linenum_LE.setText(str(self.UI_scrub_slider.value()))
         
-        # If we are paused, we still want the scrub slider to update the gui when it moves so
-        # we have to toggle between playing and paused in order to update
-        if not self._playing:
-            self._playing = True
-            self.update_gui()
-            self._playing = False
+        # This updates the gui if it is currently paused
+        self.single_update()
 
     def strain_table(self):
         # Clear out the old, now possibly unselected sections
@@ -530,6 +539,9 @@ class MainWindow(QtWidgets.QMainWindow):
         # Add the new selected sections to the list
         for cell in self.UI_strain_table.selectedItems():
             self._R._selected_strain_sections.append(cell.row())
+
+        # This updates the gui if it is currently paused
+        self.single_update()
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
