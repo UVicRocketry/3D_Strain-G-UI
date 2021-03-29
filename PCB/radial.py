@@ -13,7 +13,13 @@ Run this script to automatically lay out the strain gauge contacts radially
 Note: You must refresh the pcb to see the changes in PCBNew: Tools > Update PCB From Schematic
 
 '''
-    
+
+# Set the center of the radial pattern. For us, we just place a circle wherever we want it
+# then check its properties and get the center point. KiCAD uses nanometers as its scale for
+# some reason so we need to scale the values from mm to that.
+scale = 1000000
+center_x = 150 * scale
+center_y = 100 * scale
 
 # Get our board from pcbnew
 # We use this to access components, pads, vias, etc.
@@ -21,7 +27,8 @@ board = pcbnew.GetBoard()
 print("Got board")
 
 # Module References or "modrefs" are the names of the modules that we would like to mess around with.
-#  In our case, they are the radial wire contact pads that we want to adjust the orientation of.
+# In our case, they are the radial wire contact pads that we want to adjust the orientation of.
+# The order of this list is also the same order that they will get laid out in radially.
 modrefs = ["TP1", "TP2", "TP3", "TP4", "TP5", "TP6", "TP7", "TP8", "TP9", 
            "TP10", "TP11", "TP12", "TP13", "TP14", "TP15", "TP16", "TP17",
            "TP18", "TP19", "TP20", "TP21", "TP22", "TP23", "TP24"]
@@ -48,8 +55,8 @@ for i, mod in enumerate(mods):
     
     # Create the new position for the module
     # -1 or else the layout is "inverted" or something
-    pos_x = -1*radius*math.cos(math.radians(angle*i))
-    pos_y = radius*math.sin(math.radians(angle*i))
+    pos_x = -1*radius*math.cos(math.radians(angle*i)) + center_x
+    pos_y = radius*math.sin(math.radians(angle*i)) + center_y
     newpos = pcbnew.wxPoint(pos_x, pos_y)
     
     # Set the new position and angle for the module

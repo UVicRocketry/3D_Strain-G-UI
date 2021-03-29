@@ -307,8 +307,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._altitude_grid.setSize(2000, 2000, 0)
 
         # Zoom the camera out so we are not inside our model
-        self.graph.setCameraPosition(distance=2000)
-        print("Camera postion is:", self.graph.cameraPosition(), "\n")
+        self.resetview_btn()
 
     def update_gui(self):
         if self._playing:
@@ -515,7 +514,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def resetview_btn(self):
         self.graph.reset()
-        self.graph.setCameraPosition(distance=2000)
+        self.graph.setCameraPosition(distance=3000)
         print("Reset view")
         print("Camera postion is:", self.graph.cameraPosition(), "\n")
     
