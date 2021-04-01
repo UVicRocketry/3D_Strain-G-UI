@@ -587,7 +587,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>icons/MartletV2.2_full_colour.png</pixmap>
+          <pixmap>icons/MartletV2.2_full_white.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
