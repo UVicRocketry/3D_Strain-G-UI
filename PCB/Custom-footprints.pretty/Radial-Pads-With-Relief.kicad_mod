@@ -1,4 +1,4 @@
-(module Radial-Pads-With-Relief (layer F.Cu) (tedit 606297F4)
+(module Radial-Pads-With-Relief (layer F.Cu) (tedit 60677C8A)
   (descr "Soldered wire connection with feed through strain relief, for a single 0.75 mm² wire, basic insulation, conductor diameter 1.25mm, outer diameter 2.3mm, size source Multi-Contact FLEXI-E 0.75 (https://ec.staubli.com/AcroFiles/Catalogues/TM_Cab-Main-11014119_(en)_hi.pdf), bend radius 3 times outer diameter, generated with kicad-footprint-generator")
   (tags "connector wire 0.75sqmm strain-relief")
   (attr virtual)
@@ -25,8 +25,8 @@
   (fp_text user %R (at 0 9.652 90) (layer F.Fab)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (pad 1 thru_hole roundrect (at 0 5.588) (size 2.55 2.55) (drill 1) (layers *.Cu *.Mask) (roundrect_rratio 0.098))
-  (pad "" np_thru_hole circle (at 0 13.8) (size 2.8 2.8) (drill 2.8) (layers *.Cu *.Mask))
+  (pad 1 thru_hole circle (at 0 5.588) (size 2.55 2.55) (drill 1) (layers *.Cu *.Mask))
+  (pad "" np_thru_hole circle (at 0 13.8) (size 2.8 2.8) (drill 1.7) (layers *.Cu *.Mask))
   (model ${KISYS3DMOD}/Connector_Wire.3dshapes/SolderWire-0.75sqmm_1x01_D1.25mm_OD2.3mm_Relief.wrl
     (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
