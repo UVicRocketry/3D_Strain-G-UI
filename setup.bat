@@ -8,7 +8,7 @@ python -m venv env
 
 Echo Activating Enviroment
 cd env\Scripts
-START powershell.exe -NoExit ".\activate.ps1"; cd..; cd..;"pip install -r requirements.txt"
+START powershell.exe ".\activate.ps1"; cd..; cd..;"pip install -r requirements.txt"
 
 Echo Done
 PAUSE
