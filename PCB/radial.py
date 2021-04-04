@@ -30,6 +30,8 @@ print("Got board")
 # In our case, they are the radial wire contact pads that we want to adjust the orientation of.
 # The order of this list is also the same order that they will get laid out in radially.
 
+# This lets us space our power and ground pins out nicely as well.
+
 # For the radial wire contact pods
 # modrefs = ["TP1", "TP2", "TP3", "TP4", "TP5", "TP6", "TP7", "TP8",
 #            "TP25", "TP28",
@@ -37,8 +39,21 @@ print("Got board")
 #            "TP26", "TP29",
 #            "TP17", "TP18", "TP19", "TP20", "TP21", "TP22", "TP23", "TP24",
 #            "TP27", "TP30"]
+#radius      = 28500000 # 1.122 inches in nanometers (the default unit of kicad) (for radial wire contacts)
 
-modrefs = ["U1", "U2", "U3", "U4", "U5", "U6", "U7", "U8", "U9", "U10", "U11", "U12"]
+# HX711s
+#modrefs = ["U1", "U2", "U3", "U4", "U5", "U6", "U7", "U8", "U9", "U10", "U11", "U12"]
+#radius = 20637500       
+
+# Resistors on pin 8 of the HX711s
+modrefs = ["R1", "R2", "R3", "R4", "R13", "R14", "R15", "R16", "R25", "R26", "R27", "R28",]
+radius = 28000000       
+
+
+# Capacitor on pin 7 and 8 of HX711
+#modrefs = ["C1", "C2", "C3", "C4", "C17", "C18", "C19", "C20", "C33", "C34", "C35", "C36",]
+#radius = 30000000         
+
 
 print("Got modrefs:", modrefs)
 
@@ -52,12 +67,11 @@ for mod in modrefs:
 print("Got mods:", mods)
 
 # Now that we have our modules we can start laying them out radially
+# Our radius was set above.
 num_mods    = len(modrefs)      # Number of modules to lay out radially
 angle       = 360 / num_mods    # Angular increment between each module 
-#radius      = 28500000          # 1.122 inches in nanometers (the default unit of kicad) (for radial wire contacts)
-radius      = 22225000          # 0.875 inches (for HX711)
 offset      = -90               # We'll need to offset each angle since the default orientation
-                                # of the module is vertical
+                                # of the module is sometimes not what we want
 
 # enumerate just gives us an iterator i that we can use to adjust the angle
 for i, mod in enumerate(mods):

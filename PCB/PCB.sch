@@ -92,118 +92,11 @@ U 1 1 603C21D6
 P 2200 2600
 F 0 "C33" H 2315 2646 50  0000 L CNN
 F 1 "0.01U" H 2315 2555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 2238 2450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2238 2450 50  0001 C CNN
 F 3 "~" H 2200 2600 50  0001 C CNN
 	1    2200 2600
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:C C41
-U 1 1 603CB503
-P 3200 2450
-F 0 "C41" V 2948 2450 50  0000 C CNN
-F 1 "1U" V 3039 2450 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 3238 2300 50  0001 C CNN
-F 3 "~" H 3200 2450 50  0001 C CNN
-	1    3200 2450
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C C37
-U 1 1 603CCDAD
-P 2900 1850
-F 0 "C37" H 3015 1896 50  0000 L CNN
-F 1 "1U" H 3015 1805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 2938 1700 50  0001 C CNN
-F 3 "~" H 2900 1850 50  0001 C CNN
-	1    2900 1850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C45
-U 1 1 603CE2A5
-P 3250 600
-F 0 "C45" H 3365 646 50  0000 L CNN
-F 1 "1U" H 3365 555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 3288 450 50  0001 C CNN
-F 3 "~" H 3250 600 50  0001 C CNN
-	1    3250 600 
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R29
-U 1 1 603D0737
-P 3850 1700
-F 0 "R29" V 3643 1700 50  0000 C CNN
-F 1 "20K" V 3734 1700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 3780 1700 50  0001 C CNN
-F 3 "~" H 3850 1700 50  0001 C CNN
-	1    3850 1700
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R30
-U 1 1 603D1DC4
-P 3850 2000
-F 0 "R30" V 3643 2000 50  0000 C CNN
-F 1 "8.2K" V 3734 2000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 3780 2000 50  0001 C CNN
-F 3 "~" H 3850 2000 50  0001 C CNN
-	1    3850 2000
-	0    1    1    0   
-$EndComp
-$Comp
-L Transistor_BJT:S8550 Q9
-U 1 1 603D2FC3
-P 3700 1000
-F 0 "Q9" H 3891 954 50  0000 L CNN
-F 1 "S8550" H 3891 1045 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SC-59_Handsoldering" H 3900 925 50  0001 L CIN
-F 3 "http://www.unisonic.com.tw/datasheet/S8550.pdf" H 3700 1000 50  0001 L CNN
-	1    3700 1000
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	2900 2450 3050 2450
-Wire Wire Line
-	2900 2000 2900 2100
-Wire Wire Line
-	2900 1400 3600 1400
-Wire Wire Line
-	3600 1400 3600 1700
-Connection ~ 3600 1400
-Wire Wire Line
-	3600 1700 3700 1700
-Wire Wire Line
-	3600 1700 3600 2000
-Wire Wire Line
-	3600 2000 3700 2000
-Connection ~ 3600 1700
-Wire Wire Line
-	3600 2000 3600 2100
-Connection ~ 3600 2000
-Wire Wire Line
-	2900 2100 3600 2100
-Connection ~ 2900 2100
-Wire Wire Line
-	2900 2100 2900 2450
-$Comp
-L power:GND #PWR025
-U 1 1 603EA824
-P 3100 600
-F 0 "#PWR025" H 3100 350 50  0001 C CNN
-F 1 "GND" H 3105 427 50  0000 C CNN
-F 2 "" H 3100 600 50  0001 C CNN
-F 3 "" H 3100 600 50  0001 C CNN
-	1    3100 600 
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	4000 1700 4200 1700
-Wire Wire Line
-	4200 1700 4200 1750
-Wire Wire Line
-	4000 2000 4200 2000
 $Comp
 L HX711-ADC-rescue:Hx711-HX711 U9
 U 1 1 603C67EF
@@ -215,42 +108,6 @@ F 3 "" H 4900 4650 50  0001 C CNN
 	1    4750 2650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3600 600  4200 600 
-Wire Wire Line
-	4200 600  4200 1150
-Wire Wire Line
-	4200 1150 4400 1150
-Wire Wire Line
-	3900 1350 4400 1350
-Wire Wire Line
-	3600 1400 4200 1400
-Wire Wire Line
-	4200 1400 4200 1550
-Wire Wire Line
-	4200 1550 4400 1550
-Wire Wire Line
-	4200 1750 4400 1750
-Connection ~ 4200 1750
-Wire Wire Line
-	4200 1750 4200 2000
-Wire Wire Line
-	3600 2100 4300 2100
-Wire Wire Line
-	4300 2100 4300 1950
-Wire Wire Line
-	4300 1950 4400 1950
-Connection ~ 3600 2100
-Wire Wire Line
-	3350 2450 3600 2450
-Wire Wire Line
-	3600 2450 3600 2150
-Wire Wire Line
-	3600 2150 4400 2150
-Wire Wire Line
-	3750 2600 3750 2350
-Wire Wire Line
-	3750 2350 4400 2350
 Wire Wire Line
 	3900 2550 4400 2550
 NoConn ~ 5400 1750
@@ -285,17 +142,12 @@ F 3 "" H 5600 1150 50  0001 C CNN
 	1    5600 1150
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	2900 1400 2900 1700
 NoConn ~ 5400 2350
 NoConn ~ 5400 2550
-Wire Wire Line
-	4200 600  5600 600 
 Wire Wire Line
 	5600 600  5600 1150
 Wire Wire Line
 	5600 1150 5400 1150
-Connection ~ 4200 600 
 $Comp
 L Connector:TestPoint TP17
 U 1 1 603CC3D6
@@ -313,12 +165,6 @@ Text Label 5400 1950 0    50   ~ 0
 DATA
 Connection ~ 5600 1150
 Wire Wire Line
-	3900 1000 3900 1350
-Wire Wire Line
-	3600 1200 3600 1400
-Wire Wire Line
-	3600 600  3600 800 
-Wire Wire Line
 	1000 2450 2200 2450
 Wire Wire Line
 	2650 2600 2650 2450
@@ -333,16 +179,13 @@ U 1 1 603BEB3B
 P 1850 2750
 F 0 "R25" V 1643 2750 50  0000 C CNN
 F 1 "1k" V 1734 2750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 1780 2750 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1780 2750 50  0001 C CNN
 F 3 "~" H 1850 2750 50  0001 C CNN
 	1    1850 2750
 	0    1    1    0   
 $EndComp
 Wire Wire Line
 	1000 2750 1700 2750
-Wire Wire Line
-	3400 600  3600 600 
-Connection ~ 3600 600 
 Wire Wire Line
 	3900 2550 3900 2750
 Wire Wire Line
@@ -365,7 +208,7 @@ U 1 1 606A30F9
 P 2200 4900
 F 0 "C34" H 2315 4946 50  0000 L CNN
 F 1 "0.01U" H 2315 4855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 2238 4750 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2238 4750 50  0001 C CNN
 F 3 "~" H 2200 4900 50  0001 C CNN
 	1    2200 4900
 	1    0    0    -1  
@@ -376,7 +219,7 @@ U 1 1 606A30FF
 P 3200 4750
 F 0 "C42" V 2948 4750 50  0000 C CNN
 F 1 "1U" V 3039 4750 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 3238 4600 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3238 4600 50  0001 C CNN
 F 3 "~" H 3200 4750 50  0001 C CNN
 	1    3200 4750
 	0    1    1    0   
@@ -387,7 +230,7 @@ U 1 1 606A3105
 P 2900 4150
 F 0 "C38" H 3015 4196 50  0000 L CNN
 F 1 "1U" H 3015 4105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 2938 4000 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2938 4000 50  0001 C CNN
 F 3 "~" H 2900 4150 50  0001 C CNN
 	1    2900 4150
 	1    0    0    -1  
@@ -398,7 +241,7 @@ U 1 1 606A310B
 P 3250 2900
 F 0 "C46" H 3365 2946 50  0000 L CNN
 F 1 "1U" H 3365 2855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 3288 2750 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3288 2750 50  0001 C CNN
 F 3 "~" H 3250 2900 50  0001 C CNN
 	1    3250 2900
 	0    1    1    0   
@@ -409,7 +252,7 @@ U 1 1 606A3111
 P 3850 4000
 F 0 "R31" V 3643 4000 50  0000 C CNN
 F 1 "20K" V 3734 4000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 3780 4000 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 4000 50  0001 C CNN
 F 3 "~" H 3850 4000 50  0001 C CNN
 	1    3850 4000
 	0    1    1    0   
@@ -420,7 +263,7 @@ U 1 1 606A3117
 P 3850 4300
 F 0 "R32" V 3643 4300 50  0000 C CNN
 F 1 "8.2K" V 3734 4300 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 3780 4300 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 4300 50  0001 C CNN
 F 3 "~" H 3850 4300 50  0001 C CNN
 	1    3850 4300
 	0    1    1    0   
@@ -606,7 +449,7 @@ U 1 1 606A317E
 P 1850 5050
 F 0 "R26" V 1643 5050 50  0000 C CNN
 F 1 "1k" V 1734 5050 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 1780 5050 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1780 5050 50  0001 C CNN
 F 3 "~" H 1850 5050 50  0001 C CNN
 	1    1850 5050
 	0    1    1    0   
@@ -638,7 +481,7 @@ U 1 1 606D7923
 P 2200 7300
 F 0 "C35" H 2315 7346 50  0000 L CNN
 F 1 "0.01U" H 2315 7255 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 2238 7150 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2238 7150 50  0001 C CNN
 F 3 "~" H 2200 7300 50  0001 C CNN
 	1    2200 7300
 	1    0    0    -1  
@@ -649,7 +492,7 @@ U 1 1 606D7929
 P 3200 7150
 F 0 "C43" V 2948 7150 50  0000 C CNN
 F 1 "1U" V 3039 7150 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 3238 7000 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3238 7000 50  0001 C CNN
 F 3 "~" H 3200 7150 50  0001 C CNN
 	1    3200 7150
 	0    1    1    0   
@@ -660,7 +503,7 @@ U 1 1 606D792F
 P 2900 6550
 F 0 "C39" H 3015 6596 50  0000 L CNN
 F 1 "1U" H 3015 6505 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 2938 6400 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2938 6400 50  0001 C CNN
 F 3 "~" H 2900 6550 50  0001 C CNN
 	1    2900 6550
 	1    0    0    -1  
@@ -671,7 +514,7 @@ U 1 1 606D7935
 P 3250 5300
 F 0 "C47" H 3365 5346 50  0000 L CNN
 F 1 "1U" H 3365 5255 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 3288 5150 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3288 5150 50  0001 C CNN
 F 3 "~" H 3250 5300 50  0001 C CNN
 	1    3250 5300
 	0    1    1    0   
@@ -682,7 +525,7 @@ U 1 1 606D793B
 P 3850 6400
 F 0 "R33" V 3643 6400 50  0000 C CNN
 F 1 "20K" V 3734 6400 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 3780 6400 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 6400 50  0001 C CNN
 F 3 "~" H 3850 6400 50  0001 C CNN
 	1    3850 6400
 	0    1    1    0   
@@ -693,7 +536,7 @@ U 1 1 606D7941
 P 3850 6700
 F 0 "R34" V 3643 6700 50  0000 C CNN
 F 1 "8.2K" V 3734 6700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 3780 6700 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 6700 50  0001 C CNN
 F 3 "~" H 3850 6700 50  0001 C CNN
 	1    3850 6700
 	0    1    1    0   
@@ -879,7 +722,7 @@ U 1 1 606D79A8
 P 1850 7450
 F 0 "R27" V 1643 7450 50  0000 C CNN
 F 1 "1k" V 1734 7450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 1780 7450 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1780 7450 50  0001 C CNN
 F 3 "~" H 1850 7450 50  0001 C CNN
 	1    1850 7450
 	0    1    1    0   
@@ -911,7 +754,7 @@ U 1 1 606D79BA
 P 2200 9600
 F 0 "C36" H 2315 9646 50  0000 L CNN
 F 1 "0.01U" H 2315 9555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 2238 9450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2238 9450 50  0001 C CNN
 F 3 "~" H 2200 9600 50  0001 C CNN
 	1    2200 9600
 	1    0    0    -1  
@@ -922,7 +765,7 @@ U 1 1 606D79C0
 P 3200 9450
 F 0 "C44" V 2948 9450 50  0000 C CNN
 F 1 "1U" V 3039 9450 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 3238 9300 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3238 9300 50  0001 C CNN
 F 3 "~" H 3200 9450 50  0001 C CNN
 	1    3200 9450
 	0    1    1    0   
@@ -933,7 +776,7 @@ U 1 1 606D79C6
 P 2900 8850
 F 0 "C40" H 3015 8896 50  0000 L CNN
 F 1 "1U" H 3015 8805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 2938 8700 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2938 8700 50  0001 C CNN
 F 3 "~" H 2900 8850 50  0001 C CNN
 	1    2900 8850
 	1    0    0    -1  
@@ -944,7 +787,7 @@ U 1 1 606D79CC
 P 3250 7600
 F 0 "C48" H 3365 7646 50  0000 L CNN
 F 1 "1U" H 3365 7555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H 3288 7450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3288 7450 50  0001 C CNN
 F 3 "~" H 3250 7600 50  0001 C CNN
 	1    3250 7600
 	0    1    1    0   
@@ -955,7 +798,7 @@ U 1 1 606D79D2
 P 3850 8700
 F 0 "R35" V 3643 8700 50  0000 C CNN
 F 1 "20K" V 3734 8700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 3780 8700 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 8700 50  0001 C CNN
 F 3 "~" H 3850 8700 50  0001 C CNN
 	1    3850 8700
 	0    1    1    0   
@@ -966,7 +809,7 @@ U 1 1 606D79D8
 P 3850 9000
 F 0 "R36" V 3643 9000 50  0000 C CNN
 F 1 "8.2K" V 3734 9000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 3780 9000 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 9000 50  0001 C CNN
 F 3 "~" H 3850 9000 50  0001 C CNN
 	1    3850 9000
 	0    1    1    0   
@@ -1152,7 +995,7 @@ U 1 1 606D7A3F
 P 1850 9750
 F 0 "R28" V 1643 9750 50  0000 C CNN
 F 1 "1k" V 1734 9750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V 1780 9750 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1780 9750 50  0001 C CNN
 F 3 "~" H 1850 9750 50  0001 C CNN
 	1    1850 9750
 	0    1    1    0   
@@ -1184,7 +1027,7 @@ U 1 1 60727871
 P -3100 2600
 F 0 "C17" H -2985 2646 50  0000 L CNN
 F 1 "0.01U" H -2985 2555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -3062 2450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -3062 2450 50  0001 C CNN
 F 3 "~" H -3100 2600 50  0001 C CNN
 	1    -3100 2600
 	1    0    0    -1  
@@ -1195,7 +1038,7 @@ U 1 1 60727877
 P -2100 2450
 F 0 "C25" V -2352 2450 50  0000 C CNN
 F 1 "1U" V -2261 2450 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2062 2300 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2062 2300 50  0001 C CNN
 F 3 "~" H -2100 2450 50  0001 C CNN
 	1    -2100 2450
 	0    1    1    0   
@@ -1206,7 +1049,7 @@ U 1 1 6072787D
 P -2400 1850
 F 0 "C21" H -2285 1896 50  0000 L CNN
 F 1 "1U" H -2285 1805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2362 1700 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2362 1700 50  0001 C CNN
 F 3 "~" H -2400 1850 50  0001 C CNN
 	1    -2400 1850
 	1    0    0    -1  
@@ -1217,7 +1060,7 @@ U 1 1 60727883
 P -2050 600
 F 0 "C29" H -1935 646 50  0000 L CNN
 F 1 "1U" H -1935 555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2012 450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2012 450 50  0001 C CNN
 F 3 "~" H -2050 600 50  0001 C CNN
 	1    -2050 600 
 	0    1    1    0   
@@ -1228,7 +1071,7 @@ U 1 1 60727889
 P -1450 1700
 F 0 "R17" V -1657 1700 50  0000 C CNN
 F 1 "20K" V -1566 1700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -1520 1700 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -1520 1700 50  0001 C CNN
 F 3 "~" H -1450 1700 50  0001 C CNN
 	1    -1450 1700
 	0    1    1    0   
@@ -1239,7 +1082,7 @@ U 1 1 6072788F
 P -1450 2000
 F 0 "R18" V -1657 2000 50  0000 C CNN
 F 1 "8.2K" V -1566 2000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -1520 2000 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -1520 2000 50  0001 C CNN
 F 3 "~" H -1450 2000 50  0001 C CNN
 	1    -1450 2000
 	0    1    1    0   
@@ -1423,7 +1266,7 @@ U 1 1 607278F6
 P -3450 2750
 F 0 "R13" V -3657 2750 50  0000 C CNN
 F 1 "1k" V -3566 2750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -3520 2750 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -3520 2750 50  0001 C CNN
 F 3 "~" H -3450 2750 50  0001 C CNN
 	1    -3450 2750
 	0    1    1    0   
@@ -1455,7 +1298,7 @@ U 1 1 60727908
 P -3100 4900
 F 0 "C18" H -2985 4946 50  0000 L CNN
 F 1 "0.01U" H -2985 4855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -3062 4750 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -3062 4750 50  0001 C CNN
 F 3 "~" H -3100 4900 50  0001 C CNN
 	1    -3100 4900
 	1    0    0    -1  
@@ -1466,7 +1309,7 @@ U 1 1 6072790E
 P -2100 4750
 F 0 "C26" V -2352 4750 50  0000 C CNN
 F 1 "1U" V -2261 4750 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2062 4600 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2062 4600 50  0001 C CNN
 F 3 "~" H -2100 4750 50  0001 C CNN
 	1    -2100 4750
 	0    1    1    0   
@@ -1477,7 +1320,7 @@ U 1 1 60727914
 P -2400 4150
 F 0 "C22" H -2285 4196 50  0000 L CNN
 F 1 "1U" H -2285 4105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2362 4000 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2362 4000 50  0001 C CNN
 F 3 "~" H -2400 4150 50  0001 C CNN
 	1    -2400 4150
 	1    0    0    -1  
@@ -1488,7 +1331,7 @@ U 1 1 6072791A
 P -2050 2900
 F 0 "C30" H -1935 2946 50  0000 L CNN
 F 1 "1U" H -1935 2855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2012 2750 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2012 2750 50  0001 C CNN
 F 3 "~" H -2050 2900 50  0001 C CNN
 	1    -2050 2900
 	0    1    1    0   
@@ -1499,7 +1342,7 @@ U 1 1 60727920
 P -1450 4000
 F 0 "R19" V -1657 4000 50  0000 C CNN
 F 1 "20K" V -1566 4000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -1520 4000 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -1520 4000 50  0001 C CNN
 F 3 "~" H -1450 4000 50  0001 C CNN
 	1    -1450 4000
 	0    1    1    0   
@@ -1510,7 +1353,7 @@ U 1 1 60727926
 P -1450 4300
 F 0 "R20" V -1657 4300 50  0000 C CNN
 F 1 "8.2K" V -1566 4300 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -1520 4300 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -1520 4300 50  0001 C CNN
 F 3 "~" H -1450 4300 50  0001 C CNN
 	1    -1450 4300
 	0    1    1    0   
@@ -1694,7 +1537,7 @@ U 1 1 6072798D
 P -3450 5050
 F 0 "R14" V -3657 5050 50  0000 C CNN
 F 1 "1k" V -3566 5050 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -3520 5050 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -3520 5050 50  0001 C CNN
 F 3 "~" H -3450 5050 50  0001 C CNN
 	1    -3450 5050
 	0    1    1    0   
@@ -1726,7 +1569,7 @@ U 1 1 6072799F
 P -3100 7300
 F 0 "C19" H -2985 7346 50  0000 L CNN
 F 1 "0.01U" H -2985 7255 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -3062 7150 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -3062 7150 50  0001 C CNN
 F 3 "~" H -3100 7300 50  0001 C CNN
 	1    -3100 7300
 	1    0    0    -1  
@@ -1737,7 +1580,7 @@ U 1 1 607279A5
 P -2100 7150
 F 0 "C27" V -2352 7150 50  0000 C CNN
 F 1 "1U" V -2261 7150 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2062 7000 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2062 7000 50  0001 C CNN
 F 3 "~" H -2100 7150 50  0001 C CNN
 	1    -2100 7150
 	0    1    1    0   
@@ -1748,7 +1591,7 @@ U 1 1 607279AB
 P -2400 6550
 F 0 "C23" H -2285 6596 50  0000 L CNN
 F 1 "1U" H -2285 6505 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2362 6400 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2362 6400 50  0001 C CNN
 F 3 "~" H -2400 6550 50  0001 C CNN
 	1    -2400 6550
 	1    0    0    -1  
@@ -1759,7 +1602,7 @@ U 1 1 607279B1
 P -2050 5300
 F 0 "C31" H -1935 5346 50  0000 L CNN
 F 1 "1U" H -1935 5255 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2012 5150 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2012 5150 50  0001 C CNN
 F 3 "~" H -2050 5300 50  0001 C CNN
 	1    -2050 5300
 	0    1    1    0   
@@ -1770,7 +1613,7 @@ U 1 1 607279B7
 P -1450 6400
 F 0 "R21" V -1657 6400 50  0000 C CNN
 F 1 "20K" V -1566 6400 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -1520 6400 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -1520 6400 50  0001 C CNN
 F 3 "~" H -1450 6400 50  0001 C CNN
 	1    -1450 6400
 	0    1    1    0   
@@ -1781,7 +1624,7 @@ U 1 1 607279BD
 P -1450 6700
 F 0 "R22" V -1657 6700 50  0000 C CNN
 F 1 "8.2K" V -1566 6700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -1520 6700 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -1520 6700 50  0001 C CNN
 F 3 "~" H -1450 6700 50  0001 C CNN
 	1    -1450 6700
 	0    1    1    0   
@@ -1967,7 +1810,7 @@ U 1 1 60727A24
 P -3450 7450
 F 0 "R15" V -3657 7450 50  0000 C CNN
 F 1 "1k" V -3566 7450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -3520 7450 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -3520 7450 50  0001 C CNN
 F 3 "~" H -3450 7450 50  0001 C CNN
 	1    -3450 7450
 	0    1    1    0   
@@ -1999,7 +1842,7 @@ U 1 1 60727A36
 P -3100 9600
 F 0 "C20" H -2985 9646 50  0000 L CNN
 F 1 "0.01U" H -2985 9555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -3062 9450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -3062 9450 50  0001 C CNN
 F 3 "~" H -3100 9600 50  0001 C CNN
 	1    -3100 9600
 	1    0    0    -1  
@@ -2010,7 +1853,7 @@ U 1 1 60727A3C
 P -2100 9450
 F 0 "C28" V -2352 9450 50  0000 C CNN
 F 1 "1U" V -2261 9450 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2062 9300 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2062 9300 50  0001 C CNN
 F 3 "~" H -2100 9450 50  0001 C CNN
 	1    -2100 9450
 	0    1    1    0   
@@ -2021,7 +1864,7 @@ U 1 1 60727A42
 P -2400 8850
 F 0 "C24" H -2285 8896 50  0000 L CNN
 F 1 "1U" H -2285 8805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2362 8700 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2362 8700 50  0001 C CNN
 F 3 "~" H -2400 8850 50  0001 C CNN
 	1    -2400 8850
 	1    0    0    -1  
@@ -2032,7 +1875,7 @@ U 1 1 60727A48
 P -2050 7600
 F 0 "C32" H -1935 7646 50  0000 L CNN
 F 1 "1U" H -1935 7555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -2012 7450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -2012 7450 50  0001 C CNN
 F 3 "~" H -2050 7600 50  0001 C CNN
 	1    -2050 7600
 	0    1    1    0   
@@ -2043,7 +1886,7 @@ U 1 1 60727A4E
 P -1450 8700
 F 0 "R23" V -1657 8700 50  0000 C CNN
 F 1 "20K" V -1566 8700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -1520 8700 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -1520 8700 50  0001 C CNN
 F 3 "~" H -1450 8700 50  0001 C CNN
 	1    -1450 8700
 	0    1    1    0   
@@ -2054,7 +1897,7 @@ U 1 1 60727A54
 P -1450 9000
 F 0 "R24" V -1657 9000 50  0000 C CNN
 F 1 "8.2K" V -1566 9000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -1520 9000 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -1520 9000 50  0001 C CNN
 F 3 "~" H -1450 9000 50  0001 C CNN
 	1    -1450 9000
 	0    1    1    0   
@@ -2240,7 +2083,7 @@ U 1 1 60727ABB
 P -3450 9750
 F 0 "R16" V -3657 9750 50  0000 C CNN
 F 1 "1k" V -3566 9750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -3520 9750 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -3520 9750 50  0001 C CNN
 F 3 "~" H -3450 9750 50  0001 C CNN
 	1    -3450 9750
 	0    1    1    0   
@@ -2272,7 +2115,7 @@ U 1 1 607BDFA3
 P -8350 2600
 F 0 "C1" H -8235 2646 50  0000 L CNN
 F 1 "0.01U" H -8235 2555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -8312 2450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -8312 2450 50  0001 C CNN
 F 3 "~" H -8350 2600 50  0001 C CNN
 	1    -8350 2600
 	1    0    0    -1  
@@ -2283,7 +2126,7 @@ U 1 1 607BDFA9
 P -7350 2450
 F 0 "C9" V -7602 2450 50  0000 C CNN
 F 1 "1U" V -7511 2450 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7312 2300 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7312 2300 50  0001 C CNN
 F 3 "~" H -7350 2450 50  0001 C CNN
 	1    -7350 2450
 	0    1    1    0   
@@ -2294,7 +2137,7 @@ U 1 1 607BDFAF
 P -7650 1850
 F 0 "C5" H -7535 1896 50  0000 L CNN
 F 1 "1U" H -7535 1805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7612 1700 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7612 1700 50  0001 C CNN
 F 3 "~" H -7650 1850 50  0001 C CNN
 	1    -7650 1850
 	1    0    0    -1  
@@ -2305,7 +2148,7 @@ U 1 1 607BDFB5
 P -7300 600
 F 0 "C13" H -7185 646 50  0000 L CNN
 F 1 "1U" H -7185 555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7262 450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7262 450 50  0001 C CNN
 F 3 "~" H -7300 600 50  0001 C CNN
 	1    -7300 600 
 	0    1    1    0   
@@ -2316,7 +2159,7 @@ U 1 1 607BDFBB
 P -6700 1700
 F 0 "R5" V -6907 1700 50  0000 C CNN
 F 1 "20K" V -6816 1700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -6770 1700 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -6770 1700 50  0001 C CNN
 F 3 "~" H -6700 1700 50  0001 C CNN
 	1    -6700 1700
 	0    1    1    0   
@@ -2327,7 +2170,7 @@ U 1 1 607BDFC1
 P -6700 2000
 F 0 "R6" V -6907 2000 50  0000 C CNN
 F 1 "8.2K" V -6816 2000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -6770 2000 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -6770 2000 50  0001 C CNN
 F 3 "~" H -6700 2000 50  0001 C CNN
 	1    -6700 2000
 	0    1    1    0   
@@ -2513,7 +2356,7 @@ U 1 1 607BE028
 P -8700 2750
 F 0 "R1" V -8907 2750 50  0000 C CNN
 F 1 "1k" V -8816 2750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -8770 2750 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -8770 2750 50  0001 C CNN
 F 3 "~" H -8700 2750 50  0001 C CNN
 	1    -8700 2750
 	0    1    1    0   
@@ -2545,7 +2388,7 @@ U 1 1 607BE03A
 P -8350 4900
 F 0 "C2" H -8235 4946 50  0000 L CNN
 F 1 "0.01U" H -8235 4855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -8312 4750 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -8312 4750 50  0001 C CNN
 F 3 "~" H -8350 4900 50  0001 C CNN
 	1    -8350 4900
 	1    0    0    -1  
@@ -2556,7 +2399,7 @@ U 1 1 607BE040
 P -7350 4750
 F 0 "C10" V -7602 4750 50  0000 C CNN
 F 1 "1U" V -7511 4750 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7312 4600 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7312 4600 50  0001 C CNN
 F 3 "~" H -7350 4750 50  0001 C CNN
 	1    -7350 4750
 	0    1    1    0   
@@ -2567,7 +2410,7 @@ U 1 1 607BE046
 P -7650 4150
 F 0 "C6" H -7535 4196 50  0000 L CNN
 F 1 "1U" H -7535 4105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7612 4000 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7612 4000 50  0001 C CNN
 F 3 "~" H -7650 4150 50  0001 C CNN
 	1    -7650 4150
 	1    0    0    -1  
@@ -2578,7 +2421,7 @@ U 1 1 607BE04C
 P -7300 2900
 F 0 "C14" H -7185 2946 50  0000 L CNN
 F 1 "1U" H -7185 2855 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7262 2750 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7262 2750 50  0001 C CNN
 F 3 "~" H -7300 2900 50  0001 C CNN
 	1    -7300 2900
 	0    1    1    0   
@@ -2589,7 +2432,7 @@ U 1 1 607BE052
 P -6700 4000
 F 0 "R7" V -6907 4000 50  0000 C CNN
 F 1 "20K" V -6816 4000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -6770 4000 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -6770 4000 50  0001 C CNN
 F 3 "~" H -6700 4000 50  0001 C CNN
 	1    -6700 4000
 	0    1    1    0   
@@ -2600,7 +2443,7 @@ U 1 1 607BE058
 P -6700 4300
 F 0 "R8" V -6907 4300 50  0000 C CNN
 F 1 "8.2K" V -6816 4300 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -6770 4300 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -6770 4300 50  0001 C CNN
 F 3 "~" H -6700 4300 50  0001 C CNN
 	1    -6700 4300
 	0    1    1    0   
@@ -2786,7 +2629,7 @@ U 1 1 607BE0BF
 P -8700 5050
 F 0 "R2" V -8907 5050 50  0000 C CNN
 F 1 "1k" V -8816 5050 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -8770 5050 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -8770 5050 50  0001 C CNN
 F 3 "~" H -8700 5050 50  0001 C CNN
 	1    -8700 5050
 	0    1    1    0   
@@ -2818,7 +2661,7 @@ U 1 1 607BE0D1
 P -8350 7300
 F 0 "C3" H -8235 7346 50  0000 L CNN
 F 1 "0.01U" H -8235 7255 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -8312 7150 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -8312 7150 50  0001 C CNN
 F 3 "~" H -8350 7300 50  0001 C CNN
 	1    -8350 7300
 	1    0    0    -1  
@@ -2829,7 +2672,7 @@ U 1 1 607BE0D7
 P -7350 7150
 F 0 "C11" V -7602 7150 50  0000 C CNN
 F 1 "1U" V -7511 7150 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7312 7000 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7312 7000 50  0001 C CNN
 F 3 "~" H -7350 7150 50  0001 C CNN
 	1    -7350 7150
 	0    1    1    0   
@@ -2840,7 +2683,7 @@ U 1 1 607BE0DD
 P -7650 6550
 F 0 "C7" H -7535 6596 50  0000 L CNN
 F 1 "1U" H -7535 6505 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7612 6400 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7612 6400 50  0001 C CNN
 F 3 "~" H -7650 6550 50  0001 C CNN
 	1    -7650 6550
 	1    0    0    -1  
@@ -2851,7 +2694,7 @@ U 1 1 607BE0E3
 P -7300 5300
 F 0 "C15" H -7185 5346 50  0000 L CNN
 F 1 "1U" H -7185 5255 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7262 5150 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7262 5150 50  0001 C CNN
 F 3 "~" H -7300 5300 50  0001 C CNN
 	1    -7300 5300
 	0    1    1    0   
@@ -2862,7 +2705,7 @@ U 1 1 607BE0E9
 P -6700 6400
 F 0 "R9" V -6907 6400 50  0000 C CNN
 F 1 "20K" V -6816 6400 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -6770 6400 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -6770 6400 50  0001 C CNN
 F 3 "~" H -6700 6400 50  0001 C CNN
 	1    -6700 6400
 	0    1    1    0   
@@ -2873,7 +2716,7 @@ U 1 1 607BE0EF
 P -6700 6700
 F 0 "R10" V -6907 6700 50  0000 C CNN
 F 1 "8.2K" V -6816 6700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -6770 6700 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -6770 6700 50  0001 C CNN
 F 3 "~" H -6700 6700 50  0001 C CNN
 	1    -6700 6700
 	0    1    1    0   
@@ -3059,7 +2902,7 @@ U 1 1 607BE156
 P -8700 7450
 F 0 "R3" V -8907 7450 50  0000 C CNN
 F 1 "1k" V -8816 7450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -8770 7450 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -8770 7450 50  0001 C CNN
 F 3 "~" H -8700 7450 50  0001 C CNN
 	1    -8700 7450
 	0    1    1    0   
@@ -3091,7 +2934,7 @@ U 1 1 607BE168
 P -8350 9600
 F 0 "C4" H -8235 9646 50  0000 L CNN
 F 1 "0.01U" H -8235 9555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -8312 9450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -8312 9450 50  0001 C CNN
 F 3 "~" H -8350 9600 50  0001 C CNN
 	1    -8350 9600
 	1    0    0    -1  
@@ -3102,7 +2945,7 @@ U 1 1 607BE16E
 P -7350 9450
 F 0 "C12" V -7602 9450 50  0000 C CNN
 F 1 "1U" V -7511 9450 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7312 9300 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7312 9300 50  0001 C CNN
 F 3 "~" H -7350 9450 50  0001 C CNN
 	1    -7350 9450
 	0    1    1    0   
@@ -3113,7 +2956,7 @@ U 1 1 607BE174
 P -7650 8850
 F 0 "C8" H -7535 8896 50  0000 L CNN
 F 1 "1U" H -7535 8805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7612 8700 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7612 8700 50  0001 C CNN
 F 3 "~" H -7650 8850 50  0001 C CNN
 	1    -7650 8850
 	1    0    0    -1  
@@ -3124,7 +2967,7 @@ U 1 1 607BE17A
 P -7300 7600
 F 0 "C16" H -7185 7646 50  0000 L CNN
 F 1 "1U" H -7185 7555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder" H -7262 7450 50  0001 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H -7262 7450 50  0001 C CNN
 F 3 "~" H -7300 7600 50  0001 C CNN
 	1    -7300 7600
 	0    1    1    0   
@@ -3135,7 +2978,7 @@ U 1 1 607BE180
 P -6700 8700
 F 0 "R11" V -6907 8700 50  0000 C CNN
 F 1 "20K" V -6816 8700 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -6770 8700 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -6770 8700 50  0001 C CNN
 F 3 "~" H -6700 8700 50  0001 C CNN
 	1    -6700 8700
 	0    1    1    0   
@@ -3146,7 +2989,7 @@ U 1 1 607BE186
 P -6700 9000
 F 0 "R12" V -6907 9000 50  0000 C CNN
 F 1 "8.2K" V -6816 9000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -6770 9000 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -6770 9000 50  0001 C CNN
 F 3 "~" H -6700 9000 50  0001 C CNN
 	1    -6700 9000
 	0    1    1    0   
@@ -3332,7 +3175,7 @@ U 1 1 607BE1ED
 P -8700 9750
 F 0 "R4" V -8907 9750 50  0000 C CNN
 F 1 "1k" V -8816 9750 50  0000 C CNN
-F 2 "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder" V -8770 9750 50  0001 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V -8770 9750 50  0001 C CNN
 F 3 "~" H -8700 9750 50  0001 C CNN
 	1    -8700 9750
 	0    1    1    0   
@@ -3472,4 +3315,237 @@ F 3 "~" H 10200 1950 50  0001 C CNN
 	1    10000 1950
 	0    -1   -1   0   
 $EndComp
+Connection ~ 3600 600 
+Wire Wire Line
+	3400 600  3600 600 
+Wire Wire Line
+	3600 600  3600 800 
+Wire Wire Line
+	3600 1200 3600 1400
+Wire Wire Line
+	3900 1000 3900 1350
+Connection ~ 4200 600 
+Wire Wire Line
+	4200 600  5600 600 
+Wire Wire Line
+	2900 1400 2900 1700
+Wire Wire Line
+	3750 2350 4400 2350
+Wire Wire Line
+	3750 2600 3750 2350
+Wire Wire Line
+	3600 2150 4400 2150
+Wire Wire Line
+	3600 2450 3600 2150
+Wire Wire Line
+	3350 2450 3600 2450
+Connection ~ 3600 2100
+Wire Wire Line
+	4300 1950 4400 1950
+Wire Wire Line
+	4300 2100 4300 1950
+Wire Wire Line
+	3600 2100 4300 2100
+Wire Wire Line
+	4200 1750 4200 2000
+Connection ~ 4200 1750
+Wire Wire Line
+	4200 1750 4400 1750
+Wire Wire Line
+	4200 1550 4400 1550
+Wire Wire Line
+	4200 1400 4200 1550
+Wire Wire Line
+	3600 1400 4200 1400
+Wire Wire Line
+	3900 1350 4400 1350
+Wire Wire Line
+	4200 1150 4400 1150
+Wire Wire Line
+	4200 600  4200 1150
+Wire Wire Line
+	3600 600  4200 600 
+Wire Wire Line
+	4000 2000 4200 2000
+Wire Wire Line
+	4200 1700 4200 1750
+Wire Wire Line
+	4000 1700 4200 1700
+$Comp
+L power:GND #PWR025
+U 1 1 603EA824
+P 3100 600
+F 0 "#PWR025" H 3100 350 50  0001 C CNN
+F 1 "GND" H 3105 427 50  0000 C CNN
+F 2 "" H 3100 600 50  0001 C CNN
+F 3 "" H 3100 600 50  0001 C CNN
+	1    3100 600 
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2900 2100 2900 2450
+Connection ~ 2900 2100
+Wire Wire Line
+	2900 2100 3600 2100
+Connection ~ 3600 2000
+Wire Wire Line
+	3600 2000 3600 2100
+Connection ~ 3600 1700
+Wire Wire Line
+	3600 2000 3700 2000
+Wire Wire Line
+	3600 1700 3600 2000
+Wire Wire Line
+	3600 1700 3700 1700
+Connection ~ 3600 1400
+Wire Wire Line
+	3600 1400 3600 1700
+Wire Wire Line
+	2900 1400 3600 1400
+Wire Wire Line
+	2900 2000 2900 2100
+Wire Wire Line
+	2900 2450 3050 2450
+$Comp
+L Transistor_BJT:S8550 Q9
+U 1 1 603D2FC3
+P 3700 1000
+F 0 "Q9" H 3891 954 50  0000 L CNN
+F 1 "S8550" H 3891 1045 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SC-59_Handsoldering" H 3900 925 50  0001 L CIN
+F 3 "http://www.unisonic.com.tw/datasheet/S8550.pdf" H 3700 1000 50  0001 L CNN
+	1    3700 1000
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R30
+U 1 1 603D1DC4
+P 3850 2000
+F 0 "R30" V 3643 2000 50  0000 C CNN
+F 1 "8.2K" V 3734 2000 50  0000 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 2000 50  0001 C CNN
+F 3 "~" H 3850 2000 50  0001 C CNN
+	1    3850 2000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R29
+U 1 1 603D0737
+P 3850 1700
+F 0 "R29" V 3643 1700 50  0000 C CNN
+F 1 "20K" V 3734 1700 50  0000 C CNN
+F 2 "Custom-footprints:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3780 1700 50  0001 C CNN
+F 3 "~" H 3850 1700 50  0001 C CNN
+	1    3850 1700
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C45
+U 1 1 603CE2A5
+P 3250 600
+F 0 "C45" H 3365 646 50  0000 L CNN
+F 1 "1U" H 3365 555 50  0000 L CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3288 450 50  0001 C CNN
+F 3 "~" H 3250 600 50  0001 C CNN
+	1    3250 600 
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C37
+U 1 1 603CCDAD
+P 2900 1850
+F 0 "C37" H 3015 1896 50  0000 L CNN
+F 1 "1U" H 3015 1805 50  0000 L CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2938 1700 50  0001 C CNN
+F 3 "~" H 2900 1850 50  0001 C CNN
+	1    2900 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C41
+U 1 1 603CB503
+P 3200 2450
+F 0 "C41" V 2948 2450 50  0000 C CNN
+F 1 "1U" V 3039 2450 50  0000 C CNN
+F 2 "Custom-footprints:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3238 2300 50  0001 C CNN
+F 3 "~" H 3200 2450 50  0001 C CNN
+	1    3200 2450
+	0    1    1    0   
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 6074978C
+P 9900 4350
+F 0 "H4" H 10000 4396 50  0000 L CNN
+F 1 "MountingHole" H 10000 4305 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.5mm" H 9900 4350 50  0001 C CNN
+F 3 "~" H 9900 4350 50  0001 C CNN
+	1    9900 4350
+	-1   0    0    1   
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 6074A133
+P 9900 4150
+F 0 "H3" H 10000 4196 50  0000 L CNN
+F 1 "MountingHole" H 10000 4105 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.5mm" H 9900 4150 50  0001 C CNN
+F 3 "~" H 9900 4150 50  0001 C CNN
+	1    9900 4150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 6074A572
+P 9900 3950
+F 0 "H2" H 10000 3996 50  0000 L CNN
+F 1 "MountingHole" H 10000 3905 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.5mm" H 9900 3950 50  0001 C CNN
+F 3 "~" H 9900 3950 50  0001 C CNN
+	1    9900 3950
+	-1   0    0    1   
+$EndComp
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 6074A765
+P 9900 3750
+F 0 "H1" H 10000 3796 50  0000 L CNN
+F 1 "MountingHole" H 10000 3705 50  0000 L CNN
+F 2 "MountingHole:MountingHole_5.5mm" H 9900 3750 50  0001 C CNN
+F 3 "~" H 9900 3750 50  0001 C CNN
+	1    9900 3750
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9900 4350 10200 4350
+Wire Wire Line
+	10200 4350 10200 4150
+Wire Wire Line
+	10200 3750 9900 3750
+Wire Wire Line
+	9900 3950 10200 3950
+Connection ~ 10200 3950
+Wire Wire Line
+	10200 3950 10200 3750
+Wire Wire Line
+	9900 4150 10200 4150
+Connection ~ 10200 4150
+Wire Wire Line
+	10200 4150 10200 4050
+$Comp
+L power:GND #PWR0101
+U 1 1 608C8BBD
+P 10300 4050
+F 0 "#PWR0101" H 10300 3800 50  0001 C CNN
+F 1 "GND" H 10305 3877 50  0000 C CNN
+F 2 "" H 10300 4050 50  0001 C CNN
+F 3 "" H 10300 4050 50  0001 C CNN
+	1    10300 4050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10200 4050 10300 4050
+Connection ~ 10200 4050
+Wire Wire Line
+	10200 4050 10200 3950
 $EndSCHEMATC
