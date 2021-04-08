@@ -1,4 +1,3 @@
-from OpenGL.raw.GL.VERSION.GL_1_0 import GL_LINEAR_ATTENUATION
 from PyQt5 import QtGui, QtWidgets, uic, QtCore
 from PyQt5.QtWidgets import QFileDialog, QTableWidget, QTableWidgetItem
 from numpy.lib.function_base import sinc
@@ -241,7 +240,7 @@ class MainWindow(QtWidgets.QMainWindow):
     
     _R = Rocket()
     _grid_height = 0.0          # The height with respect to the "bottom" z grid.
-    _alititude_grid = None      # Becomes a GLMeshItem
+    _alititude_grid = None      # Becomes a GLGridItem
     _prev_altitude = 0.0        # The previous _grid_height
 
     _playing = 0                # Set by the frame pause/play button on the gui
@@ -255,7 +254,7 @@ class MainWindow(QtWidgets.QMainWindow):
         uic.loadUi('3D_GUI.ui', self)
         
         # Add the grids to the graph in the gui
-        self.setup_graph()
+        self.setup_3D_graph()
 
         # Connect the buttons on the gui to the backend logic
         self.connect_gui()
@@ -272,7 +271,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.timer.timeout.connect(self.update_gui)
         self.timer.start()
         
-    def setup_graph(self):    
+    def setup_3D_graph(self):    
         
         # Creating and adding grids
         xgrid = gl.GLGridItem()
@@ -309,9 +308,15 @@ class MainWindow(QtWidgets.QMainWindow):
         # Zoom the camera out so we are not inside our model
         self.resetview_btn()
 
+    def setup_2D_graphs(self):
+        pass
+
+    def update_2D_graphs(self):
+        pass
+
     def update_gui(self):
         if self._playing:
-            
+
             # Step forward or reverse in our log file
             line_num = int(self.UI_linenum_LE.text()) + self._frame_direction
             self._R.update(line_num)
@@ -355,6 +360,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.UI_ypr_table.setItem(2, 1, QTableWidgetItem(str(self._R._yaw)))
             self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude)))
             self.UI_ypr_table.setItem(4, 1, QTableWidgetItem(str(self._R._time)))        
+
+            self.update_2D_graphs()
 
     def create_rocket(self):
         # TODO Read the data from the GUI that describes what parameters the rocket has.
