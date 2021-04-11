@@ -1,4 +1,0 @@
-(fp_lib_table
-  (lib (name digikey-footprints)(type KiCad)(uri "C:/Users/jjder/Documents/KiCad Projects/Libraries/digikey-kicad-library/digikey-footprints.pretty")(options "")(descr ""))
-  (lib (name Custom-footprints)(type KiCad)(uri ${KIPRJMOD}/Custom-footprints.pretty)(options "")(descr ""))
-)
