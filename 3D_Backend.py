@@ -31,7 +31,7 @@ class Rocket():
     _pitch = 0.0
     _roll = 0.0
 
-    _altitude = 0.0
+    _altitude = []
     _time = 0.0
 
     # Set by the "Live Mode?" checkbox in the gui
@@ -198,7 +198,7 @@ class Rocket():
 
         time                = list_data[0]              # Get timestamp
         angles              = list_data[1:4]            # Get ypr values
-        altitude            = float(list_data[4])       # Get altitude value
+        altitude.append(float(list_data[4]))       # Get altitude value
         self._strain_values = list_data[5:]             # Get strain values. [n:] means from n to the end of the list
 
         # Now with list_data, we can update the model
@@ -219,7 +219,7 @@ class Rocket():
         self._pitch = float(angles[1])
         self._roll = float(angles[0])
 
-        self._altitude = altitude
+        self._altitude.append(altitude)
         self._time = time
 
         # Color the strain sections based on strain values
@@ -358,7 +358,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.UI_ypr_table.setItem(0, 1, QTableWidgetItem(str(self._R._pitch)))
             self.UI_ypr_table.setItem(1, 1, QTableWidgetItem(str(self._R._roll)))
             self.UI_ypr_table.setItem(2, 1, QTableWidgetItem(str(self._R._yaw)))
-            self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude)))
+            self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude[-1])))
             self.UI_ypr_table.setItem(4, 1, QTableWidgetItem(str(self._R._time)))        
 
             self.update_2D_graphs()
@@ -520,7 +520,7 @@ class MainWindow(QtWidgets.QMainWindow):
             print("Stepped backwards 1 frame\n")
 
     def resetview_btn(self):
-        self.graph.reset()
+        #self.graph.reset()
         self.graph.setCameraPosition(distance=3000)
         print("Reset view")
         print("Camera postion is:", self.graph.cameraPosition(), "\n")
