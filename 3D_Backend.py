@@ -31,13 +31,8 @@ class Rocket():
     _pitch = []
     _roll = []
 
-<<<<<<< HEAD
     _altitude = []
-    _time = 0.0
-=======
-    _altitude = 0.0
     _time = []
->>>>>>> 6b6555782a99e194cfc751499a317b9818722e41
 
     # Set by the "Live Mode?" checkbox in the gui
     _livemode = False
@@ -203,7 +198,7 @@ class Rocket():
 
         time                = list_data[0]              # Get timestamp
         angles              = list_data[1:4]            # Get ypr values
-        altitude.append(float(list_data[4]))       # Get altitude value
+        altitude            = float(list_data[4])       # Get altitude value
         self._strain_values = list_data[5:]             # Get strain values. [n:] means from n to the end of the list
 
         # Now with list_data, we can update the model
@@ -224,13 +219,8 @@ class Rocket():
         self._pitch.append(float(angles[1]))
         self._roll.append(float(angles[0]))
 
-<<<<<<< HEAD
         self._altitude.append(altitude)
         self._time = time
-=======
-        self._altitude = altitude
-        self._time.append(time)
->>>>>>> 6b6555782a99e194cfc751499a317b9818722e41
 
         # Color the strain sections based on strain values
         # if check to see if the current ss is selected by the user and thus needs to be highlighted
@@ -362,19 +352,11 @@ class MainWindow(QtWidgets.QMainWindow):
             for i in range(self._R._r*self._R._n):
                 self.UI_strain_table.setItem(i, 1, QTableWidgetItem(self._R._strain_values[i]))
             
-<<<<<<< HEAD
-            self.UI_ypr_table.setItem(0, 1, QTableWidgetItem(str(self._R._pitch)))
-            self.UI_ypr_table.setItem(1, 1, QTableWidgetItem(str(self._R._roll)))
-            self.UI_ypr_table.setItem(2, 1, QTableWidgetItem(str(self._R._yaw)))
-            self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude[-1])))
-            self.UI_ypr_table.setItem(4, 1, QTableWidgetItem(str(self._R._time)))        
-=======
             self.UI_ypr_table.setItem(0, 1, QTableWidgetItem(str(self._R._pitch[-1])))
             self.UI_ypr_table.setItem(1, 1, QTableWidgetItem(str(self._R._roll[-1])))
             self.UI_ypr_table.setItem(2, 1, QTableWidgetItem(str(self._R._yaw[-1])))
-            self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude)))
+            self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude[-1])))
             self.UI_ypr_table.setItem(4, 1, QTableWidgetItem(str(self._R._time[-1])))        
->>>>>>> 6b6555782a99e194cfc751499a317b9818722e41
 
             self.update_2D_graphs()
 
