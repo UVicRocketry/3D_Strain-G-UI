@@ -27,12 +27,17 @@ class Rocket():
     _stl_dir = ""
     
     # Angular positions
-    _yaw = 0.0
-    _pitch = 0.0
-    _roll = 0.0
+    _yaw = []
+    _pitch = []
+    _roll = []
 
+<<<<<<< HEAD
     _altitude = []
     _time = 0.0
+=======
+    _altitude = 0.0
+    _time = []
+>>>>>>> 6b6555782a99e194cfc751499a317b9818722e41
 
     # Set by the "Live Mode?" checkbox in the gui
     _livemode = False
@@ -186,7 +191,7 @@ class Rocket():
         # Should only be a problem when updating live from an arduino
 
         # Read an entire line in the form "time,yaw,pitch,roll,altitude,strain1,strain2,strain3,..."
-        # We read from either live from an arduino or from a log file
+        # We read either live from an arduino or from a log file
         if self._livemode:
             line        = self.ser.readline()
             line        = line.strip()          # Strip \n and \r (They cause problems)
@@ -210,17 +215,22 @@ class Rocket():
         # the best.
         roll_radians = math.radians(self._roll)
         for m in self._mesh_models:
-            m.rotate(self._yaw   - float(angles[2]), math.cos(roll_radians), math.sin(roll_radians), 0, True)
-            m.rotate(self._pitch - float(angles[1]), math.sin(roll_radians), math.cos(roll_radians), 0, True)
-            m.rotate(self._roll  - float(angles[0]), 0, 0, 1, True)
+            m.rotate(self._yaw[-1]   - float(angles[2]), math.cos(roll_radians), math.sin(roll_radians), 0, True)
+            m.rotate(self._pitch[-1] - float(angles[1]), math.sin(roll_radians), math.cos(roll_radians), 0, True)
+            m.rotate(self._roll[-1]  - float(angles[0]), 0, 0, 1, True)
 
         # Update class variables to reflect new data
-        self._yaw = float(angles[2])
-        self._pitch = float(angles[1])
-        self._roll = float(angles[0])
+        self._yaw.append(float(angles[2]))
+        self._pitch.append(float(angles[1]))
+        self._roll.append(float(angles[0]))
 
+<<<<<<< HEAD
         self._altitude.append(altitude)
         self._time = time
+=======
+        self._altitude = altitude
+        self._time.append(time)
+>>>>>>> 6b6555782a99e194cfc751499a317b9818722e41
 
         # Color the strain sections based on strain values
         # if check to see if the current ss is selected by the user and thus needs to be highlighted
@@ -309,6 +319,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.resetview_btn()
 
     def setup_2D_graphs(self):
+        # Add stuff in here like axis labels and titles to the graphs
         pass
 
     def update_2D_graphs(self):
@@ -338,10 +349,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self._altitude_grid.translate(0, 0, 30*dz)
             self._grid_height += 30*dz
 
-            # Update the altitude line edit on the gui
-            #self.UI_altitude_LE.setText(str(self._R._altitude))
-            #self.UI_altitude_time_LE.setText(str(self._R._time))
-
             # Update the scrub_slider position even if user hasn't moved it but the file is still playing
             self.UI_scrub_slider.setValue(int(self.UI_linenum_LE.text()))
 
@@ -355,11 +362,19 @@ class MainWindow(QtWidgets.QMainWindow):
             for i in range(self._R._r*self._R._n):
                 self.UI_strain_table.setItem(i, 1, QTableWidgetItem(self._R._strain_values[i]))
             
+<<<<<<< HEAD
             self.UI_ypr_table.setItem(0, 1, QTableWidgetItem(str(self._R._pitch)))
             self.UI_ypr_table.setItem(1, 1, QTableWidgetItem(str(self._R._roll)))
             self.UI_ypr_table.setItem(2, 1, QTableWidgetItem(str(self._R._yaw)))
             self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude[-1])))
             self.UI_ypr_table.setItem(4, 1, QTableWidgetItem(str(self._R._time)))        
+=======
+            self.UI_ypr_table.setItem(0, 1, QTableWidgetItem(str(self._R._pitch[-1])))
+            self.UI_ypr_table.setItem(1, 1, QTableWidgetItem(str(self._R._roll[-1])))
+            self.UI_ypr_table.setItem(2, 1, QTableWidgetItem(str(self._R._yaw[-1])))
+            self.UI_ypr_table.setItem(3, 1, QTableWidgetItem(str(self._R._altitude)))
+            self.UI_ypr_table.setItem(4, 1, QTableWidgetItem(str(self._R._time[-1])))        
+>>>>>>> 6b6555782a99e194cfc751499a317b9818722e41
 
             self.update_2D_graphs()
 

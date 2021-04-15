@@ -814,7 +814,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QOpenGLWidget" name="Graph1_display"/>
+                   <widget class="PlotWidget" name="Graph1_display"/>
                   </item>
                  </layout>
                 </item>
@@ -852,7 +852,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QOpenGLWidget" name="Graph2_display"/>
+                   <widget class="PlotWidget" name="Graph2_display"/>
                   </item>
                  </layout>
                 </item>
@@ -947,7 +947,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QOpenGLWidget" name="Graph4_display"/>
+                   <widget class="PlotWidget" name="Graph4_display"/>
                   </item>
                  </layout>
                 </item>
@@ -985,7 +985,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QOpenGLWidget" name="Graph5_display"/>
+                   <widget class="PlotWidget" name="Graph5_display"/>
                   </item>
                  </layout>
                 </item>
@@ -1023,7 +1023,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QOpenGLWidget" name="Graph6_display"/>
+                   <widget class="PlotWidget" name="Graph6_display"/>
                   </item>
                  </layout>
                 </item>
@@ -1098,7 +1098,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QOpenGLWidget" name="Value1_display"/>
+                   <widget class="PlotWidget" name="Value1_display"/>
                   </item>
                  </layout>
                 </item>
@@ -1136,7 +1136,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QOpenGLWidget" name="Value2_display"/>
+                   <widget class="PlotWidget" name="Value2_display"/>
                   </item>
                  </layout>
                 </item>
@@ -1174,7 +1174,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QOpenGLWidget" name="Value3_display"/>
+                   <widget class="PlotWidget" name="Value3_display"/>
                   </item>
                  </layout>
                 </item>
