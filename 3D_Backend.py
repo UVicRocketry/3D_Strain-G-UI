@@ -27,12 +27,12 @@ class Rocket():
     _stl_dir = ""
     
     # Angular positions
-    _yaw = []
-    _pitch = []
-    _roll = []
+    _yaw = [0]
+    _pitch = [0]
+    _roll = [0]
 
-    _altitude = []
-    _time = []
+    _altitude = [0]
+    _time = [0]
 
     # Set by the "Live Mode?" checkbox in the gui
     _livemode = False
@@ -196,7 +196,7 @@ class Rocket():
             line        = line.strip()          
             list_data   = line.split(',')       # Delimiting on commas
 
-        time                = list_data[0]              # Get timestamp
+        time                = float(list_data[0])       # Get timestamp
         angles              = list_data[1:4]            # Get ypr values
         altitude            = float(list_data[4])       # Get altitude value
         self._strain_values = list_data[5:]             # Get strain values. [n:] means from n to the end of the list
@@ -208,7 +208,7 @@ class Rocket():
         # to rotate relative to the rocket coords, not to the global coords.
         # TODO this needs to be double checked. It seems to work fine but my linear algebra skills were never
         # the best.
-        roll_radians = math.radians(self._roll)
+        roll_radians = math.radians(self._roll[-1])
         for m in self._mesh_models:
             m.rotate(self._yaw[-1]   - float(angles[2]), math.cos(roll_radians), math.sin(roll_radians), 0, True)
             m.rotate(self._pitch[-1] - float(angles[1]), math.sin(roll_radians), math.cos(roll_radians), 0, True)
@@ -218,9 +218,8 @@ class Rocket():
         self._yaw.append(float(angles[2]))
         self._pitch.append(float(angles[1]))
         self._roll.append(float(angles[0]))
-
         self._altitude.append(altitude)
-        self._time = time
+        self._time.append(time)
 
         # Color the strain sections based on strain values
         # if check to see if the current ss is selected by the user and thus needs to be highlighted
@@ -247,6 +246,9 @@ class MainWindow(QtWidgets.QMainWindow):
     _frame_direction = 0        # Which direction we are moving in the log file. 1 = fwrd, -1 = rvrs, 0 = paused
     _total_logfile_lines = 0    # Set by logfile_btn(). Stores the total number of lines in the log file. Used by scrub_slider()
 
+    _Graph4_display_plot = None
+
+
     def __init__(self, *args, **kwargs):
         
         super(MainWindow, self).__init__(*args, **kwargs)
@@ -255,6 +257,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # Add the grids to the graph in the gui
         self.setup_3D_graph()
+        self.setup_2D_graphs()
 
         # Connect the buttons on the gui to the backend logic
         self.connect_gui()
@@ -310,10 +313,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def setup_2D_graphs(self):
         # Add stuff in here like axis labels and titles to the graphs
-        pass
+        self._Graph4_display_plot = self.Graph4_display.plot()
+        self.Graph4_display.addItem(self._Graph4_display_plot)
 
     def update_2D_graphs(self):
-        pass
+        self._Graph4_display_plot.setData(x=self._R._time, y=self._R._yaw)
 
     def update_gui(self):
         if self._playing:
@@ -324,8 +328,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.UI_linenum_LE.setText(str(line_num))
 
             # Update the altitude grid. If rocket went up, dz is negative
-            dz = self._prev_altitude - self._R._altitude
-            self._prev_altitude = self._R._altitude
+            dz = self._prev_altitude - self._R._altitude[-1]
+            self._prev_altitude = self._R._altitude[-1]
 
             if self._grid_height < 0:
                 self._altitude_grid.translate(0, 0, 2000 - self._grid_height)
