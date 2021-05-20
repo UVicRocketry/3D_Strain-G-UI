@@ -798,23 +798,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Graph1_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Graph 1</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Graph1_display"/>
+                   <widget class="PlotWidget" name="UI_graph1"/>
                   </item>
                  </layout>
                 </item>
@@ -836,23 +820,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Graph2_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Graph 2</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Graph2_display"/>
+                   <widget class="PlotWidget" name="UI_graph2"/>
                   </item>
                  </layout>
                 </item>
@@ -893,23 +861,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Graph3_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Graph 3</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Graph3_display"/>
+                   <widget class="PlotWidget" name="UI_graph3"/>
                   </item>
                  </layout>
                 </item>
@@ -931,23 +883,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Graph4_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Graph 4</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Graph4_display"/>
+                   <widget class="PlotWidget" name="UI_graph4"/>
                   </item>
                  </layout>
                 </item>
@@ -969,23 +905,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Graph5_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Graph 5</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Graph5_display"/>
+                   <widget class="PlotWidget" name="UI_graph5"/>
                   </item>
                  </layout>
                 </item>
@@ -1007,23 +927,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Graph6_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Graph 6</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Graph6_display"/>
+                   <widget class="PlotWidget" name="UI_graph6"/>
                   </item>
                  </layout>
                 </item>
@@ -1082,23 +986,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Value1_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Value 1</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Value1_display"/>
+                   <widget class="PlotWidget" name="UI_graphvalue1"/>
                   </item>
                  </layout>
                 </item>
@@ -1120,23 +1008,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Value2_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Value 2</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Value2_display"/>
+                   <widget class="PlotWidget" name="UI_graphvalue2"/>
                   </item>
                  </layout>
                 </item>
@@ -1158,23 +1030,7 @@
                    <number>2</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="Value3_title">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Value 3</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="PlotWidget" name="Value3_display"/>
+                   <widget class="PlotWidget" name="UI_graphvalue3"/>
                   </item>
                  </layout>
                 </item>
