@@ -246,8 +246,8 @@ class MainWindow(QtWidgets.QMainWindow):
     _frame_direction = 0        # Which direction we are moving in the log file. 1 = fwrd, -1 = rvrs, 0 = paused
     _total_logfile_lines = 0    # Set by logfile_btn(). Stores the total number of lines in the log file. Used by scrub_slider()
 
-    _Graph4_display_plot = None
-
+    _UI_graph4_plot = None
+    _UI_graph1_plot = None
 
     def __init__(self, *args, **kwargs):
         
@@ -313,11 +313,18 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def setup_2D_graphs(self):
         # Add stuff in here like axis labels and titles to the graphs
-        self._Graph4_display_plot = self.Graph4_display.plot()
-        self.Graph4_display.addItem(self._Graph4_display_plot)
+        self._UI_graph4_plot = self.UI_graph4.plot()
+        self.UI_graph4.addItem(self._UI_graph4_plot)
+        self._UI_graph1_plot = self.UI_graph1.plot()
+        self.UI_graph1.addItem(self._UI_graph1_plot)
+        self.UI_graph1.setTitle("Altitude over time")
 
     def update_2D_graphs(self):
-        self._Graph4_display_plot.setData(x=self._R._time, y=self._R._yaw)
+        self.UI_graph4_plot.setData(x=self._R._time, y=self._R._yaw)
+        self.UI_graph4_plot.setData(x=self._R._time, y=self._R._roll)
+        self.UI_graph4_plot.setData(x=self._R._time, y=self._R._pitch)
+
+        self._Graph1_plot.setData(x=self._R._time, y=self._R._altitude)
 
     def update_gui(self):
         if self._playing:
