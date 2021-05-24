@@ -313,11 +313,21 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def setup_2D_graphs(self):
         # Add stuff in here like axis labels and titles to the graphs
-        self._Graph4_display_plot = self.Graph4_display.plot()
-        self.Graph4_display.addItem(self._Graph4_display_plot)
+
+        # Gyro graph. This one has 3 lines for yaw pitch and roll.
+        self._UI_graph4_plot_yaw    = self.UI_graph4.plot()
+        self._UI_graph4_plot_pitch  = self.UI_graph4.plot()
+        self._UI_graph4_plot_roll   = self.UI_graph4.plot()
+        self.UI_graph4.addItem(self._UI_graph4_plot_yaw, self._UI_graph4_plot_pitch, self._UI_graph4_plot_roll)
+        self.UI_graph4.setTitle("Gyro (degrees)")
+
 
     def update_2D_graphs(self):
-        self._Graph4_display_plot.setData(x=self._R._time, y=self._R._yaw)
+
+        # Gyro graph lines
+        self._UI_graph4_plot_yaw.setData(x=self._R._time, y= self._R._yaw)
+        self._UI_graph4_plot_pitch.setData(x=self._R._time, y= self._R._pitch)
+        self._UI_graph4_plot_roll.setData(x=self._R._time, y= self._R._roll)
 
     def update_gui(self):
         if self._playing:
