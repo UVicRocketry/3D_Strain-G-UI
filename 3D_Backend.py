@@ -246,8 +246,8 @@ class MainWindow(QtWidgets.QMainWindow):
     _frame_direction = 0        # Which direction we are moving in the log file. 1 = fwrd, -1 = rvrs, 0 = paused
     _total_logfile_lines = 0    # Set by logfile_btn(). Stores the total number of lines in the log file. Used by scrub_slider()
 
-    _Graph4_display_plot = None
-
+    _UI_graph4_plot = None
+    _UI_graph1_plot = None
 
     def __init__(self, *args, **kwargs):
         
@@ -312,19 +312,36 @@ class MainWindow(QtWidgets.QMainWindow):
         self.resetview_btn()
 
     def setup_2D_graphs(self):
-        # Add stuff in here like axis labels and titles to the graphs
+        # TODO make the lines on each graph thicker (they're kinda hard to see)
+        # This is where you can set up the graphs on the second tab of the gui
+        # Things like axis labels and titles, and line colors are all set here. 
 
+        # For example, the altitude graph.
+
+        # Altitude graph
+        self._UI_graph1_plot = self.UI_graph1.plot(pen='r', antialias=True)    # Create a plot (line) called graph1
+        self.UI_graph1.addItem(self._UI_graph1_plot)    # Add it to the graph on the gui
+        self.UI_graph1.setTitle("Altitude (ft)")        # Set its title
+        # In update_2D_graphs() we add the data (in the form of a list) to the graph.
+       
         # Gyro graph. This one has 3 lines for yaw pitch and roll.
-        self._UI_graph4_plot_yaw    = self.UI_graph4.plot()
-        self._UI_graph4_plot_pitch  = self.UI_graph4.plot()
-        self._UI_graph4_plot_roll   = self.UI_graph4.plot()
+        # TODO add a legend that shows what the colors mean in the graph.
+        self._UI_graph4_plot_yaw    = self.UI_graph4.plot(pen='y', antialias=True)
+        self._UI_graph4_plot_pitch  = self.UI_graph4.plot(pen='b', antialias=True)
+        self._UI_graph4_plot_roll   = self.UI_graph4.plot(pen='r')
         self.UI_graph4.addItem(self._UI_graph4_plot_yaw, self._UI_graph4_plot_pitch, self._UI_graph4_plot_roll)
         self.UI_graph4.setTitle("Gyro (degrees)")
-
-
+        
     def update_2D_graphs(self):
+        # This is where the data for the graphs is actually plotted. The Rocket class
+        # contains lists of all the data the rocket has avalible that are easy to plot.
 
-        # Gyro graph lines
+        # For example, the altitude graph, which was set up in setup_2D_graphs()
+
+        # Plot x and y using Rocket class lists.
+        self._UI_graph1_plot.setData(x=self._R._time, y=self._R._altitude) 
+
+        # Gyro graph
         self._UI_graph4_plot_yaw.setData(x=self._R._time, y= self._R._yaw)
         self._UI_graph4_plot_pitch.setData(x=self._R._time, y= self._R._pitch)
         self._UI_graph4_plot_roll.setData(x=self._R._time, y= self._R._roll)
