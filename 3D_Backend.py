@@ -148,10 +148,13 @@ class Rocket():
 
     def setup_arduino(self, serial_port: str):
         # Stuff for reading text from arduino doing serial.println()
+        print("Attempting to set up Arduino...\n")
         try:
             baud_rate = 115200 # In arduino .ino file, Serial.begin(baud_rate)
             self.ser = Serial(serial_port, baud_rate)
-            #self._livemode = True
+            print("Setup connecetion with Arduino on port", serial_port, " with baud rate", baud_rate, "\n")
+
+           
         except:
             print("Could not set up serial connection with Arduino. Check the connection and try again!\n")
 
@@ -267,7 +270,9 @@ class MainWindow(QtWidgets.QMainWindow):
     def set_framerate(self):
         # Update timer   
         self.timer = QtCore.QTimer()
-        if self.UI_framerate_slider.value() != 0:
+        if self._R._livemode:
+            self.timer.setInterval(1) # Framerate needs to be cranked for the serial buffer to not overflow in live mode.
+        elif self.UI_framerate_slider.value() != 0:
             self.timer.setInterval(int(1000/self.UI_framerate_slider.value()))
         else:
             self.timer.setInterval(2147483646)
@@ -347,7 +352,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self._UI_graph4_plot_roll.setData(x=self._R._time, y= self._R._roll)
 
     def update_gui(self):
-        if self._playing:
+        if self._playing and not self._R._livemode:
 
             # Step forward or reverse in our log file
             line_num = int(self.UI_linenum_LE.text()) + self._frame_direction
@@ -390,12 +395,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.UI_ypr_table.setItem(4, 1, QTableWidgetItem(str(self._R._time[-1])))        
 
             self.update_2D_graphs()
-
-    def create_rocket(self):
-        # TODO Read the data from the GUI that describes what parameters the rocket has.
-        self._R.create_meshes()
-        self.add_rocket(self._R)
-        self._R.setup_arduino()
+        
+        # Live mode. Disable all normal gui updates. TODO Gui functionality could be extended to live mode in the future.
+        else:
+            self._R.update(logfile_line=0)
+           
 
     def add_rocket_to_graph(self, R: Rocket):
         # Add meshes to the graph. The enumerate bit is from
@@ -475,7 +479,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.add_rocket_to_graph(self._R)
         
         # Initialize the framerate so that the user doesn't have to move the slider to start playback
-        self.set_framerate() 
+        self.set_framerate()
+
+        # If the user has selected "Live Mode" try to set up the arduino.
+        self._R.setup_arduino(serial_port="COM3") # TODO make this come from the gui so the user can select the port.
 
     def logfile_btn(self):
         fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.csv")
@@ -508,12 +515,13 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.UI_livemode_CB.isChecked():
             print("Enabled live mode\n")
             self._R._livemode = True
+
         else:
             print("Disabled live mode\n")
             self._R._livemode = False
     
     def playpause_btn(self):
-        if len(self._R._logfile_path) != 0:
+        if len(self._R._logfile_path) != 0 or self._R._livemode:
             self._playing = self.UI_playpause_btn.isChecked()
             self._frame_direction = int(self._playing)
             

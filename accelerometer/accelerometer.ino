@@ -140,6 +140,7 @@ void loop()
     // Format of data string is time,y,p,r,altitude,strain-sections...
     String data = String(ypr[0] * 180/M_PI) + ',' + String(ypr[1] * 180/M_PI) + ',' + String(ypr[2] * 180/M_PI) + ',' + '0';
 
+    // Create data for 12 fake strain gauges
     for(int i = 0; i < 12; i++){
       data += ',' + String(cos(i*cos(ypr[0]*180/M_PI)));
     }
