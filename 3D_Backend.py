@@ -153,10 +153,10 @@ class Rocket():
             baud_rate = 115200 # In arduino .ino file, Serial.begin(baud_rate)
             self.ser = Serial(serial_port, baud_rate)
             print("Setup connecetion with Arduino on port", serial_port, " with baud rate", baud_rate, "\n")
-
-           
+            self._livemode = True
         except:
             print("Could not set up serial connection with Arduino. Check the connection and try again!\n")
+            self._livemode = False
 
     def get_color(self, n: int):
         # Given a strain reading, returns a color (tuple). Used to color the strain sections based on readings from the strain gauges.
@@ -183,13 +183,9 @@ class Rocket():
         return color
 
     def update(self, logfile_line: int):
-        # Get rid of old serial data (the baud rate isn't fast enough to keep up so the buffer fills up)
-        # self.ser.flushInput()                   
-        # This is causing some weird behaviour so leaving it out and cranking up the frame rate so the buffer doesn't overflow
-        # Should only be a problem when updating live from an arduino
-
         # Read an entire line in the form "time,yaw,pitch,roll,altitude,strain1,strain2,strain3,..."
         # We read either live from an arduino or from a log file
+        
         if self._livemode:
             line        = self.ser.readline()
             line        = line.strip()          # Strip \n and \r (They cause problems)
@@ -270,12 +266,19 @@ class MainWindow(QtWidgets.QMainWindow):
     def set_framerate(self):
         # Update timer   
         self.timer = QtCore.QTimer()
+        
+        # Framerate needs to be cranked for the serial buffer to not overflow in live mode.
         if self._R._livemode:
-            self.timer.setInterval(1) # Framerate needs to be cranked for the serial buffer to not overflow in live mode.
+            self.timer.setInterval(1) 
+        
+        # If we aren't in livemode, then framerate is whatever the slider is set to.
         elif self.UI_framerate_slider.value() != 0:
             self.timer.setInterval(int(1000/self.UI_framerate_slider.value()))
+
+        # If the slider is all the way at 0, "pause". Can't just use 0 because ya know 1/0 is bad.
         else:
-            self.timer.setInterval(2147483646)
+            self.timer.setInterval(2147483646) # Paused
+
         self.timer.timeout.connect(self.update_gui)
         self.timer.start()
         
@@ -397,9 +400,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.update_2D_graphs()
         
         # Live mode. Disable all normal gui updates. TODO Gui functionality could be extended to live mode in the future.
-        else:
+        elif self._R._livemode:
             self._R.update(logfile_line=0)
-           
 
     def add_rocket_to_graph(self, R: Rocket):
         # Add meshes to the graph. The enumerate bit is from
@@ -481,9 +483,6 @@ class MainWindow(QtWidgets.QMainWindow):
         # Initialize the framerate so that the user doesn't have to move the slider to start playback
         self.set_framerate()
 
-        # If the user has selected "Live Mode" try to set up the arduino.
-        self._R.setup_arduino(serial_port="COM3") # TODO make this come from the gui so the user can select the port.
-
     def logfile_btn(self):
         fname, filter = QFileDialog.getOpenFileName(self, 'Open file', filter="*.csv")
         
@@ -513,12 +512,13 @@ class MainWindow(QtWidgets.QMainWindow):
     def livemode_CB(self):
         # Switch between livemode (reading from arduino) and logfile mode 
         if self.UI_livemode_CB.isChecked():
-            print("Enabled live mode\n")
-            self._R._livemode = True
-
+            self._R.setup_arduino(serial_port="COM3") # TODO make this come from the gui so the user can select the port.
         else:
             print("Disabled live mode\n")
             self._R._livemode = False
+
+        # If live mode was entered we need to call this to update the framerate. See set_framerate()
+        self.set_framerate()
     
     def playpause_btn(self):
         if len(self._R._logfile_path) != 0 or self._R._livemode:
