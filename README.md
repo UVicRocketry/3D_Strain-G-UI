@@ -30,12 +30,12 @@ to start the program.
 ## Interface Overview
 Upon first launch, the following interface is shown. This shows graphs of stats such as yaw, pitch, roll, altitude, etc.
 
-![Startup](/images/Startup.png)
+![Startup](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/Startup.png)
 _Note: only some of these graphs are implemented right now_
 
 Selecting Tab2 of the UI, the main interface is shown.
 
-![Tab2](/images/Tab2.png)
+![Tab2](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/Tab2.png)
 
 Here is where the magic happens. The upper left of the UI contains file management controls, below are playback controls, and bottom left are current rocket environmental variables.
 
@@ -48,34 +48,34 @@ CSV log files formatted as `time,yaw,pitch,roll,altitude,strain1,strain2....` ca
 ## Basic Usage
 Load the `10K.rocket` and `Sample_Flight_Data.csv` files into the program. This should show a model of SpaceX's starship created by Arturo R. 
 
-![Loaded_Test_Files](/images/Loaded_Test_Files.png)
+![Loaded_Test_Files](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/Loaded_Test_Files.png)
 
 Next, test the playback by pressing play button. The Starship should display strain data, altitude, etc as it reads the log file.
 
-![Playback_Started](/images/Playback_Started.png)
+![Playback_Started](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/Playback_Started.png)
 
 Click and drag on the rocket to orbit around. Zoom using the scroll wheel, and pan using scroll click. Pause playback using the play button, and reset to the initial view using the `Reset View` button.
 
-![Orbited](/images/Orbited.png)
+![Orbited](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/Orbited.png)
 
 Using the slider under the 3D view, scrub through the log file to find apogee. Adjust the framerate slider and begin playback to watch the apogee in slow motion.
 
-![Apogee](/images/Apogee.png)
+![Apogee](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/Apogee.png)
 
 Pause playback during a particularly colorful section of the logfile which indicates high strain. In the table beneath the Yaw, Pitch etc. data, select a cell to highlight the strain sensor on the rocket responsible for that data. The section of the model will glow pink when selected.
 
-![Highlighted](/images/Highlighted.png)
+![Highlighted](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/Highlighted.png)
 
 ## Creating a Model
 Since the models used by the software are `.STL`, any CAD program can be used to create them. 
 
 Specific naming must be used for the strain sections of the following form: `foo-strain_section-n.STL` where n = 1,2,3,4... It is recommended to use linear and radial patterns to automatically number the parts according to this naming convention, however the parts can be named manually as well. Arturo's Starship Solidworks assembly is included as a reference. Other components of the assembly do not need to follow any particular naming convention. Shown below is the feature tree of the included assembly.
 
-![Feature Tree](/images/Feature_Tree.png)
+![Feature Tree](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/Feature_Tree.png)
 
 To ensure that the rocket in the 3D view orbits around the center of mass, the assembly must be treated in a certain way. First, mate the CoM of the assembly to the origin of the assembly. Then, when exporting the assembly as an STL, click options, then check the box labled "Do not translate STL output data to positive space".
 
-![STL_Options](/images/STL_Export_Options.png)
+![STL_Options](https://github.com/UVicRocketry/3D_Strain-G-UI/blob/main/Images/STL_Export_Options.png)
 
 ## Creating a .Rocket Configuration
 Configuration files can be created that specify the location of STL files, color sensitivity and other parameters. Below is the `10K.rocket` config included.
