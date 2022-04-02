@@ -556,7 +556,7 @@ class MainWindow(QtWidgets.QMainWindow):
             print("Stepped backwards 1 frame\n")
 
     def resetview_btn(self):
-        #self.graph.reset()
+        self.graph.reset()
         self.graph.setCameraPosition(distance=3000)
         print("Reset view")
         print("Camera postion is:", self.graph.cameraPosition(), "\n")
