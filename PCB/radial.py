@@ -13,9 +13,8 @@ Run this script to automatically lay out the strain gauge contacts radially
     4)  Run 'execfile("radial.py")' or if that doesn't work, 'exec(open("radial.py").read())'
     5)  Done
 
-Note: You must refresh the pcb to see the changes in PCBNew: Tools > Update PCB From Schematic
-Sometimes this still doesn't work so if you want to for sure see the new changes, press Alt+3 to
-view the PCB in the 3D Viewer. Saving, and reopening PCBNew will also reflect the changes.
+Note: You must refrest the components to see any changes. By pressing CTRL+A all components are
+highlighted and thus updated.
 
 For more info on how this script works, have a look at the source .h files for pcbnew
 https://github.com/KiCad/kicad-source-mirror/tree/master/pcbnew
@@ -76,8 +75,9 @@ print("Got board", board)
 
 # Resistors on the radial wire contacts that complete the wheatstone bridge
 footrefs = ["R17", "R18", "R19", "R20", "R21", "R22", "R23", "R24", "Dummy", "Dummy", "R25", "R26", "R27", "R28", "R31", "R32", "R33", "R34", "Dummy", "Dummy", "R35", "R36", "R29", "R30", "R37", "R40", "R38", "R39", "Dummy", "Dummy"]
-radius = 1.43
-offset = 180
+radius = 1.58
+offset = 90
+total_offset = 360/(30*2) # This offsets the initial starting point for rotation
 
 print("\nGot footrefs:", footrefs)
 print("Total number of footrefs:", len(footrefs))
@@ -105,15 +105,15 @@ for i, foot in enumerate(foots):
     
     # Create the new position for the module
     # -1 or else the layout is "inverted" or something idk lol
-    pos_x = -1*radius*inch_to_nano*math.cos(math.radians(angle*i)) + center_x
-    pos_y = radius*inch_to_nano*math.sin(math.radians(angle*i)) + center_y
+    pos_x = -1*radius*inch_to_nano*math.cos(math.radians(angle*i + total_offset)) + center_x
+    pos_y = radius*inch_to_nano*math.sin(math.radians(angle*i + total_offset)) + center_y
     newpos = pcbnew.wxPoint(pos_x, pos_y)
     
     # Set the new position and angle for the module
     print("\ni=", i, "Footprint", footrefs[i]) 
 
     if foot is not None:
-        foot.SetOrientationDegrees(angle*i + offset)
+        foot.SetOrientationDegrees((total_offset + angle*i) + offset)
         foot.SetPosition(newpos)
         print("Setting orientation to", angle*i + offset)
         print("Setting position to", pos_x, pos_y)
