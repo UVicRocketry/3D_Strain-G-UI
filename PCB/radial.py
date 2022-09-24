@@ -13,7 +13,7 @@ Run this script to automatically lay out the strain gauge contacts radially
     4)  Run 'execfile("radial.py")' or if that doesn't work, 'exec(open("radial.py").read())'
     5)  Done
 
-Note: You must refrest the components to see any changes. By pressing CTRL+A all components are
+Note: You must refresh the components to see any changes. By pressing CTRL+A all components are
 highlighted and thus updated.
 
 For more info on how this script works, have a look at the source .h files for pcbnew
@@ -27,8 +27,8 @@ inch_to_nano = 2.54e+7
 
 # Set the center of the radial pattern. For us, we just place a circle wherever we want it
 # then check its properties and get the center point. 
-center_x = 125 * mm_to_nano
-center_y = 100 * mm_to_nano
+center_x = 160 * mm_to_nano
+center_y = 90 * mm_to_nano
 
 # Get our board from pcbnew
 # We use this to access components, pads, vias, etc.
@@ -44,24 +44,25 @@ print("Got board", board)
 # Sometimes we'll need to offset each angle since the default orientation of the footprint is not what we want
 
 # For the radial wire contact pads
-# footrefs = ["TP1", "TP2", "TP3", "TP4", "TP5", "TP6", "TP7", "TP8",
-#            "TP25", "TP28",
-#            "TP9", "TP10", "TP11", "TP12", "TP13", "TP14", "TP15", "TP16",
-#            "TP26", "TP29",
-#            "TP17", "TP18", "TP19", "TP20", "TP21", "TP22", "TP23", "TP24",
-#            "TP27", "TP30"]
-# radius = 1.37
-# offset = -90
+footrefs = ["TP1", "TP2", "TP3", "TP4", "TP5", "TP6", "TP7", "Dummy", "Dummy",
+           "TP8", "TP9", "TP10", "TP11", "TP12", "TP13", "TP14", "Dummy", "Dummy",
+           "TP15", "TP16", "TP17", "TP18","TP19", "TP20", "TP21", "Dummy", "Dummy",
+           "TP22", "TP23", "TP24", "TP25", "TP26", "TP27", "TP28", "Dummy", "Dummy"]
+radius = 1.86
+offset = -90
+total_offset=180 + 1.5*360/36
 
 #HX711s
- footrefs = ["U1", "U2", "U3", "U4", "U5", "U6", "U7", "U8", "U9", "U10", "U11", "U12"]
- radius = 1.25     
- offset = 0
+# footrefs = ["U1", "U2", "U3", "Dummy", "U4", "U5", "U6", "Dummy", "U7", "U8", "U9", "Dummy", "U10", "U11", "U12", "Dummy"]
+# radius = 1.5     
+# offset = 90
+# total_offset=180 + 360/16
 
 # Resistors on pin 8 of the HX711s
-# footrefs = ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "R12",]
-# radius = 1.34
-# offset = -90
+# footrefs = ["R1", "R4", "R7", "Dummy", "R10", "R13", "R16", "Dummy", "R19", "R22", "R25", "Dummy", "R28", "R31", "R34", "Dummy"]
+# radius = 1.18
+# offset = 90
+# total_offset = 180 + 360/16
 
 # Capacitors on pin 7 and 8 of HX711
 # footrefs = ["C4", "C5", "C6", "C10", "C11", "C12", "C16", "C17", "C18", "C22", "C23", "C24"]
@@ -69,9 +70,10 @@ print("Got board", board)
 # offset = -90
 
 # Capacitors on pin 1 of HX711
-# footrefs = ["C1", "C2", "C3", "C7", "C8", "C9", "C13", "C14", "C15", "C19", "C20", "C21"]
-# radius = 0.75     
+# footrefs = ["C1", "C3", "C5", "Dummy", "C7", "C9", "C11", "Dummy", "C13", "C15", "C17", "Dummy", "C19", "C21", "C22", "Dummy"]
+# radius = 1.76    
 # offset = 90
+# total_offset = 180 + 360/16
 
 # Resistors on the radial wire contacts that complete the wheatstone bridge
 # footrefs = ["R17", "R18", "R19", "R20", "R21", "R22", "R23", "R24", "Dummy", "Dummy", "R25", "R26", "R27", "R28", "R31", "R32", "R33", "R34", "Dummy", "Dummy", "R35", "R36", "R29", "R30", "R37", "R40", "R38", "R39", "Dummy", "Dummy"]
