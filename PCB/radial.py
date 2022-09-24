@@ -27,7 +27,7 @@ inch_to_nano = 2.54e+7
 
 # Set the center of the radial pattern. For us, we just place a circle wherever we want it
 # then check its properties and get the center point. 
-center_x = 150 * mm_to_nano
+center_x = 125 * mm_to_nano
 center_y = 100 * mm_to_nano
 
 # Get our board from pcbnew
@@ -43,7 +43,7 @@ print("Got board", board)
 # Just uncomment out a footref list, and its respective radius and offset and run the script as outlined above.
 # Sometimes we'll need to offset each angle since the default orientation of the footprint is not what we want
 
-# For the radial wire contact pods
+# For the radial wire contact pads
 # footrefs = ["TP1", "TP2", "TP3", "TP4", "TP5", "TP6", "TP7", "TP8",
 #            "TP25", "TP28",
 #            "TP9", "TP10", "TP11", "TP12", "TP13", "TP14", "TP15", "TP16",
@@ -54,9 +54,9 @@ print("Got board", board)
 # offset = -90
 
 #HX711s
-# footrefs = ["U1", "U2", "U3", "U4", "U5", "U6", "U7", "U8", "U9", "U10", "U11", "U12"]
-# radius = 1.04     
-# offset = -90
+ footrefs = ["U1", "U2", "U3", "U4", "U5", "U6", "U7", "U8", "U9", "U10", "U11", "U12"]
+ radius = 1.25     
+ offset = 0
 
 # Resistors on pin 8 of the HX711s
 # footrefs = ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "R12",]
@@ -74,10 +74,10 @@ print("Got board", board)
 # offset = 90
 
 # Resistors on the radial wire contacts that complete the wheatstone bridge
-footrefs = ["R17", "R18", "R19", "R20", "R21", "R22", "R23", "R24", "Dummy", "Dummy", "R25", "R26", "R27", "R28", "R31", "R32", "R33", "R34", "Dummy", "Dummy", "R35", "R36", "R29", "R30", "R37", "R40", "R38", "R39", "Dummy", "Dummy"]
-radius = 1.58
-offset = 90
-total_offset = 360/(30*2) # This offsets the initial starting point for rotation
+# footrefs = ["R17", "R18", "R19", "R20", "R21", "R22", "R23", "R24", "Dummy", "Dummy", "R25", "R26", "R27", "R28", "R31", "R32", "R33", "R34", "Dummy", "Dummy", "R35", "R36", "R29", "R30", "R37", "R40", "R38", "R39", "Dummy", "Dummy"]
+# radius = 1.58
+# offset = 90
+# total_offset = 360/(30*2) # This offsets the initial starting point for rotation
 
 print("\nGot footrefs:", footrefs)
 print("Total number of footrefs:", len(footrefs))
