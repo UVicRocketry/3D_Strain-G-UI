@@ -44,6 +44,7 @@ print("Got board", board)
 # Sometimes we'll need to offset each angle since the default orientation of the footprint is not what we want
 
 # For the radial wire contact pads
+'''
 footrefs = ["TP1", "TP2", "TP3", "TP4", "TP5", "TP6", "TP7", "Dummy", "Dummy",
            "TP8", "TP9", "TP10", "TP11", "TP12", "TP13", "TP14", "Dummy", "Dummy",
            "TP15", "TP16", "TP17", "TP18","TP19", "TP20", "TP21", "Dummy", "Dummy",
@@ -51,35 +52,65 @@ footrefs = ["TP1", "TP2", "TP3", "TP4", "TP5", "TP6", "TP7", "Dummy", "Dummy",
 radius = 1.86
 offset = -90
 total_offset=180 + 1.5*360/36
+'''
 
-#HX711s
-# footrefs = ["U1", "U2", "U3", "Dummy", "U4", "U5", "U6", "Dummy", "U7", "U8", "U9", "Dummy", "U10", "U11", "U12", "Dummy"]
-# radius = 1.5     
-# offset = 90
-# total_offset=180 + 360/16
+# HX711s
+'''
+footrefs = ["U1", "U2", "U3", "Dummy", "U4", "U5", "U6", "Dummy", "U7", "U8", "U9", "Dummy", "U10", "U11", "U12", "Dummy"]
+radius = 1.5     
+offset = -90
+total_offset=180 + 360/16
+'''
 
-# Resistors on pin 8 of the HX711s
-# footrefs = ["R1", "R4", "R7", "Dummy", "R10", "R13", "R16", "Dummy", "R19", "R22", "R25", "Dummy", "R28", "R31", "R34", "Dummy"]
-# radius = 1.18
-# offset = 90
-# total_offset = 180 + 360/16
+# Resistors on pin 7 and 8 of the HX711s
+'''
+footrefs = ["R1", "R2", "R4", "R5", "R7", "R8", "Dummy", "Dummy", "Dummy",
+            "R10", "R11", "R13", "R14", "R16", "R17", "Dummy", "Dummy", "Dummy",
+            "R19", "R20", "R22", "R23", "R25", "R26", "Dummy", "Dummy", "Dummy",
+            "R28", "R29", "R31", "R32", "R34", "R35", "Dummy", "Dummy", "Dummy"]
+radius = 2.08
+offset = 90
+total_offset = 200
+'''
 
 # Capacitors on pin 7 and 8 of HX711
-# footrefs = ["C4", "C5", "C6", "C10", "C11", "C12", "C16", "C17", "C18", "C22", "C23", "C24"]
-# radius = 1.43
-# offset = -90
+'''
+footrefs = ["C4", "C5", "C6", "C10", "C11", "C12", "C16", "C17", "C18", "C22", "C23", "C24"]
+radius = 1.43
+offset = -90
+'''
 
 # Capacitors on pin 1 of HX711
-# footrefs = ["C1", "C3", "C5", "Dummy", "C7", "C9", "C11", "Dummy", "C13", "C15", "C17", "Dummy", "C19", "C21", "C22", "Dummy"]
-# radius = 1.76    
-# offset = 90
-# total_offset = 180 + 360/16
+
+footrefs = ["C1", "C3", "C5", "Dummy", "C7", "C9", "C11", "Dummy", "C13", "C15", "C17", "Dummy", "C19", "C21", "C22", "Dummy"]
+radius = 1.76    
+offset = 90
+total_offset = 204.5
+
+
+# 4 mounting Holes (yes I'm incredibly lazy)
+'''
+footrefs = ["H1", "H2", "H3", "H4"]
+radius = 1.5    
+offset = 0
+total_offset = 0
+'''
+
+# 2 Shift registers
+'''
+footrefs = ["U13", "U16"]
+radius = 0.75    
+offset = 90
+total_offset = 0
+'''
 
 # Resistors on the radial wire contacts that complete the wheatstone bridge
-# footrefs = ["R17", "R18", "R19", "R20", "R21", "R22", "R23", "R24", "Dummy", "Dummy", "R25", "R26", "R27", "R28", "R31", "R32", "R33", "R34", "Dummy", "Dummy", "R35", "R36", "R29", "R30", "R37", "R40", "R38", "R39", "Dummy", "Dummy"]
-# radius = 1.58
-# offset = 90
-# total_offset = 360/(30*2) # This offsets the initial starting point for rotation
+'''
+footrefs = ["R17", "R18", "R19", "R20", "R21", "R22", "R23", "R24", "Dummy", "Dummy", "R25", "R26", "R27", "R28", "R31", "R32", "R33", "R34", "Dummy", "Dummy", "R35", "R36", "R29", "R30", "R37", "R40", "R38", "R39", "Dummy", "Dummy"]
+radius = 1.58
+offset = 90
+total_offset = 360/(30*2) # This offsets the initial starting point for rotation
+'''
 
 print("\nGot footrefs:", footrefs)
 print("Total number of footrefs:", len(footrefs))
