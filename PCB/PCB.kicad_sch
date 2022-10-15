@@ -775,11 +775,9 @@
 
   (no_connect (at 45.72 165.1) (uuid 08128d9b-7ff4-4dd6-8ee8-0f24c8dc559f))
   (no_connect (at 40.64 165.1) (uuid 9ac6fc36-d189-4b23-a980-11e21b17a333))
-  (no_connect (at 81.28 165.1) (uuid c6cdeda5-f69c-4b41-b3fb-f8bfef388480))
   (no_connect (at 58.42 190.5) (uuid c6cdeda5-f69c-4b41-b3fb-f8bfef388481))
   (no_connect (at 111.76 190.5) (uuid c6cdeda5-f69c-4b41-b3fb-f8bfef388482))
   (no_connect (at 48.26 165.1) (uuid dc8d94ee-6e82-43db-9caa-8be9aea60761))
-  (no_connect (at 27.94 165.1) (uuid e7239a9e-f05a-4d18-a2b2-7fc9604afb0f))
   (no_connect (at 43.18 165.1) (uuid f1f14e54-fc20-4c84-b2bf-a03003e35ce2))
 
   (wire (pts (xy 64.77 68.58) (xy 64.77 153.67))
@@ -1498,8 +1496,8 @@
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-000061ed6bd7)
     (property "Reference" "R38" (id 0) (at 165.2778 60.96 90))
-    (property "Value" "" (id 1) (at 162.9664 60.96 90))
-    (property "Footprint" "" (id 2) (at 161.798 60.96 90)
+    (property "Value" "453K" (id 1) (at 162.9664 60.96 90))
+    (property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" (id 2) (at 161.798 60.96 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (id 3) (at 160.02 60.96 0)
@@ -1619,8 +1617,8 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 43ac6ffa-7b63-4fc0-b2b8-4c9c5eb4bd58)
     (property "Reference" "U15" (id 0) (at 181.61 69.85 0))
-    (property "Value" "" (id 1) (at 181.61 72.39 0))
-    (property "Footprint" "" (id 2) (at 181.61 70.485 0)
+    (property "Value" "LT3042xMSE" (id 1) (at 181.61 72.39 0))
+    (property "Footprint" "Package_SO:MSOP-10-1EP_3x3mm_P0.5mm_EP1.68x1.88mm" (id 2) (at 181.61 70.485 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/3042fb.pdf" (id 3) (at 181.61 62.23 0)
@@ -1672,6 +1670,22 @@
     (property "Datasheet" "~" (id 3) (at 255.27 93.98 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+  )
+
+  (symbol (lib_id "power:+5V") (at 27.94 165.1 0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid 73cb09ad-e380-49f3-bc9d-038b1104bc93)
+    (property "Reference" "#PWR?" (id 0) (at 27.94 168.91 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5V" (id 1) (at 25.4 163.195 0))
+    (property "Footprint" "" (id 2) (at 27.94 165.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (id 3) (at 27.94 165.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 7af171ef-c1a8-4817-ac3c-eb72938c314e))
   )
 
   (symbol (lib_id "Mechanical:MountingHole") (at 255.27 73.66 180) (unit 1)
@@ -1796,6 +1810,22 @@
     (property "Datasheet" "~" (id 3) (at 255.27 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+  )
+
+  (symbol (lib_id "power:+5V") (at 81.28 165.1 0) (unit 1)
+    (in_bom yes) (on_board yes)
+    (uuid ad4b4db0-56fe-4cd1-a5ce-265d1900b152)
+    (property "Reference" "#PWR?" (id 0) (at 81.28 168.91 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "+5V" (id 1) (at 78.74 163.195 0))
+    (property "Footprint" "" (id 2) (at 81.28 165.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (id 3) (at 81.28 165.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid ae2d78ff-28fa-4915-bc4e-446da5c863a6))
   )
 
   (symbol (lib_id "74xx:74HC165") (at 99.06 177.8 270) (unit 1)
@@ -2405,6 +2435,12 @@
     (path "/7f3efbde-2f3a-49f8-bf7e-db781af2bed4"
       (reference "#PWR0176") (unit 1) (value "GND") (footprint "")
     )
+    (path "/73cb09ad-e380-49f3-bc9d-038b1104bc93"
+      (reference "#PWR?") (unit 1) (value "+5V") (footprint "")
+    )
+    (path "/ad4b4db0-56fe-4cd1-a5ce-265d1900b152"
+      (reference "#PWR?") (unit 1) (value "+5V") (footprint "")
+    )
     (path "/865df6f9-fa66-4b43-929e-1913f975c2d0/111274e0-7b7d-4557-ab89-a261603ab22a"
       (reference "C1") (unit 1) (value "10U") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
     )
@@ -2485,6 +2521,42 @@
     )
     (path "/00000000-0000-0000-0000-000061fef149"
       (reference "C27") (unit 1) (value "4.7U") (footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
+    )
+    (path "/865df6f9-fa66-4b43-929e-1913f975c2d0/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C28") (unit 1) (value "C") (footprint "")
+    )
+    (path "/0821f14b-d29c-4d59-b007-c0ebd9554832/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C29") (unit 1) (value "C") (footprint "")
+    )
+    (path "/348f29cd-068e-4363-9c21-09b34e523a46/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C30") (unit 1) (value "C") (footprint "")
+    )
+    (path "/eababe2a-0ecd-4427-a6f7-2ec75821d4fc/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C31") (unit 1) (value "C") (footprint "")
+    )
+    (path "/55c2d934-244c-44fa-a407-b54a366ca226/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C32") (unit 1) (value "C") (footprint "")
+    )
+    (path "/7ce80e6b-d043-4f1b-ad6b-3c069ab9b9d7/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C33") (unit 1) (value "C") (footprint "")
+    )
+    (path "/08e9dfb0-f6cf-445e-a76d-3f029063dc7e/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C34") (unit 1) (value "C") (footprint "")
+    )
+    (path "/fb1b1fbb-996e-4607-8c6e-29ed755bddb1/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C35") (unit 1) (value "C") (footprint "")
+    )
+    (path "/c3166b72-45ca-4bb3-84d0-d9a7dc830ff6/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C36") (unit 1) (value "C") (footprint "")
+    )
+    (path "/570e1fbc-5905-405a-9db3-c7c35f19abe3/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C37") (unit 1) (value "C") (footprint "")
+    )
+    (path "/437b6eb2-c2ed-4592-b41e-b7f1e7300163/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C38") (unit 1) (value "C") (footprint "")
+    )
+    (path "/6eed81f2-9ea8-4b15-9b25-b30a760a9be7/2da591a3-6e1f-401e-b546-57e02f378ea9"
+      (reference "C39") (unit 1) (value "C") (footprint "")
     )
     (path "/74da8817-111b-471e-90b9-b326ffd8df1d"
       (reference "H1") (unit 1) (value "MountingHole") (footprint "MountingHole:MountingHole_3.7mm_Pad_TopBottom")
