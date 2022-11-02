@@ -103,7 +103,7 @@ total_offset = 215.5
 # 4 mounting Holes (yes I'm incredibly lazy)
 
 footrefs = ["H1", "H2", "H3", "H4"]
-radius = 1.75    
+radius = 1.5    
 offset = 0
 total_offset = 0
 
