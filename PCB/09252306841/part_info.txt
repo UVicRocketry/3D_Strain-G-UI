@@ -1,0 +1,9 @@
+Manufacturer=HARTING
+PartNumber=09252306841
+PartCategory=Connector
+PackageCategory=Other
+PinCount=32
+Version=6.1
+Released=2021-06-28 09:20:08
+Downloaded=2024-01-28 23:56:39
+3D=Y

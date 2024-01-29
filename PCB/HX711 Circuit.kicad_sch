@@ -5,41 +5,6 @@
   (paper "A4")
 
   (lib_symbols
-    (symbol "Connector:TestPoint" (pin_numbers hide) (pin_names (offset 0.762) hide) (in_bom yes) (on_board yes)
-      (property "Reference" "TP" (at 0 6.858 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "TestPoint" (at 0 5.08 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "" (at 5.08 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "~" (at 5.08 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "test point tp" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "test point" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "Pin* Test*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "TestPoint_0_1"
-        (circle (center 0 3.302) (radius 0.762)
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-      )
-      (symbol "TestPoint_1_1"
-        (pin passive line (at 0 0 90) (length 2.54)
-          (name "1" (effects (font (size 1.27 1.27))))
-          (number "1" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
     (symbol "Device:C" (pin_numbers hide) (pin_names (offset 0.254)) (in_bom yes) (on_board yes)
       (property "Reference" "C" (at 0.635 2.54 0)
         (effects (font (size 1.27 1.27)) (justify left))
@@ -568,10 +533,6 @@
     (uuid fe01fb75-0dbd-4ceb-8d4d-ddc5069f97e7)
   )
 
-  (text "Strain gauge contact \npad inputs\n" (at 96.52 113.03 0)
-    (effects (font (size 3 3)) (justify right bottom))
-    (uuid 2005f325-2a97-4aed-b544-0985eebb0ea8)
-  )
   (text "Output to shift register" (at 182.88 104.14 0)
     (effects (font (size 3 3)) (justify left bottom))
     (uuid 9060a8d8-d7ba-45d4-9acf-a8c2a0bb86b3)
@@ -595,6 +556,14 @@
   (hierarchical_label "DOUT" (shape input) (at 167.64 96.52 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 73698208-9e99-4bd2-b03d-e10016d07945)
+  )
+  (hierarchical_label "Negative" (shape input) (at 107.95 111.76 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid c96928f9-f819-405b-b895-3f8f65bd6f46)
+  )
+  (hierarchical_label "Positive" (shape input) (at 107.95 104.14 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid f966748e-0e07-4b5c-a00b-e571a6e5a8d6)
   )
 
   (symbol (lib_id "PCB-rescue:C-Device") (at 121.92 81.28 0) (unit 1)
@@ -1122,64 +1091,6 @@
     )
   )
 
-  (symbol (lib_id "Connector:TestPoint") (at 107.95 111.76 90) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid 80432c47-8b91-4fcd-85be-a7789305a207)
-    (property "Reference" "TP2" (at 104.14 114.3 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "TestPoint" (at 104.14 116.84 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Custom-footprints:Radial-Pads-With-Relief" (at 107.95 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 107.95 106.68 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid 9a76a1db-3449-4642-9a76-6cd7d00993b2))
-    (instances
-      (project "PCB"
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/865df6f9-fa66-4b43-929e-1913f975c2d0"
-          (reference "TP2") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/348f29cd-068e-4363-9c21-09b34e523a46"
-          (reference "TP7") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/55c2d934-244c-44fa-a407-b54a366ca226"
-          (reference "TP11") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/08e9dfb0-f6cf-445e-a76d-3f029063dc7e"
-          (reference "TP16") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/c3166b72-45ca-4bb3-84d0-d9a7dc830ff6"
-          (reference "TP21") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/437b6eb2-c2ed-4592-b41e-b7f1e7300163"
-          (reference "TP26") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/0821f14b-d29c-4d59-b007-c0ebd9554832"
-          (reference "TP4") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/eababe2a-0ecd-4427-a6f7-2ec75821d4fc"
-          (reference "TP9") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/7ce80e6b-d043-4f1b-ad6b-3c069ab9b9d7"
-          (reference "TP14") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/fb1b1fbb-996e-4607-8c6e-29ed755bddb1"
-          (reference "TP18") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/570e1fbc-5905-405a-9db3-c7c35f19abe3"
-          (reference "TP23") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/6eed81f2-9ea8-4b15-9b25-b30a760a9be7"
-          (reference "TP28") (unit 1)
-        )
-      )
-    )
-  )
-
   (symbol (lib_id "Device:R") (at 114.3 100.33 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 83644e3d-27d1-439b-823a-fc7ac6b9a7a7)
@@ -1482,64 +1393,6 @@
         )
         (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/6eed81f2-9ea8-4b15-9b25-b30a760a9be7"
           (reference "U12") (unit 1)
-        )
-      )
-    )
-  )
-
-  (symbol (lib_id "Connector:TestPoint") (at 107.95 104.14 90) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
-    (uuid d0ebc065-9e54-4588-8a23-124dd52c6e7f)
-    (property "Reference" "TP1" (at 104.14 97.79 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Value" "TestPoint" (at 104.14 100.33 90)
-      (effects (font (size 1.27 1.27)))
-    )
-    (property "Footprint" "Custom-footprints:Radial-Pads-With-Relief" (at 107.95 99.06 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (property "Datasheet" "~" (at 107.95 99.06 0)
-      (effects (font (size 1.27 1.27)) hide)
-    )
-    (pin "1" (uuid d458a6f0-1ba0-43d7-a0f6-a2f5afbb6208))
-    (instances
-      (project "PCB"
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/865df6f9-fa66-4b43-929e-1913f975c2d0"
-          (reference "TP1") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/348f29cd-068e-4363-9c21-09b34e523a46"
-          (reference "TP6") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/55c2d934-244c-44fa-a407-b54a366ca226"
-          (reference "TP10") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/08e9dfb0-f6cf-445e-a76d-3f029063dc7e"
-          (reference "TP15") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/c3166b72-45ca-4bb3-84d0-d9a7dc830ff6"
-          (reference "TP20") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/437b6eb2-c2ed-4592-b41e-b7f1e7300163"
-          (reference "TP25") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/0821f14b-d29c-4d59-b007-c0ebd9554832"
-          (reference "TP3") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/eababe2a-0ecd-4427-a6f7-2ec75821d4fc"
-          (reference "TP8") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/7ce80e6b-d043-4f1b-ad6b-3c069ab9b9d7"
-          (reference "TP13") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/fb1b1fbb-996e-4607-8c6e-29ed755bddb1"
-          (reference "TP17") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/570e1fbc-5905-405a-9db3-c7c35f19abe3"
-          (reference "TP22") (unit 1)
-        )
-        (path "/b6270a28-e0d9-4655-a18a-03dbf007b940/6eed81f2-9ea8-4b15-9b25-b30a760a9be7"
-          (reference "TP27") (unit 1)
         )
       )
     )
