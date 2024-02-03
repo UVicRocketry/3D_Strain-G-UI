@@ -58,45 +58,45 @@ total_offset=180 + 1.5*360/36
 
 # HX711s
 '''
-footrefs = ["U1", "U2", "U3", "Dummy", "Dummy",
+footrefs = ["U1", "U2", "U3", "Dummy",
             "U4", "U5", "U6", "Dummy",
             "U7", "U8", "U9", "Dummy",
             "U10", "U11", "U12", "Dummy"]
-radius = 1.7     
-offset = -90
+radius = 1.5     
+offset = 180
 total_offset=180 + 360/16
 '''
-
+'''
 # Wheatstone bridge resistors on pin 7 and 8 of the HX711s
 footrefs = ["R1", "R2", "R4", "R5", "R7", "R8", "Dummy", "Dummy", "Dummy",
             "R10", "R11", "R13", "R14", "R16", "R17", "Dummy", "Dummy", "Dummy",
             "R19", "R20", "R22", "R23", "R25", "R26", "Dummy", "Dummy", "Dummy",
             "R28", "R29", "R31", "R32", "R34", "R35", "Dummy", "Dummy", "Dummy"]
-radius = 2.08
+radius = 1.0
 offset = 180
 total_offset = 200
-
+'''
 # Capacitors on pin 7 and 8 of HX711
 '''
 footrefs = ["C2", "C4", "C6", "Dummy",
             "C8", "C10", "C12", "Dummy",
             "C14", "C16", "C18", "Dummy",
             "C20", "C22", "C24", "Dummy"]
-radius = 1.87
-offset = 180
+radius = 1.2
+offset = 90
 total_offset = 196
 '''
 
 # Capacitors on pin 1 of HX711
-'''
+
 footrefs = ["C1", "C3", "C5", "Dummy",
             "C7", "C9", "C11", "Dummy",
             "C13", "C15", "C17", "Dummy",
             "C19", "C21", "C23", "Dummy"]
-radius = 1.41
-offset = -90
+radius = 1.8
+offset = 180
 total_offset = 199
-'''
+
 
 # Other capacitor on pin 1 of HX711
 '''
@@ -104,15 +104,15 @@ footrefs = ["C28", "C29", "C30", "Dummy",
             "C31", "C32", "C33", "Dummy",
             "C34", "C35", "C36", "Dummy",
             "C37", "C38", "C39", "Dummy"]
-radius = 1.41
-offset = 90
+radius = 1.8
+offset = 180
 total_offset = 206
 '''
 
 # 4 mounting Holes (yes I'm incredibly lazy)
 '''
 footrefs = ["H1", "H2", "H3", "H4"]
-radius = 1.5    
+radius = 1.75    
 offset = 0
 total_offset = 0
 '''
@@ -131,18 +131,17 @@ footrefs = ["R3", "R6", "R9", "Dummy",
             "R12", "R15", "R18", "Dummy",
             "R21", "R24", "R27", "Dummy",
             "R30", "R33", "R36",  "Dummy"]
-radius = 1.91
+radius = 1.
 offset = 90
 total_offset = 192
 '''
-
 # 100 resistors on pin 7
 '''
 footrefs = ["R41", "R48", "R42", "Dummy",
             "R45", "R43", "R46", "Dummy",
             "R44", "R47", "R51", "Dummy",
             "R49", "R52", "R50",  "Dummy"]
-radius = 1.83
+radius = 1.
 offset = 90
 total_offset = 192
 '''
