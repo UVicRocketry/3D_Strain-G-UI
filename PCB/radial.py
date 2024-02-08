@@ -30,6 +30,10 @@ inch_to_nano = 2.54e+7
 center_x = 160 * mm_to_nano
 center_y = 90 * mm_to_nano
 
+#Variable radius change
+radd = .067
+
+
 def function(board, footrefs, radius, offset, total_offset):
     print("\nGot footrefs:", footrefs)
     print("Total number of footrefs:", len(footrefs))
@@ -104,9 +108,9 @@ def main():
                 "U4", "U5", "U6", "Dummy",
                 "U7", "U8", "U9", "Dummy",
                 "U10", "U11", "U12", "Dummy"]
-    radius = 1.5     
+    radius = 1.5 + radd     
     offset = 180
-    total_offset=180 + 360/16
+    total_offset=180 + 360/16 + 5+2
     function(board, footrefs, radius, offset, total_offset)
 
 
@@ -125,9 +129,9 @@ def main():
             "R20", "R19", "R23", "R22", "R26", "R25", "Dummy", "Dummy", "Dummy",
             "R29", "R28", "R32", "R31", "R35", "R34", "Dummy", "Dummy", "Dummy"]
     '''
-    radius = 1.05
+    radius = 1.05 + radd
     offset = 90
-    total_offset = 190
+    total_offset = 195+2
     function(board, footrefs, radius, offset, total_offset)
  # Wheatstone bridge resistors on pin 7 and 8 of the HX711s
 
@@ -144,9 +148,9 @@ def main():
             "R20", "R19", "R23", "R22", "R26", "R25", "Dummy", "Dummy", "Dummy",
             "R29", "R28", "R32", "R31", "R35", "R34", "Dummy", "Dummy", "Dummy"]
     '''
-    radius = 1.05
+    radius = 1.05 + radd
     offset = -90
-    total_offset = 190
+    total_offset = 195+2
     function(board, footrefs, radius, offset, total_offset)
 
     # Capacitors on pin 7 and 8 of HX711
@@ -154,9 +158,9 @@ def main():
                 "C8", "C10", "C12", "Dummy",
                 "C14", "C16", "C18", "Dummy",
                 "C20", "C22", "C24", "Dummy"]
-    radius = 1.25
+    radius = 1.25 + radd
     offset = 90
-    total_offset = 196
+    total_offset = 201+2
     function(board, footrefs, radius, offset, total_offset)
 
     # Capacitors on pin 1 of HX711
@@ -166,7 +170,7 @@ def main():
                 "C19", "C21", "C23", "Dummy"]
     radius = 1.8
     offset = 180
-    total_offset = 199
+    total_offset = 204+2
     function(board, footrefs, radius, offset, total_offset)
 
     # Other capacitor on pin 1 of HX711
@@ -176,7 +180,7 @@ def main():
                 "C37", "C38", "C39", "Dummy"]
     radius = 1.8
     offset = 180
-    total_offset = 206
+    total_offset = 211+2
     function(board, footrefs, radius, offset, total_offset)
 
     # 4 mounting Holes (yes I'm incredibly lazy)
@@ -188,9 +192,9 @@ def main():
 
     # 2 Shift registers
     footrefs = ["U13", "U16"]
-    radius = 0.85    
+    radius = 0.85 + radd    
     offset = 90
-    total_offset = 85
+    total_offset = 90+2
     function(board, footrefs, radius, offset, total_offset)
 
     # 100 resistors on pin 8
@@ -198,9 +202,9 @@ def main():
                 "R12", "R15", "R18", "Dummy",
                 "R21", "R24", "R27", "Dummy",
                 "R30", "R33", "R36",  "Dummy"]
-    radius = 1.2
+    radius = 1.2 + radd
     offset = 0
-    total_offset = 190
+    total_offset = 195+2
     function(board, footrefs, radius, offset, total_offset)
     # 100 resistors on pin 7
 
@@ -208,9 +212,9 @@ def main():
                 "R45", "R43", "R46", "Dummy",
                 "R44", "R47", "R51", "Dummy",
                 "R49", "R52", "R50",  "Dummy"]
-    radius = 1.2
+    radius = 1.2 + radd
     offset = 0
-    total_offset = 202
+    total_offset = 207+2
     function(board, footrefs, radius, offset, total_offset)
 
     return
