@@ -31,7 +31,7 @@ center_x = 160 * mm_to_nano
 center_y = 90 * mm_to_nano
 
 #Variable radius change
-radd = .067
+radd = .0
 
 
 def function(board, footrefs, radius, offset, total_offset):
@@ -107,21 +107,33 @@ def main():
     footrefs = ["U1", "U2", "U3", "Dummy",
                 "U4", "U5", "U6", "Dummy",
                 "U7", "U8", "U9", "Dummy",
+                "U10", "U11", "U12", "Dummy"]
+    """
+    footrefs = ["U1", "U2", "U3", "Dummy",
+                "U4", "U5", "U6", "Dummy",
+                "U7", "U8", "U9", "Dummy",
                 "U10", "Dummy", "U12", "Dummy", ]
+    """
     radius = 1.5 + radd     
-    offset = 180
-    total_offset=180 + 360/16 + 7
+    offset = 90
+    total_offset=180 + 360/16
     function(board, footrefs, radius, offset, total_offset)
 
 
-    # Wheatstone bridge resistors on pin 7 and 8 of the HX711s
+    # Wheatstone bridge resistors on pin 8 of the HX711s
+    footrefs = ["R2", "Dummy", "R5", "Dummy", "R8", "Dummy", "Dummy", "Dummy",
+            "R11", "Dummy", "R14", "Dummy", "R17", "Dummy", "Dummy", "Dummy",
+            "R20", "Dummy", "R23", "Dummy", "R26", "Dummy", "Dummy", "Dummy",
+            "R29", "Dummy", "R32", "Dummy", "R35", "Dummy", "Dummy", "Dummy"]
+    
+    
 
-
+    '''
     footrefs = ["R2", "Dummy", "R5", "Dummy", "R8", "Dummy", "Dummy", "Dummy",
             "R11", "Dummy", "R14", "Dummy", "R17", "Dummy", "Dummy", "Dummy",
             "R20", "Dummy", "R23", "Dummy", "R26", "Dummy", "Dummy", "Dummy",
             "R29", "Dummy", "Dummy", "Dummy", "R35", "Dummy", "Dummy", "Dummy"]
-    
+    '''
     
     '''
     footrefs = ["R2", "R1", "R5", "R4", "R8", "R7", "Dummy", "Dummy", "Dummy",
@@ -129,18 +141,23 @@ def main():
             "R20", "R19", "R23", "R22", "R26", "R25", "Dummy", "Dummy", "Dummy",
             "R29", "R28", "R32", "R31", "R35", "R34", "Dummy", "Dummy", "Dummy"]
     '''
-    radius = 1.05 + radd
-    offset = 90
-    total_offset = 195+2
+    radius = 1.15 + radd
+    offset = -93
+    total_offset = 208
     function(board, footrefs, radius, offset, total_offset)
- # Wheatstone bridge resistors on pin 7 and 8 of the HX711s
+ # Wheatstone bridge resistors on pin 7 of the HX711s
 
+    footrefs = ["Dummy", "R1", "Dummy", "R4", "Dummy", "R7", "Dummy", "Dummy",
+            "Dummy", "R10", "Dummy", "R13", "Dummy", "R16", "Dummy", "Dummy",
+            "Dummy", "R19", "Dummy", "R22", "Dummy", "R25",  "Dummy", "Dummy",
+            "Dummy", "R28", "Dummy", "R31", "Dummy", "R34",  "Dummy", "Dummy"]
     
+    '''
     footrefs = ["Dummy", "R1", "Dummy", "R4", "Dummy", "R7", "Dummy", "Dummy",
             "Dummy", "R10", "Dummy", "R13", "Dummy", "R16", "Dummy", "Dummy",
             "Dummy", "R19", "Dummy", "R22", "Dummy", "R25",  "Dummy", "Dummy",
             "Dummy", "R28", "Dummy", "Dummy", "Dummy", "R34",  "Dummy", "Dummy"]
-    
+    '''
     
     '''
     footrefs = ["R2", "R1", "R5", "R4", "R8", "R7", "Dummy", "Dummy", "Dummy",
@@ -148,39 +165,58 @@ def main():
             "R20", "R19", "R23", "R22", "R26", "R25", "Dummy", "Dummy", "Dummy",
             "R29", "R28", "R32", "R31", "R35", "R34", "Dummy", "Dummy", "Dummy"]
     '''
-    radius = 1.05 + radd
-    offset = -90
-    total_offset = 195+2
+    radius = 1.25 + radd
+    offset = 90
+    total_offset = 210
     function(board, footrefs, radius, offset, total_offset)
 
     # Capacitors on pin 7 and 8 of HX711
     footrefs = ["C2", "C4", "C6", "Dummy",
                 "C8", "C10", "C12", "Dummy",
                 "C14", "C16", "C18", "Dummy",
+                "C20", "C22", "C24", "Dummy"]
+    """
+    footrefs = ["C2", "C4", "C6", "Dummy",
+                "C8", "C10", "C12", "Dummy",
+                "C14", "C16", "C18", "Dummy",
                 "C20", "Dummy", "C24", "Dummy"]
-    radius = 1.25 + radd
-    offset = 90
-    total_offset = 201+2
+    """
+    radius = 1.35 + radd
+    offset = -6
+    total_offset = 212
     function(board, footrefs, radius, offset, total_offset)
 
     # Capacitors on pin 1 of HX711
     footrefs = ["C1", "C3", "C5", "Dummy",
                 "C7", "C9", "C11", "Dummy",
                 "C13", "C15", "C17", "Dummy",
+                "C19", "C21", "C23", "Dummy"]
+    '''
+    footrefs = ["C1", "C3", "C5", "Dummy",
+                "C7", "C9", "C11", "Dummy",
+                "C13", "C15", "C17", "Dummy",
                 "C19", "Dummy", "C23", "Dummy"]
-    radius = 1.8
-    offset = 180
-    total_offset = 204+4
+    '''
+    radius = 1.65
+    offset = 93
+    total_offset = 194.
     function(board, footrefs, radius, offset, total_offset)
 
     # Other capacitor on pin 1 of HX711
+
+    footrefs = ["C28", "C29", "C30", "Dummy",
+                "C31", "C32", "C33", "Dummy",
+                "C34", "C35", "C36", "Dummy",
+                "C37", "C38", "C39", "Dummy"]
+    '''
     footrefs = ["C28", "C29", "C30", "Dummy",
                 "C31", "C32", "C33", "Dummy",
                 "C34", "C35", "C36", "Dummy",
                 "C37", "Dummy", "C39", "Dummy"]
-    radius = 1.8
-    offset = 180
-    total_offset = 211+2
+    '''
+    radius = 1.5
+    offset = 94
+    total_offset = 193
     function(board, footrefs, radius, offset, total_offset)
 
     # 4 mounting Holes (yes I'm incredibly lazy)
@@ -198,23 +234,34 @@ def main():
     function(board, footrefs, radius, offset, total_offset)
 
     # 100 resistors on pin 8
+    '''
     footrefs = ["R3", "R6", "R9", "Dummy",
                 "R12", "R15", "R18", "Dummy",
                 "R21", "R24", "R27", "Dummy",
                 "R30", "Dummy", "R36",  "Dummy"]
+    '''
+    footrefs = ["R3", "R6", "R9", "Dummy",
+                "R12", "R15", "R18", "Dummy",
+                "R21", "R24", "R27", "Dummy",
+                "R30", "R33", "R36",  "Dummy"]
     radius = 1.2 + radd
-    offset = 0
-    total_offset = 195+2
+    offset = -8
+    total_offset = 213
     function(board, footrefs, radius, offset, total_offset)
     # 100 resistors on pin 7
-
+    footrefs = ["R41", "R48", "R42", "Dummy",
+                "R45", "R43", "R46", "Dummy",
+                "R44", "R47", "R51", "Dummy",
+                "R49", "R52", "R50",  "Dummy"]
+    """
     footrefs = ["R41", "R48", "R42", "Dummy",
                 "R45", "R43", "R46", "Dummy",
                 "R44", "R47", "R51", "Dummy",
                 "R49", "Dummy", "R50",  "Dummy"]
-    radius = 1.2 + radd
-    offset = 0
-    total_offset = 207+2
+    """
+    radius = 1.36 + radd
+    offset = -8
+    total_offset = 215.5
     function(board, footrefs, radius, offset, total_offset)
 
     return
