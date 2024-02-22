@@ -143,7 +143,7 @@ def main():
     '''
     radius = 1.15 + radd
     offset = -93
-    total_offset = 208
+    total_offset = 207.5
     function(board, footrefs, radius, offset, total_offset)
  # Wheatstone bridge resistors on pin 7 of the HX711s
 
@@ -228,9 +228,9 @@ def main():
 
     # 2 Shift registers
     footrefs = ["U13", "U16"]
-    radius = 0.85 + radd    
+    radius = 0.87 + radd    
     offset = 90
-    total_offset = 90+2
+    total_offset = 90
     function(board, footrefs, radius, offset, total_offset)
 
     # 100 resistors on pin 8
