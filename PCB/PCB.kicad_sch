@@ -8,7 +8,7 @@
 		(title "Strain Gauge PCB")
 	)
 	(lib_symbols
-		(symbol "2024-03-05_00-01-19:5016452620"
+		(symbol "2024-03-04_23-53-42:1-1827872-3"
 			(pin_names
 				(offset 0.254)
 			)
@@ -23,7 +23,7 @@
 					)
 				)
 			)
-			(property "Value" "5016452620"
+			(property "Value" "1-1827872-3"
 				(at 0 0 0)
 				(effects
 					(font
@@ -31,7 +31,7 @@
 					)
 				)
 			)
-			(property "Footprint" "CON_5016452620_MOL"
+			(property "Footprint" "CONN_1-1827872-3_TYC"
 				(at 0 0 0)
 				(effects
 					(font
@@ -41,7 +41,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "5016452620"
+			(property "Datasheet" "1-1827872-3"
 				(at 0 0 0)
 				(effects
 					(font
@@ -68,7 +68,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "5016452620"
+			(property "ki_keywords" "1-1827872-3"
 				(at 0 0 0)
 				(effects
 					(font
@@ -77,7 +77,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "CON_5016452620_MOL"
+			(property "ki_fp_filters" "CONN_1-1827872-3_TYC"
 				(at 0 0 0)
 				(effects
 					(font
@@ -86,7 +86,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "5016452620_1_1"
+			(symbol "1-1827872-3_1_1"
 				(polyline
 					(pts
 						(xy 5.08 -66.04) (xy 12.7 -66.04)
@@ -1540,7 +1540,7 @@
 					)
 				)
 			)
-			(symbol "5016452620_1_2"
+			(symbol "1-1827872-3_1_2"
 				(polyline
 					(pts
 						(xy 5.08 -66.04) (xy 12.7 -66.04)
@@ -8621,150 +8621,6 @@
 		)
 	)
 	(symbol
-		(lib_id "2024-03-05_00-01-19:5016452620")
-		(at 144.78 120.65 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "853b998a-5fe6-4ba0-b528-bb7118e15dd6")
-		(property "Reference" "J2"
-			(at 158.75 151.1299 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "5016452620"
-			(at 158.75 153.6699 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Library:CON_5016452620_MOL"
-			(at 144.78 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "5016452620"
-			(at 144.78 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 144.78 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "22"
-			(uuid "53470945-4de3-4a1a-914d-51e5211d47cf")
-		)
-		(pin "13"
-			(uuid "96a52c3d-ed0f-44d2-81a9-e91ca1ab8e86")
-		)
-		(pin "25"
-			(uuid "7b0963b1-76b4-4f47-a2a5-737e1fc975ce")
-		)
-		(pin "20"
-			(uuid "3cc887f5-7371-4cea-bb50-33c5984b0684")
-		)
-		(pin "9"
-			(uuid "5e03d003-c1b8-4ddb-9a18-7bf09dfc75cb")
-		)
-		(pin "21"
-			(uuid "f7ae5395-85b2-4687-bfdf-e7414249573e")
-		)
-		(pin "17"
-			(uuid "944ce4c2-93fd-453c-8eed-0681f1da0ce1")
-		)
-		(pin "14"
-			(uuid "6b79a35c-70e5-4d42-8cdc-3ad46f37f93f")
-		)
-		(pin "7"
-			(uuid "06ad011d-07b0-472f-aa5d-d9d31d534298")
-		)
-		(pin "26"
-			(uuid "96928643-a7bd-4ade-96c0-c89b8cb2e818")
-		)
-		(pin "6"
-			(uuid "2b259db0-17c5-4ba2-b54f-bc950ed543b7")
-		)
-		(pin "18"
-			(uuid "955bdf36-cfab-43bb-9375-20ef9368de24")
-		)
-		(pin "2"
-			(uuid "35bec6d7-8074-4d2d-be34-dceec9c1e93b")
-		)
-		(pin "5"
-			(uuid "ef3f6a86-eab1-4d8d-9bb8-8ad6745e5097")
-		)
-		(pin "19"
-			(uuid "32e478be-ccd5-4051-a108-8e6636046a96")
-		)
-		(pin "15"
-			(uuid "2cc1a0d9-1a67-44ea-abca-842d678bedf1")
-		)
-		(pin "1"
-			(uuid "565c52e4-aacc-4c49-9c20-05b9a0e45535")
-		)
-		(pin "8"
-			(uuid "c4fb330f-c8bf-4e5f-8347-738100bae0ff")
-		)
-		(pin "3"
-			(uuid "e47646c6-e14f-4846-b1b5-2539aad05e47")
-		)
-		(pin "4"
-			(uuid "34a81076-87cf-4856-849b-16898ba932c3")
-		)
-		(pin "11"
-			(uuid "19cb4549-e446-4c2b-925f-4bf676281ab7")
-		)
-		(pin "24"
-			(uuid "ad7dc6c6-6e71-4f9d-b937-5f754b48d4e6")
-		)
-		(pin "23"
-			(uuid "0762205d-098a-492f-af5e-1b56d137d251")
-		)
-		(pin "10"
-			(uuid "f8dfc4d0-4d28-4eb6-be96-2f3e4b5bc6f2")
-		)
-		(pin "16"
-			(uuid "be384dbf-c57e-4a75-92ef-6ddc240047e4")
-		)
-		(pin "12"
-			(uuid "44e3a7e8-9293-44c4-8eef-92e781986fe9")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "J2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 255.27 88.9 180)
 		(unit 1)
@@ -8822,6 +8678,150 @@
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
 					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "2024-03-04_23-53-42:1-1827872-3")
+		(at 144.78 120.65 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "985cac70-a542-4bd8-a2f2-9494e13c8352")
+		(property "Reference" "J2"
+			(at 158.75 151.1299 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1-1827872-3"
+			(at 158.75 153.6699 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Library:CONN_1-1827872-3_TYC"
+			(at 144.78 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "1-1827872-3"
+			(at 144.78 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 144.78 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "14"
+			(uuid "aeed6f86-d578-437e-b317-76abb14dc2b8")
+		)
+		(pin "15"
+			(uuid "f76489d0-c631-4147-a721-9452c7b1bc66")
+		)
+		(pin "12"
+			(uuid "826b8572-928b-4c28-aa23-6c0c499f5e56")
+		)
+		(pin "2"
+			(uuid "ba4e1698-0ae2-4f00-be2d-6caf5d710b46")
+		)
+		(pin "1"
+			(uuid "86045db4-abda-42de-b2e0-42369cdee9d3")
+		)
+		(pin "17"
+			(uuid "70be5b2d-9fef-449a-a4e6-521384ce865b")
+		)
+		(pin "11"
+			(uuid "158a0cf3-82f1-4082-8c77-eee7bede28cd")
+		)
+		(pin "22"
+			(uuid "cbbc43d4-313a-4b70-8a9f-5ba0b5915847")
+		)
+		(pin "25"
+			(uuid "0962dd64-2718-4974-9948-5c625466bd28")
+		)
+		(pin "13"
+			(uuid "03c6a640-b6ab-47eb-8c68-2429c44f534f")
+		)
+		(pin "24"
+			(uuid "2fe8039a-3ba0-49e6-bb02-b07417b41dd2")
+		)
+		(pin "7"
+			(uuid "c7c9f8c9-79f4-4a7e-8e81-93fb32cd0da7")
+		)
+		(pin "23"
+			(uuid "c208808d-75ba-4b69-a2ac-1e8620ae22f0")
+		)
+		(pin "10"
+			(uuid "b6ff0ef1-2709-4fe2-915d-5616b7f5de81")
+		)
+		(pin "3"
+			(uuid "32b73e37-207e-400a-82d9-fbd171c801c2")
+		)
+		(pin "16"
+			(uuid "6f69e87e-4c13-45f1-adce-913f2f62505a")
+		)
+		(pin "18"
+			(uuid "45203683-2fc0-4cf7-a953-da7634efe517")
+		)
+		(pin "19"
+			(uuid "08b7ed73-4955-419a-8484-9cb85131d9d4")
+		)
+		(pin "26"
+			(uuid "93ea6a09-dab6-45ef-90c5-7c7d09d093b1")
+		)
+		(pin "4"
+			(uuid "48db61b0-81e7-43d4-bdab-e1e8045c4de3")
+		)
+		(pin "5"
+			(uuid "7eaf7df8-987a-4cdc-9d77-e69098f83fcd")
+		)
+		(pin "8"
+			(uuid "ab9b0b59-924d-4fa2-a26e-02042631d211")
+		)
+		(pin "20"
+			(uuid "6fb97bac-44f7-4e0e-94e5-b7428b918a88")
+		)
+		(pin "21"
+			(uuid "39c8dd7e-6a80-4510-b825-7e8ac2152105")
+		)
+		(pin "9"
+			(uuid "8c55d49a-4a70-4983-af52-b3202b9a6020")
+		)
+		(pin "6"
+			(uuid "c47d5c02-2265-46bf-95e5-c31c52788f65")
+		)
+		(instances
+			(project "PCB"
+				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
+					(reference "J2")
 					(unit 1)
 				)
 			)
