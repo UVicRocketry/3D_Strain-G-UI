@@ -2,4 +2,7 @@
   (version 7)
   (lib (name "Custom-footprints")(type "KiCad")(uri "${KIPRJMOD}/Custom-footprints.pretty")(options "")(descr ""))
   (lib (name "09252306841")(type "KiCad")(uri "${KIPRJMOD}/09252306841/KiCad/09252306841.pretty")(options "")(descr ""))
+  (lib (name "5054332681 (1)")(type "KiCad")(uri "${KIPRJMOD}/5054332681 (1).pretty")(options "")(descr ""))
+  (lib (name "Library")(type "KiCad")(uri "${KIPRJMOD}/5016452620/KiCADv6/footprints.pretty/Library.pretty")(options "")(descr ""))
+  (lib (name "footprints")(type "KiCad")(uri "${KIPRJMOD}/1_1827872_3/KiCADv6/footprints.pretty")(options "")(descr ""))
 )
