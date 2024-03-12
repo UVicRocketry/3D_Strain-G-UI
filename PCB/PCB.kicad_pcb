@@ -27406,7 +27406,7 @@
 			(drill 0.95)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(roundrect_rratio 0.147059)
+			(roundrect_rratio 0.1470588235)
 			(net 29 "/S_CLK")
 			(pinfunction "Pin_1")
 			(pintype "passive")
