@@ -3046,7 +3046,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "be5e776c-d432-4d1d-9372-2e1aee3b24de")
-		(property "Reference" "SG1"
+		(property "Reference" "U1"
 			(at 154.94 68.199 0)
 			(effects
 				(font
@@ -3140,51 +3140,51 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/865df6f9-fa66-4b43-929e-1913f975c2d0"
-					(reference "SG1")
+					(reference "U1")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/348f29cd-068e-4363-9c21-09b34e523a46"
-					(reference "SG3")
+					(reference "U3")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/55c2d934-244c-44fa-a407-b54a366ca226"
-					(reference "SG5")
+					(reference "U5")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/08e9dfb0-f6cf-445e-a76d-3f029063dc7e"
-					(reference "SG7")
+					(reference "U7")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/c3166b72-45ca-4bb3-84d0-d9a7dc830ff6"
-					(reference "SG9")
+					(reference "U9")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/437b6eb2-c2ed-4592-b41e-b7f1e7300163"
-					(reference "SG11")
+					(reference "U11")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/0821f14b-d29c-4d59-b007-c0ebd9554832"
-					(reference "SG2")
+					(reference "U2")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/eababe2a-0ecd-4427-a6f7-2ec75821d4fc"
-					(reference "SG4")
+					(reference "U4")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/7ce80e6b-d043-4f1b-ad6b-3c069ab9b9d7"
-					(reference "SG6")
+					(reference "U6")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/fb1b1fbb-996e-4607-8c6e-29ed755bddb1"
-					(reference "SG8")
+					(reference "U8")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/570e1fbc-5905-405a-9db3-c7c35f19abe3"
-					(reference "SG10")
+					(reference "U10")
 					(unit 1)
 				)
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940/6eed81f2-9ea8-4b15-9b25-b30a760a9be7"
-					(reference "SG12")
+					(reference "U12")
 					(unit 1)
 				)
 			)
