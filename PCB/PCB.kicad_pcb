@@ -3086,7 +3086,7 @@
 		(descr "THT rectangular pad as test Point, square 1.0mm side length, hole diameter 0.5mm")
 		(tags "test point THT pad rectangle square")
 		(property "Reference" "+4.5V"
-			(at 1.016 3.556 270)
+			(at 1.016 3.556 -90)
 			(layer "F.SilkS")
 			(uuid "3cd52b16-fb2e-4131-9d74-dbe543d8522e")
 			(effects
@@ -10368,7 +10368,7 @@
 		(descr "THT rectangular pad as test Point, square 1.0mm side length, hole diameter 0.5mm")
 		(tags "test point THT pad rectangle square")
 		(property "Reference" "+3.3V"
-			(at -0.508 -3.556 270)
+			(at -0.508 -3.556 -90)
 			(layer "F.SilkS")
 			(uuid "2928eeb4-4b0a-4ce6-aaa2-73454e5cac8b")
 			(effects
@@ -15180,7 +15180,7 @@
 		(descr "THT rectangular pad as test Point, square 1.0mm side length, hole diameter 0.5mm")
 		(tags "test point THT pad rectangle square")
 		(property "Reference" "CLK"
-			(at -1.778 0 270)
+			(at -1.778 0 -90)
 			(layer "F.SilkS")
 			(uuid "9b30116e-637e-429d-8214-f54c626deec4")
 			(effects
@@ -28514,7 +28514,7 @@
 		(at 214.884 111.76)
 		(descr "THT rectangular pad as test Point, square 1.0mm side length, hole diameter 0.5mm")
 		(tags "test point THT pad rectangle square")
-		(property "Reference" "+5V3"
+		(property "Reference" "+5V"
 			(at -1.778 0.254 90)
 			(layer "F.SilkS")
 			(uuid "cf95d593-6034-4f58-830d-2e78ea75d6f2")
