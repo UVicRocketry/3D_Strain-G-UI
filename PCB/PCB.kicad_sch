@@ -4498,6 +4498,17 @@
 		)
 		(uuid "0a8b4f15-9732-40de-9222-d33acfc42588")
 	)
+	(label "DOUT10"
+		(at 50.8 165.1 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0d8e5a96-1517-4d51-84d0-ac260a4c7c53")
+	)
 	(label "H10P"
 		(at 113.03 69.85 0)
 		(fields_autoplaced yes)
@@ -4673,17 +4684,6 @@
 			(justify right bottom)
 		)
 		(uuid "2efa13c8-3d3c-426b-b286-d53fb5ee4d73")
-	)
-	(label "DOUT5"
-		(at 50.8 165.1 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "317aa5f5-7a44-40bb-b9d5-031100edc388")
 	)
 	(label "H10N"
 		(at 134.62 143.51 180)
@@ -4948,17 +4948,6 @@
 			(justify right bottom)
 		)
 		(uuid "73a21e06-2050-4845-a268-a986f9170be6")
-	)
-	(label "DOUT10"
-		(at 96.52 165.1 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7405500f-ba24-450d-8b7b-2b748244efa3")
 	)
 	(label "DOUT14"
 		(at 130.81 106.68 180)
@@ -5444,6 +5433,17 @@
 		)
 		(uuid "e24add41-ec57-4c6f-b715-c11b1fb1f4a8")
 	)
+	(label "DOUT5"
+		(at 96.52 165.1 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e296a58c-6135-4431-b45f-165fea065dcf")
+	)
 	(label "H3P"
 		(at 134.62 151.13 180)
 		(fields_autoplaced yes)
@@ -5545,22 +5545,22 @@
 	)
 	(global_label "4.5V"
 		(shape input)
-		(at 154.94 88.9 180)
+		(at 152.4 81.28 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "23976efb-2782-432b-919d-3a662796fc0d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 147.8424 88.9 0)
+			(at 152.4 74.1824 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -6725,7 +6725,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0c98aef8-e29b-4695-8a2c-60f7fc35ec84")
-		(property "Reference" "+5V3"
+		(property "Reference" "+5V~3"
 			(at 167.64 94.7419 0)
 			(effects
 				(font
@@ -6776,7 +6776,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+5V3")
+					(reference "+5V~3")
 					(unit 1)
 				)
 			)
@@ -6792,7 +6792,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "10d505f0-9eac-4042-af48-fcdfd8b938c7")
-		(property "Reference" "+5V2"
+		(property "Reference" "+5V~2"
 			(at 162.56 80.7719 0)
 			(effects
 				(font
@@ -6843,7 +6843,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+5V2")
+					(reference "+5V~2")
 					(unit 1)
 				)
 			)
@@ -6859,7 +6859,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "10f74361-7489-4a74-80c2-51916f13cda4")
-		(property "Reference" "HX_CLK2"
+		(property "Reference" "CLK~2"
 			(at 232.41 55.8799 90)
 			(effects
 				(font
@@ -6910,7 +6910,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "HX_CLK2")
+					(reference "CLK~2")
 					(unit 1)
 				)
 			)
@@ -7124,7 +7124,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1588c346-59b6-41e3-a517-895cad55edc8")
-		(property "Reference" "GND3"
+		(property "Reference" "GND~2"
 			(at 199.39 15.7479 0)
 			(effects
 				(font
@@ -7175,7 +7175,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "GND3")
+					(reference "GND~2")
 					(unit 1)
 				)
 			)
@@ -7389,7 +7389,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "27266857-2398-446a-bb49-abddb26d6949")
-		(property "Reference" "GND2"
+		(property "Reference" "GND~3"
 			(at 213.36 15.7479 0)
 			(effects
 				(font
@@ -7440,7 +7440,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "GND2")
+					(reference "GND~3")
 					(unit 1)
 				)
 			)
@@ -7896,7 +7896,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4196c8b8-5d94-4f81-8e41-086cea141f71")
-		(property "Reference" "+4.5V1"
+		(property "Reference" "+4.5V~1"
 			(at 156.21 95.2499 90)
 			(effects
 				(font
@@ -7947,7 +7947,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+4.5V1")
+					(reference "+4.5V~1")
 					(unit 1)
 				)
 			)
@@ -8058,7 +8058,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4a11fd07-d82e-48fb-a81e-b0263035d25a")
-		(property "Reference" "+3.3V3"
+		(property "Reference" "+3.3V3~1"
 			(at 157.48 22.3519 0)
 			(effects
 				(font
@@ -8109,7 +8109,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V3")
+					(reference "+3.3V3~1")
 					(unit 1)
 				)
 			)
@@ -8393,7 +8393,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "597f2605-283a-4104-8cb1-8ae45bec8ee6")
-		(property "Reference" "HX_CLK3"
+		(property "Reference" "CLK~3"
 			(at 232.41 60.9599 90)
 			(effects
 				(font
@@ -8444,7 +8444,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "HX_CLK3")
+					(reference "CLK~3")
 					(unit 1)
 				)
 			)
@@ -8650,7 +8650,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 154.94 88.9 270)
+		(at 152.4 81.28 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8658,26 +8658,26 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6b4063d4-a0b7-458d-a992-8d3418f8e80d")
-		(property "Reference" "+4.5V2"
-			(at 160.02 87.6299 90)
+		(property "Reference" "+4.5V~2"
+			(at 154.94 83.3119 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "4.5V"
-			(at 160.02 90.1699 90)
+			(at 154.94 85.8519 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 154.94 93.98 0)
+			(at 147.32 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8686,7 +8686,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 154.94 93.98 0)
+			(at 147.32 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8695,7 +8695,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 154.94 88.9 0)
+			(at 152.4 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8709,7 +8709,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+4.5V2")
+					(reference "+4.5V~2")
 					(unit 1)
 				)
 			)
@@ -9188,7 +9188,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "833d26e1-d02e-4e97-bcc6-e80deb1b0ce5")
-		(property "Reference" "S_CLK1"
+		(property "Reference" "S_CLK~1"
 			(at 219.71 43.1799 90)
 			(effects
 				(font
@@ -9239,7 +9239,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "S_CLK1")
+					(reference "S_CLK~1")
 					(unit 1)
 				)
 			)
@@ -9254,7 +9254,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8363c4e4-5a2e-44d3-a81b-336c5ad21f9f")
-		(property "Reference" "+5V1"
+		(property "Reference" "+5V~1"
 			(at 139.446 79.248 0)
 			(effects
 				(font
@@ -9305,7 +9305,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+5V1")
+					(reference "+5V~1")
 					(unit 1)
 				)
 			)
@@ -9321,7 +9321,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "856b1bbc-510a-4d59-9176-206a82e05bb3")
-		(property "Reference" "5V2"
+		(property "Reference" "5V~1"
 			(at 147.32 79.5019 0)
 			(effects
 				(font
@@ -9372,7 +9372,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "5V2")
+					(reference "5V~1")
 					(unit 1)
 				)
 			)
@@ -9455,7 +9455,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8ea752a7-1d2e-40cf-a42f-a9ca1a76cf5f")
-		(property "Reference" "GND1"
+		(property "Reference" "GND~1"
 			(at 186.69 15.7479 0)
 			(effects
 				(font
@@ -9506,7 +9506,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "GND1")
+					(reference "GND~1")
 					(unit 1)
 				)
 			)
@@ -9522,7 +9522,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "91bb061f-eef9-4c60-a8b0-e94e01579bca")
-		(property "Reference" "+3.3V5"
+		(property "Reference" "+3.3V~5"
 			(at 172.72 41.4019 0)
 			(effects
 				(font
@@ -9573,7 +9573,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V5")
+					(reference "+3.3V~5")
 					(unit 1)
 				)
 			)
@@ -9983,7 +9983,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a95d0b1a-8691-40a7-9d6d-c100f82078fd")
-		(property "Reference" "+3.3V2"
+		(property "Reference" "+3.3V2~1"
 			(at 149.86 33.7819 0)
 			(effects
 				(font
@@ -10034,7 +10034,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V2")
+					(reference "+3.3V2~1")
 					(unit 1)
 				)
 			)
@@ -10264,7 +10264,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ace71f9f-cd8a-4877-a0a7-6d0b67d3ead1")
-		(property "Reference" "+3.3V1"
+		(property "Reference" "+3.3V1~1"
 			(at 149.86 22.3519 0)
 			(effects
 				(font
@@ -10315,7 +10315,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V1")
+					(reference "+3.3V1~1")
 					(unit 1)
 				)
 			)
@@ -11025,7 +11025,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cbf6ba9f-2ea5-4677-8e4e-c24f3864dd98")
-		(property "Reference" "HX_CLK1"
+		(property "Reference" "CLK~1"
 			(at 232.41 50.7999 90)
 			(effects
 				(font
@@ -11076,7 +11076,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "HX_CLK1")
+					(reference "CLK~1")
 					(unit 1)
 				)
 			)
@@ -11424,7 +11424,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e2846eec-6d01-48a3-a314-fedb2e06f4e4")
-		(property "Reference" "+4.5V4"
+		(property "Reference" "+4.5V~3"
 			(at 186.69 86.3599 90)
 			(effects
 				(font
@@ -11475,7 +11475,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+4.5V4")
+					(reference "+4.5V~3")
 					(unit 1)
 				)
 			)
@@ -11491,7 +11491,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e4c53ce7-79de-4ae6-bd75-b49fd20f8a85")
-		(property "Reference" "+3.3V4"
+		(property "Reference" "+3.3V4~1"
 			(at 171.45 22.3519 0)
 			(effects
 				(font
@@ -11542,7 +11542,7 @@
 		(instances
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V4")
+					(reference "+3.3V4~1")
 					(unit 1)
 				)
 			)
