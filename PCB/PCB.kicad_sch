@@ -4368,7 +4368,7 @@
 	)
 	(text "Regulated output\nfor strain gauges"
 		(exclude_from_sim no)
-		(at 128.27 66.04 0)
+		(at 134.62 77.978 0)
 		(effects
 			(font
 				(size 2 2)
@@ -4488,7 +4488,7 @@
 		(uuid "0a276496-a9b4-4531-8e30-d6fde23eccf8")
 	)
 	(label "DOUT10"
-		(at 124.46 80.01 180)
+		(at 146.05 45.72 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4565,7 +4565,7 @@
 		(uuid "15fd0abc-fca4-46df-9395-fd48fd7461da")
 	)
 	(label "DOUT12"
-		(at 185.42 96.52 180)
+		(at 129.54 109.22 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4708,13 +4708,13 @@
 		(uuid "3ba6a024-d73a-4865-ace0-c2ebd5d6892e")
 	)
 	(label "DATA"
-		(at 224.79 20.32 180)
+		(at 132.08 67.31 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "40cfcd4e-3d96-4d1b-ad98-bcb4278912b3")
 	)
@@ -4752,7 +4752,7 @@
 		(uuid "442c6604-f705-4a7a-be20-157b33118142")
 	)
 	(label "DOUT11"
-		(at 124.46 100.33 180)
+		(at 127 55.88 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4950,7 +4950,7 @@
 		(uuid "73a21e06-2050-4845-a268-a986f9170be6")
 	)
 	(label "DOUT14"
-		(at 130.81 106.68 180)
+		(at 127 62.23 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5104,7 +5104,7 @@
 		(uuid "975c3ac6-bf79-446a-90ca-939e09dac967")
 	)
 	(label "DOUT9"
-		(at 124.46 76.2 180)
+		(at 146.05 41.91 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5115,7 +5115,7 @@
 		(uuid "9b7b643b-9d57-4754-b76b-2d3a264db094")
 	)
 	(label "DOUT13"
-		(at 124.46 85.09 180)
+		(at 146.05 50.8 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5181,13 +5181,13 @@
 		(uuid "a1e4171f-022a-495b-8b74-6798e90e56b8")
 	)
 	(label "S_CLK"
-		(at 214.63 44.45 180)
+		(at 135.89 71.12 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "a24f225b-e403-4d5d-8748-1bc08827ded3")
 	)
@@ -5467,7 +5467,7 @@
 		(uuid "ea71e204-99b6-482a-8660-70931ffcefd7")
 	)
 	(label "LOAD"
-		(at 123.19 113.03 180)
+		(at 128.27 97.79 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5501,7 +5501,7 @@
 	)
 	(global_label "HX_CLK"
 		(shape input)
-		(at 227.33 57.15 180)
+		(at 129.54 86.36 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5511,7 +5511,7 @@
 		)
 		(uuid "1630447b-1ab9-487a-bb96-492a128dc17a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 217.9301 57.0706 0)
+			(at 120.1401 86.2806 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5543,75 +5543,9 @@
 			)
 		)
 	)
-	(global_label "4.5V"
-		(shape input)
-		(at 152.4 81.28 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "23976efb-2782-432b-919d-3a662796fc0d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 152.4 74.1824 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "4.5V"
-		(shape input)
-		(at 154.94 105.41 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "2597960e-36c3-4a0d-8326-98554d95ff6f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 147.8424 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "4.5V"
-		(shape input)
-		(at 151.13 96.52 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5924f1d9-aad6-4f6f-a909-6ae95a07d67a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.0324 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "HX_CLK"
 		(shape input)
-		(at 227.33 62.23 180)
+		(at 129.54 91.44 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5621,7 +5555,7 @@
 		)
 		(uuid "5ed3a977-20e8-467e-84d8-229cb1299de9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 217.9301 62.1506 0)
+			(at 120.1401 91.3606 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5633,7 +5567,7 @@
 	)
 	(global_label "4.5V"
 		(shape input)
-		(at 181.61 87.63 180)
+		(at 128.27 102.87 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5643,7 +5577,7 @@
 		)
 		(uuid "8aa7eaf4-0079-475f-a809-bf56ea7f5573")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 174.5124 87.63 0)
+			(at 121.1724 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5699,7 +5633,7 @@
 	)
 	(global_label "HX_CLK"
 		(shape input)
-		(at 227.33 52.07 180)
+		(at 129.54 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -5709,7 +5643,7 @@
 		)
 		(uuid "ef91098e-011c-4232-8135-6aa4d049f00d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 217.9301 51.9906 0)
+			(at 120.1401 81.2006 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6717,141 +6651,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 165.1 92.71 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0c98aef8-e29b-4695-8a2c-60f7fc35ec84")
-		(property "Reference" "+5V~3"
-			(at 167.64 94.7419 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "5V"
-			(at 167.64 97.2819 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 160.02 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 160.02 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 165.1 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8704d0de-65d7-4643-abe5-dc01626cb636")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+5V~3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 160.02 78.74 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "10d505f0-9eac-4042-af48-fcdfd8b938c7")
-		(property "Reference" "+5V~2"
-			(at 162.56 80.7719 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "5V"
-			(at 162.56 83.3119 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 154.94 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 154.94 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 160.02 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6fdb64f9-efc0-4080-9d73-abb306c0c0c4")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+5V~2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 227.33 57.15 270)
+		(at 129.54 86.36 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6860,7 +6660,7 @@
 		(fields_autoplaced yes)
 		(uuid "10f74361-7489-4a74-80c2-51916f13cda4")
 		(property "Reference" "CLK~2"
-			(at 232.41 55.8799 90)
+			(at 134.62 85.0899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6869,7 +6669,7 @@
 			)
 		)
 		(property "Value" "HX_CLK"
-			(at 232.41 58.4199 90)
+			(at 134.62 87.6299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6878,7 +6678,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 227.33 62.23 0)
+			(at 129.54 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6887,7 +6687,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 227.33 62.23 0)
+			(at 129.54 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6896,7 +6696,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 227.33 57.15 0)
+			(at 129.54 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7115,73 +6915,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 196.85 20.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1588c346-59b6-41e3-a517-895cad55edc8")
-		(property "Reference" "GND~2"
-			(at 199.39 15.7479 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "GND"
-			(at 199.39 18.2879 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 201.93 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 201.93 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 196.85 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "25df2081-3c49-4cb1-80f4-eeecc437c60a")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "GND~2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 236.22 26.67 0)
 		(unit 1)
@@ -7249,7 +6982,7 @@
 	(symbol
 		(lib_name "+5V_1")
 		(lib_id "power:+5V")
-		(at 137.16 90.17 0)
+		(at 139.7 20.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7258,7 +6991,7 @@
 		(fields_autoplaced yes)
 		(uuid "17be12b8-83ca-43b7-8e1b-3b513190d4a7")
 		(property "Reference" "#PWR049"
-			(at 137.16 93.98 0)
+			(at 139.7 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7267,7 +7000,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 137.16 85.09 0)
+			(at 139.7 15.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7275,7 +7008,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 137.16 90.17 0)
+			(at 139.7 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7284,7 +7017,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 90.17 0)
+			(at 139.7 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7293,7 +7026,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 137.16 90.17 0)
+			(at 139.7 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7381,74 +7114,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 210.82 20.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "27266857-2398-446a-bb49-abddb26d6949")
-		(property "Reference" "GND~3"
-			(at 213.36 15.7479 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "GND"
-			(at 213.36 18.2879 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 215.9 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 215.9 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 210.82 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c61abe31-8865-4141-b5f3-6ffbe8ebd8da")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "GND~3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 185.42 96.52 270)
+		(at 129.54 109.22 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7457,7 +7123,7 @@
 		(fields_autoplaced yes)
 		(uuid "27a22a2d-f215-49fb-977b-e9a6c11c19f1")
 		(property "Reference" "TP2"
-			(at 190.5 95.2499 90)
+			(at 134.62 107.9499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7466,7 +7132,7 @@
 			)
 		)
 		(property "Value" "SG2"
-			(at 190.5 97.7899 90)
+			(at 134.62 110.4899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7475,7 +7141,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 185.42 101.6 0)
+			(at 129.54 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7484,7 +7150,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 185.42 101.6 0)
+			(at 129.54 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7493,7 +7159,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 185.42 96.52 0)
+			(at 129.54 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7515,7 +7181,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 123.19 113.03 270)
+		(at 128.27 97.79 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7524,7 +7190,7 @@
 		(fields_autoplaced yes)
 		(uuid "2973919f-ae2a-4be1-863b-b8fedc713d2a")
 		(property "Reference" "LOAD1"
-			(at 128.27 111.7599 90)
+			(at 133.35 96.5199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7533,7 +7199,7 @@
 			)
 		)
 		(property "Value" "LOAD"
-			(at 128.27 114.2999 90)
+			(at 133.35 99.0599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7542,7 +7208,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 123.19 118.11 0)
+			(at 128.27 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7551,7 +7217,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 123.19 118.11 0)
+			(at 128.27 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7560,7 +7226,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 123.19 113.03 0)
+			(at 128.27 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7648,7 +7314,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 137.16 90.17 180)
+		(at 139.7 20.32 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7656,7 +7322,7 @@
 		(dnp no)
 		(uuid "2c20bf2b-3c7e-410a-ac19-54af1a3f3eb7")
 		(property "Reference" "5V1"
-			(at 138.684 92.456 0)
+			(at 141.224 22.606 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7665,7 +7331,7 @@
 			)
 		)
 		(property "Value" "5V"
-			(at 138.684 94.996 0)
+			(at 141.224 25.146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7674,7 +7340,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 132.08 90.17 0)
+			(at 134.62 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7683,7 +7349,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 132.08 90.17 0)
+			(at 134.62 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7692,7 +7358,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 137.16 90.17 0)
+			(at 139.7 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7887,73 +7553,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 151.13 96.52 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4196c8b8-5d94-4f81-8e41-086cea141f71")
-		(property "Reference" "+4.5V~1"
-			(at 156.21 95.2499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4.5V"
-			(at 156.21 97.7899 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 151.13 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 151.13 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 151.13 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "51fbd8eb-b524-4866-be0c-e1b3f675a0b1")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+4.5V~1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Regulator_Linear:LT3042xMSE")
 		(at 181.61 62.23 180)
 		(unit 1)
@@ -8050,73 +7649,6 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 154.94 20.32 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4a11fd07-d82e-48fb-a81e-b0263035d25a")
-		(property "Reference" "+3.3V3~1"
-			(at 157.48 22.3519 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "3.3V"
-			(at 157.48 24.8919 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 149.86 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 149.86 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 154.94 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7673d6c4-d4a9-45dd-acc7-9f7f332c797e")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V3~1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
 		(at 114.3 193.04 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8184,34 +7716,33 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 224.79 20.32 180)
+		(at 132.08 67.31 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "53997aa1-8e27-448a-86c2-42d247132314")
 		(property "Reference" "DATA1"
-			(at 227.33 22.3519 0)
+			(at 126.746 68.072 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "DATA"
-			(at 227.33 24.8919 0)
+			(at 126.746 65.532 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 219.71 20.32 0)
+			(at 132.08 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8220,7 +7751,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 219.71 20.32 0)
+			(at 132.08 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8229,7 +7760,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 224.79 20.32 0)
+			(at 132.08 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8251,7 +7782,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 124.46 100.33 270)
+		(at 127 55.88 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8260,7 +7791,7 @@
 		(fields_autoplaced yes)
 		(uuid "53c03923-f3eb-43e0-a6fc-15c12c4f2156")
 		(property "Reference" "TP8"
-			(at 129.54 99.0599 90)
+			(at 132.08 54.6099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8269,7 +7800,7 @@
 			)
 		)
 		(property "Value" "SG8"
-			(at 129.54 101.5999 90)
+			(at 132.08 57.1499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8278,7 +7809,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 124.46 105.41 0)
+			(at 127 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8287,7 +7818,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 124.46 105.41 0)
+			(at 127 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8296,7 +7827,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 124.46 100.33 0)
+			(at 127 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8317,75 +7848,8 @@
 		)
 	)
 	(symbol
-		(lib_name "+5V_1")
-		(lib_id "power:+5V")
-		(at 160.02 78.74 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "55f89ad4-eaca-4baa-9d05-8795eda82afd")
-		(property "Reference" "#PWR048"
-			(at 160.02 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 160.02 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 160.02 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 160.02 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 160.02 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "636c162d-c6eb-411a-bbf0-1761944aa55e")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR048")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 227.33 62.23 270)
+		(at 129.54 91.44 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8394,7 +7858,7 @@
 		(fields_autoplaced yes)
 		(uuid "597f2605-283a-4104-8cb1-8ae45bec8ee6")
 		(property "Reference" "CLK~3"
-			(at 232.41 60.9599 90)
+			(at 134.62 90.1699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8403,7 +7867,7 @@
 			)
 		)
 		(property "Value" "HX_CLK"
-			(at 232.41 63.4999 90)
+			(at 134.62 92.7099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8412,7 +7876,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 227.33 67.31 0)
+			(at 129.54 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8421,7 +7885,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 227.33 67.31 0)
+			(at 129.54 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8430,7 +7894,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 227.33 62.23 0)
+			(at 129.54 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8584,138 +8048,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 196.85 20.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6815cd54-d38d-4d52-be37-6dc263471be1")
-		(property "Reference" "#PWR043"
-			(at 196.85 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 200.66 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 196.85 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 196.85 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 196.85 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e8c89274-2acc-40d3-83cb-f4e3a4f31434")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR043")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 152.4 81.28 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6b4063d4-a0b7-458d-a992-8d3418f8e80d")
-		(property "Reference" "+4.5V~2"
-			(at 154.94 83.3119 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "4.5V"
-			(at 154.94 85.8519 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 147.32 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 147.32 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 152.4 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6b16cff1-011e-483d-8855-ae44849056df")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+4.5V~2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_name "GND_1")
 		(lib_id "power:GND")
 		(at 132.08 165.1 0)
@@ -8777,73 +8109,6 @@
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
 					(reference "#PWR041")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "+5V_1")
-		(lib_id "power:+5V")
-		(at 165.1 92.71 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "747916a4-3d53-47a8-880b-811bc6480943")
-		(property "Reference" "#PWR050"
-			(at 165.1 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 165.1 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 165.1 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 165.1 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 165.1 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2da6d677-ff86-45db-a827-50ed933485ee")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR050")
 					(unit 1)
 				)
 			)
@@ -8915,7 +8180,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 130.81 106.68 270)
+		(at 127 62.23 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8924,7 +8189,7 @@
 		(fields_autoplaced yes)
 		(uuid "79e9263a-6c2c-4a24-8ec4-d238adb96f40")
 		(property "Reference" "TP12"
-			(at 135.89 105.4099 90)
+			(at 132.08 60.9599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8933,7 +8198,7 @@
 			)
 		)
 		(property "Value" "SG12"
-			(at 135.89 107.9499 90)
+			(at 132.08 63.4999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8942,7 +8207,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 130.81 111.76 0)
+			(at 127 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8951,7 +8216,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 130.81 111.76 0)
+			(at 127 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8960,7 +8225,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 130.81 106.68 0)
+			(at 127 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8981,74 +8246,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 168.91 20.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7a2132f8-5614-44dd-b04c-85af4c7152e3")
-		(property "Reference" "#PWR042"
-			(at 168.91 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 168.91 16.8181 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 168.91 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 168.91 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 168.91 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1c5052c7-56b6-4db0-b646-011c0adaa5c1")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR042")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 124.46 80.01 270)
+		(at 146.05 45.72 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9056,7 +8255,7 @@
 		(dnp no)
 		(uuid "7f22a26a-ffdc-4041-b059-386e43e8bba2")
 		(property "Reference" "TP6"
-			(at 130.302 79.502 90)
+			(at 151.892 45.212 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9065,7 +8264,7 @@
 			)
 		)
 		(property "Value" "SG6"
-			(at 129.54 81.2799 90)
+			(at 151.13 46.9899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9074,7 +8273,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 124.46 85.09 0)
+			(at 146.05 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9083,7 +8282,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 124.46 85.09 0)
+			(at 146.05 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9092,7 +8291,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 124.46 80.01 0)
+			(at 146.05 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9180,7 +8379,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 214.63 44.45 270)
+		(at 135.89 71.12 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9189,7 +8388,7 @@
 		(fields_autoplaced yes)
 		(uuid "833d26e1-d02e-4e97-bcc6-e80deb1b0ce5")
 		(property "Reference" "S_CLK~1"
-			(at 219.71 43.1799 90)
+			(at 130.81 72.3901 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9198,7 +8397,7 @@
 			)
 		)
 		(property "Value" "S_CLK"
-			(at 219.71 45.7199 90)
+			(at 130.81 69.8501 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9207,7 +8406,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 214.63 49.53 0)
+			(at 135.89 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9216,7 +8415,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 214.63 49.53 0)
+			(at 135.89 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9225,7 +8424,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 214.63 44.45 0)
+			(at 135.89 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9247,207 +8446,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 137.16 77.47 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8363c4e4-5a2e-44d3-a81b-336c5ad21f9f")
-		(property "Reference" "+5V~1"
-			(at 139.446 79.248 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "5V"
-			(at 139.446 81.788 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 132.08 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 132.08 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 137.16 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "68327803-8f33-4afc-a30c-44fdf9346ec0")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+5V~1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 144.78 77.47 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "856b1bbc-510a-4d59-9176-206a82e05bb3")
-		(property "Reference" "5V~1"
-			(at 147.32 79.5019 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "5V"
-			(at 147.32 82.0419 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 139.7 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 139.7 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 144.78 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "537bc724-056b-4ce3-89cc-fda1af611b31")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "5V~1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 154.94 105.41 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8ad532f7-f9c2-4052-8662-b37666f32ea1")
-		(property "Reference" "+4.5V3"
-			(at 160.02 104.1399 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4.5V"
-			(at 160.02 106.6799 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 154.94 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 154.94 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 154.94 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5e654754-8be5-4193-97d3-7082aba5c3f3")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+4.5V3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 184.15 20.32 0)
+		(at 143.51 34.29 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9456,7 +8455,7 @@
 		(fields_autoplaced yes)
 		(uuid "8ea752a7-1d2e-40cf-a42f-a9ca1a76cf5f")
 		(property "Reference" "GND~1"
-			(at 186.69 15.7479 0)
+			(at 146.05 29.7179 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9465,7 +8464,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 186.69 18.2879 0)
+			(at 146.05 32.2579 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9474,7 +8473,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 189.23 20.32 0)
+			(at 148.59 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9483,7 +8482,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 189.23 20.32 0)
+			(at 148.59 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9492,7 +8491,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 184.15 20.32 0)
+			(at 143.51 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9507,73 +8506,6 @@
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
 					(reference "GND~1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 170.18 39.37 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "91bb061f-eef9-4c60-a8b0-e94e01579bca")
-		(property "Reference" "+3.3V~5"
-			(at 172.72 41.4019 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "3.3V"
-			(at 172.72 43.9419 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 165.1 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 165.1 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 170.18 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3bf77b1a-bbca-4821-bf8b-86d9916ac135")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V~5")
 					(unit 1)
 				)
 			)
@@ -9645,7 +8577,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 124.46 76.2 270)
+		(at 146.05 41.91 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9653,7 +8585,7 @@
 		(dnp no)
 		(uuid "9472fd20-bfc7-4534-8375-38abcabc83d0")
 		(property "Reference" "TP4"
-			(at 129.794 75.438 90)
+			(at 151.384 41.148 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9662,7 +8594,7 @@
 			)
 		)
 		(property "Value" "SG4"
-			(at 129.54 77.4699 90)
+			(at 151.13 43.1799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9671,7 +8603,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 124.46 81.28 0)
+			(at 146.05 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9680,7 +8612,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 124.46 81.28 0)
+			(at 146.05 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9689,7 +8621,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 124.46 76.2 0)
+			(at 146.05 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9909,7 +8841,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 124.46 85.09 270)
+		(at 146.05 50.8 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9917,7 +8849,7 @@
 		(dnp no)
 		(uuid "a3631ace-de4e-4820-9b2c-b32842d17b99")
 		(property "Reference" "TP10"
-			(at 130.048 84.836 90)
+			(at 151.638 50.546 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9926,7 +8858,7 @@
 			)
 		)
 		(property "Value" "SG10"
-			(at 129.54 86.3599 90)
+			(at 151.13 52.0699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9935,7 +8867,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 124.46 90.17 0)
+			(at 146.05 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9944,7 +8876,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 124.46 90.17 0)
+			(at 146.05 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9953,7 +8885,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 124.46 85.09 0)
+			(at 146.05 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9968,73 +8900,6 @@
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
 					(reference "TP10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 147.32 31.75 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a95d0b1a-8691-40a7-9d6d-c100f82078fd")
-		(property "Reference" "+3.3V2~1"
-			(at 149.86 33.7819 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "3.3V"
-			(at 149.86 36.3219 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 142.24 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 142.24 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 147.32 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "eebec5a6-304a-4ead-9366-3d1b06d1e7a9")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V2~1")
 					(unit 1)
 				)
 			)
@@ -10120,71 +8985,6 @@
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
 					(reference "J1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 210.82 20.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ab391d89-cd26-493a-bc51-3a59e294adf1")
-		(property "Reference" "#PWR052"
-			(at 210.82 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 214.63 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 210.82 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 210.82 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 210.82 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f79e1065-24e1-46c5-a288-cc0f4ba990f5")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR052")
 					(unit 1)
 				)
 			)
@@ -10949,75 +9749,8 @@
 		)
 	)
 	(symbol
-		(lib_name "+5V_1")
-		(lib_id "power:+5V")
-		(at 137.16 77.47 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cb8f965d-3058-4aa3-80c3-ee688b9befbe")
-		(property "Reference" "#PWR047"
-			(at 137.16 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 137.16 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 137.16 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 137.16 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 137.16 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e7ad709b-d54c-4b1a-a69e-843d52569ff7")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR047")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 227.33 52.07 270)
+		(at 129.54 81.28 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11026,7 +9759,7 @@
 		(fields_autoplaced yes)
 		(uuid "cbf6ba9f-2ea5-4677-8e4e-c24f3864dd98")
 		(property "Reference" "CLK~1"
-			(at 232.41 50.7999 90)
+			(at 134.62 80.0099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11035,7 +9768,7 @@
 			)
 		)
 		(property "Value" "HX_CLK"
-			(at 232.41 53.3399 90)
+			(at 134.62 82.5499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11044,7 +9777,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 227.33 57.15 0)
+			(at 129.54 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11053,7 +9786,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 227.33 57.15 0)
+			(at 129.54 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11062,7 +9795,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 227.33 52.07 0)
+			(at 129.54 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11216,207 +9949,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 147.32 31.75 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d677785f-aebb-4b75-abf4-38b77d950109")
-		(property "Reference" "#PWR045"
-			(at 147.32 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 147.32 28.2481 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 147.32 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8193a0ac-d0cb-4b26-9b0d-244d5f6cca57")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR045")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 154.94 20.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d9d127a4-d09d-47a7-b01f-dca175747f65")
-		(property "Reference" "#PWR06"
-			(at 154.94 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 154.94 16.8181 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 154.94 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 154.94 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f8cadfd7-137b-49e4-a6a6-65420e0acbc8")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR06")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "+5V_1")
-		(lib_id "power:+5V")
-		(at 144.78 77.47 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e1a60401-dbc6-47a0-9ca8-1d8d8ee9abad")
-		(property "Reference" "#PWR046"
-			(at 144.78 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 144.78 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 144.78 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 144.78 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 144.78 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "17493876-e946-4e64-85b5-dfdabfdf5f9e")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR046")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 181.61 87.63 270)
+		(at 128.27 102.87 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11425,7 +9959,7 @@
 		(fields_autoplaced yes)
 		(uuid "e2846eec-6d01-48a3-a314-fedb2e06f4e4")
 		(property "Reference" "+4.5V~3"
-			(at 186.69 86.3599 90)
+			(at 133.35 101.5999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11434,7 +9968,7 @@
 			)
 		)
 		(property "Value" "4.5V"
-			(at 186.69 88.8999 90)
+			(at 133.35 104.1399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11443,7 +9977,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 181.61 92.71 0)
+			(at 128.27 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11452,7 +9986,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 181.61 92.71 0)
+			(at 128.27 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11461,7 +9995,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 181.61 87.63 0)
+			(at 128.27 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11482,75 +10016,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 168.91 20.32 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e4c53ce7-79de-4ae6-bd75-b49fd20f8a85")
-		(property "Reference" "+3.3V4~1"
-			(at 171.45 22.3519 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "3.3V"
-			(at 171.45 24.8919 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_THTPad_1.0x1.0mm_Drill0.5mm"
-			(at 163.83 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 163.83 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 168.91 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "38f3a735-7fb4-4b83-ac7c-55725c4f1d25")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "+3.3V4~1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 184.15 20.32 0)
+		(at 143.51 34.29 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11558,7 +10025,7 @@
 		(dnp no)
 		(uuid "ec23035f-905f-458b-ba64-374405be5580")
 		(property "Reference" "#PWR051"
-			(at 184.15 26.67 0)
+			(at 143.51 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11567,7 +10034,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 187.96 21.59 0)
+			(at 147.32 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11575,7 +10042,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 184.15 20.32 0)
+			(at 143.51 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11584,7 +10051,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 184.15 20.32 0)
+			(at 143.51 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11593,7 +10060,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 184.15 20.32 0)
+			(at 143.51 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11608,72 +10075,6 @@
 			(project "PCB"
 				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
 					(reference "#PWR051")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 170.18 39.37 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ed26fd9e-505c-49c1-b4fd-5b91e4cb440d")
-		(property "Reference" "#PWR053"
-			(at 170.18 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 170.18 35.8681 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 170.18 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 170.18 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 170.18 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "10027c2d-8882-4471-8709-afdf6b790a42")
-		)
-		(instances
-			(project "PCB"
-				(path "/b6270a28-e0d9-4655-a18a-03dbf007b940"
-					(reference "#PWR053")
 					(unit 1)
 				)
 			)
