@@ -8493,8 +8493,8 @@
 		(at 235.27 131.64)
 		(descr "THT rectangular pad as test Point, square 1.0mm side length, hole diameter 0.5mm")
 		(tags "test point THT pad rectangle square")
-		(property "Reference" "DATA1"
-			(at 3.142 -0.004 0)
+		(property "Reference" "DATA"
+			(at 2.84 -0.06 0)
 			(layer "F.SilkS")
 			(uuid "06c8cedf-db3e-436a-930b-442a38e61554")
 			(effects
