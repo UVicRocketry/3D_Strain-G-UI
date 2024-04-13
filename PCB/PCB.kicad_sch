@@ -5950,7 +5950,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL10A475KP8NNNC_Spec.pdf"
 			(at 195.58 77.47 0)
 			(effects
 				(font
@@ -6069,7 +6069,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "500"
 			(at 204.0636 68.58 90)
 			(effects
 				(font
@@ -6268,7 +6268,7 @@
 				)
 			)
 		)
-		(property "Value" "45K"
+		(property "Value" "45.3K"
 			(at 188.8236 48.26 90)
 			(effects
 				(font
@@ -6484,7 +6484,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL10A475KP8NNNC_Spec.pdf"
 			(at 168.91 77.47 0)
 			(effects
 				(font
@@ -6551,7 +6551,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL10A475KP8NNNC_Spec.pdf"
 			(at 201.93 48.26 0)
 			(effects
 				(font
